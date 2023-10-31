@@ -109,7 +109,7 @@ int32_t main(int ac, char** av)
     map->double_array_map = malloc(100 * sizeof(char*));
 
         // Open the file for reading
-        file = fopen("./path", "r");
+        file = fopen("./map/path", "r");
             // Check if the file was opened successfully
     if (file == NULL) {
         printf("Unable to open the file.\n");
