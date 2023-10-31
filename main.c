@@ -1,26 +1,16 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <MLX42/MLX42.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/31 19:29:12 by mayache-          #+#    #+#             */
+/*   Updated: 2023/10/31 20:32:26 by mayache-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#define WIDTH 1512
-#define HEIGHT 1512
-#define SIZE_CUB 10
-
-typedef struct s_map
-{
-    mlx_image_t* image;
-    char **double_array_map;
-    float x_p;
-    float y_p;
-    int width;
-    int height;
-    int color;
-    mlx_t* mlx;
-} t_map;
-
-// -----------------------------------------------------------------------------
+#include "cub3d.h"
 
 int32_t ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a)
 {
@@ -101,7 +91,6 @@ int32_t main(int ac, char** av)
     (void)ac;
     (void)av;
 	t_map *map = malloc(sizeof(t_map));
-    
 
     // Declare a file pointer
         FILE *file;
