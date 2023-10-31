@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:29:12 by mayache-          #+#    #+#             */
-/*   Updated: 2023/10/31 20:32:26 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/10/31 23:34:53 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,48 @@ void ft_draw_cub(t_map* map, int width, int height, int x_start, int y_start, in
 void ft_hook(void* param)
 {
 	t_map* map = param;
-
     (void)map;
 	if (mlx_is_key_down(map->mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(map->mlx);
-	if (mlx_is_key_down(map->mlx, MLX_KEY_UP))
-		map->y_p -= 5;
-	if (mlx_is_key_down(map->mlx, MLX_KEY_DOWN))
-		map->y_p += 5;
+	// if (mlx_is_key_down(map->mlx, MLX_KEY_UP))
+	// 	map->y_p -= map->p_rotation;
+	// if (mlx_is_key_down(map->mlx, MLX_KEY_DOWN))
+	// 	map->y_p += map->p_rotation;
 	if (mlx_is_key_down(map->mlx, MLX_KEY_LEFT))
-		map->x_p -= 5;
+		map->p_rotation--;
+    if (map->p_rotation > 360)
+        map->p_rotation -= 360;
+    if (map->p_rotation < 0)
+        map->p_rotation += 360;
 	if (mlx_is_key_down(map->mlx, MLX_KEY_RIGHT))
-		map->x_p += 5;
+		map->p_rotation++;
+        //// player rotation
+    if (mlx_is_key_down(map->mlx, MLX_KEY_W))
+    {
+        map->y_p -= sin(map->p_rotation * convert_degrees_radian);
+        map->x_p += cos(map->p_rotation * convert_degrees_radian);
+    }
+    if (mlx_is_key_down(map->mlx, MLX_KEY_S))
+    {
+        map->y_p += sin(map->p_rotation * convert_degrees_radian);
+        map->x_p -= cos(map->p_rotation * convert_degrees_radian);
+    }
+    if (mlx_is_key_down(map->mlx, MLX_KEY_A))
+    {
+        map->y_p -= cos(map->p_rotation * convert_degrees_radian);
+        map->x_p -= sin(map->p_rotation * convert_degrees_radian);
+    }
+    if (mlx_is_key_down(map->mlx, MLX_KEY_D))
+    {
+        map->y_p += cos(map->p_rotation * convert_degrees_radian);
+        map->x_p += sin(map->p_rotation * convert_degrees_radian);
+    }
+        printf("x_p = %f, y_p = %f\n", map->x_p, map->y_p);
+        printf("p_rotation = %f\n", map->p_rotation);
+    // if (mlx_is_key_down(map->mlx, MLX_KEY_A))
+    //     map->x_p -= map->p_rotation;
+    // if (mlx_is_key_down(map->mlx, MLX_KEY_D))
+    //     map->x_p += map->p_rotation;
     int x = 0;
     int y = 0;
     while (y < HEIGHT)
@@ -130,6 +160,28 @@ map->double_array_map[i] = NULL;
             {
                 map->x_p = x * SIZE_CUB;
                 map->y_p = y * SIZE_CUB;
+                map->p_rotation = 270;
+                // printf("player N found at %f, %f\n", map->x_p, map->y_p);
+            }
+            else if (map->double_array_map[y][x] == 'S')
+            {
+                map->x_p = x * SIZE_CUB;
+                map->y_p = y * SIZE_CUB;
+                map->p_rotation = 90;
+                // printf("player N found at %f, %f\n", map->x_p, map->y_p);
+            }
+            else if (map->double_array_map[y][x] == 'E')
+            {
+                map->x_p = x * SIZE_CUB;
+                map->y_p = y * SIZE_CUB;
+                map->p_rotation = 0;
+                // printf("player N found at %f, %f\n", map->x_p, map->y_p);
+            }
+            else if (map->double_array_map[y][x] == 'W')
+            {
+                map->x_p = x * SIZE_CUB;
+                map->y_p = y * SIZE_CUB;
+                map->p_rotation = 180;
                 // printf("player N found at %f, %f\n", map->x_p, map->y_p);
             }
             // printf("%c", double_array_map[y][x]);
