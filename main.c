@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:29:12 by mayache-          #+#    #+#             */
-/*   Updated: 2023/10/31 23:34:53 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/01 17:22:32 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,51 @@ int32_t ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a)
     return (r << 24 | g << 16 | b << 8 | a);
 }
 
+
+// Function for finding absolute value 
+int abs(int n) { return ((n > 0) ? n : (n * (-1))); } 
+  
+// DDA Function for line generation 
+void DDA(t_map *map,int X0, int Y0, int X1, int Y1) 
+{ 
+    // calculate dx & dy 
+    int dx = X1 - X0; 
+    int dy = Y1 - Y0; 
+  
+    // calculate steps required for generating pixels 
+    int steps = abs(dx) > abs(dy) ? abs(dx) : abs(dy); 
+  
+    // calculate increment in x & y for each steps 
+    float Xinc = dx / (float)steps; 
+    float Yinc = dy / (float)steps; 
+  
+    // Put pixel for each step 
+    float X = X0; 
+    float Y = Y0; 
+    for (int i = 0; i <= steps; i++) { 
+            mlx_put_pixel(map->image, X, Y, 0xFFA07Aff);
+
+        // putpixel(round(X), round(Y), 
+        //          RED); // put pixel at (X,Y) 
+        X += Xinc; // increment in x at each step 
+        Y += Yinc; // increment in y at each step 
+        // delay(100); // for visualization of line- 
+                    // generation step by step 
+    } 
+} 
+
+// void ft_line(t_map* map, int x_point_end, int y_point_end)
+// {
+//     int x = map->x_p;
+//     int y = map->y_p;
+//     int d_x = x_point_end - x;
+//     int d_y = y_point_end - y;
+//     while (y < 60)
+//     {
+//             mlx_put_pixel(map->image, x, y, 0xFFA07Aff);
+//         y++;
+//     }
+// }
 void ft_draw_cub(t_map* map, int width, int height, int x_start, int y_start, int color)
 {
     (void)map;
@@ -46,36 +91,36 @@ void ft_hook(void* param)
 	// if (mlx_is_key_down(map->mlx, MLX_KEY_DOWN))
 	// 	map->y_p += map->p_rotation;
 	if (mlx_is_key_down(map->mlx, MLX_KEY_LEFT))
-		map->p_rotation--;
+		map->p_rotation -= 1;
     if (map->p_rotation > 360)
         map->p_rotation -= 360;
     if (map->p_rotation < 0)
         map->p_rotation += 360;
 	if (mlx_is_key_down(map->mlx, MLX_KEY_RIGHT))
-		map->p_rotation++;
+		map->p_rotation += 1;
         //// player rotation
     if (mlx_is_key_down(map->mlx, MLX_KEY_W))
     {
-        map->y_p -= sin(map->p_rotation * convert_degrees_radian);
+        map->y_p += sin(map->p_rotation * convert_degrees_radian);
         map->x_p += cos(map->p_rotation * convert_degrees_radian);
     }
     if (mlx_is_key_down(map->mlx, MLX_KEY_S))
     {
-        map->y_p += sin(map->p_rotation * convert_degrees_radian);
+        map->y_p -= sin(map->p_rotation * convert_degrees_radian);
         map->x_p -= cos(map->p_rotation * convert_degrees_radian);
     }
     if (mlx_is_key_down(map->mlx, MLX_KEY_A))
     {
         map->y_p -= cos(map->p_rotation * convert_degrees_radian);
-        map->x_p -= sin(map->p_rotation * convert_degrees_radian);
+        map->x_p += sin(map->p_rotation * convert_degrees_radian);
     }
     if (mlx_is_key_down(map->mlx, MLX_KEY_D))
     {
         map->y_p += cos(map->p_rotation * convert_degrees_radian);
-        map->x_p += sin(map->p_rotation * convert_degrees_radian);
+        map->x_p -= sin(map->p_rotation * convert_degrees_radian);
     }
-        printf("x_p = %f, y_p = %f\n", map->x_p, map->y_p);
-        printf("p_rotation = %f\n", map->p_rotation);
+    printf("x_p = %f, y_p = %f\n", map->x_p, map->y_p);
+    printf("p_rotation = %f\n", map->p_rotation);
     // if (mlx_is_key_down(map->mlx, MLX_KEY_A))
     //     map->x_p -= map->p_rotation;
     // if (mlx_is_key_down(map->mlx, MLX_KEY_D))
@@ -111,6 +156,10 @@ void ft_hook(void* param)
     }
 
     ft_draw_cub(map, SIZE_CUB, SIZE_CUB, map->x_p, map->y_p, 0xff0000ff);
+    // ft_line(map, map->x_p + 100, map->y_p + 100);
+    DDA(map, map->x_p, map->y_p, map->x_p + cos(map->p_rotation * convert_degrees_radian) * 100,
+         map->y_p + sin(map->p_rotation * convert_degrees_radian) * 100);
+
 }
 
 // -----------------------------------------------------------------------------
