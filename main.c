@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:29:12 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/01 17:22:32 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/05 16:20:49 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,24 +30,33 @@ void DDA(t_map *map,int X0, int Y0, int X1, int Y1)
   
     // calculate steps required for generating pixels 
     int steps = abs(dx) > abs(dy) ? abs(dx) : abs(dy); 
-  
     // calculate increment in x & y for each steps 
     float Xinc = dx / (float)steps; 
     float Yinc = dy / (float)steps; 
-  
     // Put pixel for each step 
-    float X = X0; 
+    float X = X0;
     float Y = Y0; 
-    for (int i = 0; i <= steps; i++) { 
-            mlx_put_pixel(map->image, X, Y, 0xFFA07Aff);
+    int i = 0;
+    while (i <= steps || map->double_array_map[(int)(Y / SIZE_CUB)][(int)(X / SIZE_CUB)] != '1') {
+        mlx_put_pixel(map->image, X, Y, 0xFFA07Aff);
 
         // putpixel(round(X), round(Y), 
         //          RED); // put pixel at (X,Y) 
         X += Xinc; // increment in x at each step 
-        Y += Yinc; // increment in y at each step 
-        // delay(100); // for visualization of line- 
-                    // generation step by step 
-    } 
+        Y += Yinc; // increment in y at each step
+        if (map->double_array_map[(int)(Y / SIZE_CUB)][(int)(X / SIZE_CUB)] == '1')
+            break;
+        if (map->double_array_map[(int)(Y / SIZE_CUB)][(int)(X / SIZE_CUB)] != '1')
+        {
+            mlx_put_pixel(map->image, X + 1, Y + 1, 0xFFA07Aff);
+            mlx_put_pixel(map->image, X - 1, Y - 1, 0xFFA07Aff);
+            mlx_put_pixel(map->image, X + 1, Y - 1, 0xFFA07Aff);
+            mlx_put_pixel(map->image, X - 1, Y + 1, 0xFFA07Aff);
+        }
+        // delay(100); // for visualization of line-
+        
+        i++; // Increment the loop counter
+    }
 } 
 
 // void ft_line(t_map* map, int x_point_end, int y_point_end)
@@ -103,21 +112,41 @@ void ft_hook(void* param)
     {
         map->y_p += sin(map->p_rotation * convert_degrees_radian);
         map->x_p += cos(map->p_rotation * convert_degrees_radian);
+        if (map->double_array_map[(int)(map->y_p / SIZE_CUB)][(int)(map->x_p / SIZE_CUB)] == '1')
+        {
+            map->y_p -= sin(map->p_rotation * convert_degrees_radian);
+            map->x_p -= cos(map->p_rotation * convert_degrees_radian);
+        }
     }
     if (mlx_is_key_down(map->mlx, MLX_KEY_S))
     {
         map->y_p -= sin(map->p_rotation * convert_degrees_radian);
         map->x_p -= cos(map->p_rotation * convert_degrees_radian);
+        if (map->double_array_map[(int)(map->y_p / SIZE_CUB)][(int)(map->x_p / SIZE_CUB)] == '1')
+        {
+            map->y_p += sin(map->p_rotation * convert_degrees_radian);
+            map->x_p += cos(map->p_rotation * convert_degrees_radian);
+        }
     }
     if (mlx_is_key_down(map->mlx, MLX_KEY_A))
     {
         map->y_p -= cos(map->p_rotation * convert_degrees_radian);
         map->x_p += sin(map->p_rotation * convert_degrees_radian);
+        if (map->double_array_map[(int)(map->y_p / SIZE_CUB)][(int)(map->x_p / SIZE_CUB)] == '1')
+        {
+            map->y_p += cos(map->p_rotation * convert_degrees_radian);
+            map->x_p -= sin(map->p_rotation * convert_degrees_radian);
+        }
     }
     if (mlx_is_key_down(map->mlx, MLX_KEY_D))
     {
         map->y_p += cos(map->p_rotation * convert_degrees_radian);
         map->x_p -= sin(map->p_rotation * convert_degrees_radian);
+        if (map->double_array_map[(int)(map->y_p / SIZE_CUB)][(int)(map->x_p / SIZE_CUB)] == '1')
+        {
+            map->y_p -= cos(map->p_rotation * convert_degrees_radian);
+            map->x_p += sin(map->p_rotation * convert_degrees_radian);
+        }
     }
     printf("x_p = %f, y_p = %f\n", map->x_p, map->y_p);
     printf("p_rotation = %f\n", map->p_rotation);
@@ -155,11 +184,17 @@ void ft_hook(void* param)
         y++;
     }
 
-    ft_draw_cub(map, SIZE_CUB, SIZE_CUB, map->x_p, map->y_p, 0xff0000ff);
+    ft_draw_cub(map, 5, 5, map->x_p, map->y_p, 0xff0000ff);
     // ft_line(map, map->x_p + 100, map->y_p + 100);
     DDA(map, map->x_p, map->y_p, map->x_p + cos(map->p_rotation * convert_degrees_radian) * 100,
          map->y_p + sin(map->p_rotation * convert_degrees_radian) * 100);
-
+    float dd = 0;
+    while ( dd < 60)
+    {
+        DDA(map, map->x_p, map->y_p, map->x_p + cos((map->p_rotation + dd) * convert_degrees_radian) * 100,
+            map->y_p + sin((map->p_rotation + dd) * convert_degrees_radian) * 100);
+        dd += 0.001;
+    }
 }
 
 // -----------------------------------------------------------------------------

@@ -3,6 +3,9 @@
         "stdbool.h": "c",
         "stdlib.h": "c",
         "mlx42.h": "c",
-        "libft.h": "c"
+        "libft.h": "c",
+        "vector": "c",
+        "iosfwd": "c",
+        "iterator": "c"
     }
 }
