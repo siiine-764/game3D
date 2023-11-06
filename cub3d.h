@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:29:07 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/05 16:20:52 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:14:37 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,16 @@ typedef struct s_map
     int color;
     mlx_t* mlx;
     float p_rotation;
+    float destonation;
+    int size_x;
+    int size_y;
+    t_vector ray;
 } t_map;
+
+
+
+t_vector    ft_ray_casting_vertical(t_map *map, float dd);
+t_vector    ft_ray_casting_horizontal(t_map *map, float dd);
+t_vector ft_ray_casting(t_map *map, float dd);
+void ft_draw_wall(t_map *map, float ray_nb);
+void DDA(t_map *map,int X0, int Y0, int X1, int Y1);

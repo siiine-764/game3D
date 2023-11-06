@@ -6,6 +6,7 @@
         "libft.h": "c",
         "vector": "c",
         "iosfwd": "c",
-        "iterator": "c"
+        "iterator": "c",
+        "algorithm": "c"
     }
 }

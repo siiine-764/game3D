@@ -46,6 +46,7 @@ SRCS	:= main.c\
 			./libft/ft_lstdelone_bonus.c\
 			./libft/ft_lstclear_bonus.c\
 			./libft/ft_lstiter_bonus.c\
+			./raycasting/ray_casting.c\
 
 OBJS	:= ${SRCS:.c=.o}
 
