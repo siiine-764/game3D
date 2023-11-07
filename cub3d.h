@@ -6,9 +6,12 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:29:07 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/06 16:14:37 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/07 16:59:42 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef CUB3D_H
+# define CUB3D_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -32,6 +35,7 @@ typedef struct s_vector
 typedef struct s_map
 {
     mlx_image_t* image;
+    mlx_image_t* image_map;
     char **double_array_map;
     float x_p;
     float y_p;
@@ -46,10 +50,35 @@ typedef struct s_map
     t_vector ray;
 } t_map;
 
+/// functions init ////
+int ft_init(t_map *map);
 
-
+/// functions raycasting ////
+void ft_start_raycasting(t_map *map);
 t_vector    ft_ray_casting_vertical(t_map *map, float dd);
 t_vector    ft_ray_casting_horizontal(t_map *map, float dd);
 t_vector ft_ray_casting(t_map *map, float dd);
+void DDA(mlx_image_t *image, int X0, int Y0, int X1, int Y1);
+
+/// functions movement ////
+void    ft_movement(t_map *map);
+void ft_w(t_map *map);
+void ft_s(t_map *map);
+void ft_a(t_map *map);
+void ft_d(t_map *map);
+
+/// functions draw ////
+void ft_draw_cub(mlx_image_t *map, int width, int height, int x_start, int y_start, int color);
+// void ft_first_draw(t_map *map);
+void ft_draw(t_map *map);
 void ft_draw_wall(t_map *map, float ray_nb);
-void DDA(t_map *map,int X0, int Y0, int X1, int Y1);
+void ft_first_draw(mlx_image_t *image);
+
+/// functions position player ////
+void    ft_position_player(t_map *map);
+void ft_n_p(t_map *map, int x, int y);
+void ft_s_p(t_map *map, int x, int y);
+void ft_e_p(t_map *map, int x, int y);
+void ft_w_p(t_map *map, int x, int y);
+
+#endif

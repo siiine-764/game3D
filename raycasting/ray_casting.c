@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:42:10 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/06 16:16:42 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/07 17:01:35 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void ft_draw_wall(t_map *map, float ray_nb)
     y1 = (HEIGHT / 2) - x;
     x2 = ray_nb;
     y2 = (HEIGHT / 2) + x;
-    DDA(map, x1, y1, x2, y2);
+    DDA(map->image, x1, y1, x2, y2);
 }
 
 void    ft_cast(t_map *map, t_vector next_wall)
@@ -36,13 +36,9 @@ void    ft_cast(t_map *map, t_vector next_wall)
     {
         if (((int)(map->ray.y / SIZE_CUB) >= map->size_y || (int)(map->ray.x / SIZE_CUB) >= map->size_x)
             || ((int)(map->ray.y / SIZE_CUB) < 0 || (int)(map->ray.x / SIZE_CUB) < 0))
-        {
             break;
-        }
         if (map->double_array_map[(int)(map->ray.y / SIZE_CUB)][(int)(map->ray.x / SIZE_CUB)] == '1')
-        {
             break;
-        }
         map->ray.x += next_wall.x;
         map->ray.y += next_wall.y;
         i++;
@@ -57,9 +53,7 @@ t_vector    ft_ray_casting_horizontal(t_map *map, float dd)
     ray.x = 0;
     ray.y = 0;
     if (dd == 0 || dd == 180)
-    {
         return (ray);
-    }
     if (dd < 360 && dd > 180)
     {
         ray.y = (int)(map->y_p / SIZE_CUB) * SIZE_CUB - 0.0001;
@@ -85,9 +79,7 @@ t_vector    ft_ray_casting_vertical(t_map *map, float dd)
     ray.x = 0;
     ray.y = 0;
     if (dd == 90 || dd == 270)
-    {
         return (ray);
-    }
     if (dd > 90 && dd < 270)
     {
         ray.x = (int)(map->x_p / SIZE_CUB) * SIZE_CUB - 0.0001;
@@ -112,7 +104,6 @@ t_vector ft_ray_casting(t_map *map, float dd)
     float destonation_vertical;
     float destonation_horizontal;
 
-    // printf("dd = %f\n", dd);
     ray_horizontal = ft_ray_casting_horizontal(map, dd);
     ray_vertical = ft_ray_casting_vertical(map, dd);
     destonation_vertical = sqrt(pow(map->x_p - ray_vertical.x, 2) + pow(map->y_p - ray_vertical.y, 2));
@@ -126,5 +117,28 @@ t_vector ft_ray_casting(t_map *map, float dd)
     {
         map->destonation = destonation_horizontal;
         return (ray_horizontal);
+    }
+}
+
+void ft_start_raycasting(t_map *map)
+{
+    t_vector ray;
+    float dd;
+    float ray_nb;
+    
+    ray_nb = 0;
+    dd = map->p_rotation - 30;
+    while (ray_nb < WIDTH)
+    {
+        if (dd > 360)
+            dd -= 360;
+        if (dd < 0)
+            dd += 360;
+        ray = ft_ray_casting(map, dd);
+        DDA(map->image_map, map->x_p, map->y_p, ray.x, ray.y);
+        map->destonation = map->destonation * cos((dd - map->p_rotation) * (M_PI / 180.0));
+        ft_draw_wall(map, ray_nb);
+        ray_nb++;
+        dd += (60.0 / WIDTH);
     }
 }

@@ -47,6 +47,10 @@ SRCS	:= main.c\
 			./libft/ft_lstclear_bonus.c\
 			./libft/ft_lstiter_bonus.c\
 			./raycasting/ray_casting.c\
+			./raycasting/movement.c\
+			./raycasting/draw_game.c\
+			./raycasting/player.c\
+			./raycasting/ft_init.c\
 
 OBJS	:= ${SRCS:.c=.o}
 
