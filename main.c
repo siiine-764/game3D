@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:29:12 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/07 16:39:57 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/07 21:24:53 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,12 @@ int main(int ac, char **av)
 {
     (void)ac;
     (void)av;
+	if (ac != 2)
+	{
+		printf("Error\nTwo arguments is requirred\n");
+		return (1);
+	}
+    //// parsing ////
     FILE *file;
     t_map *map = malloc(sizeof(t_map));
     map->double_array_map = malloc(100 * sizeof(char *));
@@ -63,6 +69,7 @@ int main(int ac, char **av)
         i++;
     }
     map->double_array_map[i] = NULL;
+    /// end parsing ////
     ft_position_player(map);
     int bl = ft_init(map);
     fclose(file);
