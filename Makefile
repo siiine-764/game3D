@@ -46,6 +46,8 @@ SRCS	:= main.c\
 			./libft/ft_lstdelone_bonus.c\
 			./libft/ft_lstclear_bonus.c\
 			./libft/ft_lstiter_bonus.c\
+			./get_next_line/get_next_line.c\
+			./get_next_line/get_next_line_utils.c\
 			./raycasting/ray_casting.c\
 			./raycasting/movement.c\
 			./raycasting/draw_game.c\

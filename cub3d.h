@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:29:07 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/07 16:59:42 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/07 17:35:13 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <math.h>
 #include <MLX42/MLX42.h>
 #include "libft/libft.h"
+#include "get_next_line/get_next_line.h"
 #include <string.h>
 
 #define WIDTH 1512
