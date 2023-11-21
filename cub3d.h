@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:29:07 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/07 17:35:13 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/21 02:35:59 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,24 @@ typedef struct s_vector
     float y;
 } t_vector;
 
+typedef struct s_texture	
+{
+	char		*key;
+	char		*value;
+	t_texture	*last;
+    t_texture	*next;
+}t_texture;
+
 typedef struct s_map
 {
     mlx_image_t* image;
     mlx_image_t* image_map;
+
+    t_texture	*textures;
+	int			celling_color;
+	int			floor_color;
+
+    char		**mapa;
     char **double_array_map;
     float x_p;
     float y_p;
@@ -50,6 +64,26 @@ typedef struct s_map
     int size_y;
     t_vector ray;
 } t_map;
+
+typedef struct s_garbage
+{
+	void		*address;
+	t_garbage	*next;
+	t_garbage	*last;
+}t_garbage;
+
+enum e_keys
+{
+	KEY_W = 13,
+	KEY_S = 1,
+	KEY_A = 0,
+	KEY_D = 2,
+	KEY_LEFT = 123,
+	KEY_RIGHT = 124,
+	KEY_ESC = 53,
+	KEY_UP = 126,
+	KEY_DOWN = 125
+};
 
 /// functions init ////
 int ft_init(t_map *map);
@@ -81,5 +115,32 @@ void ft_n_p(t_map *map, int x, int y);
 void ft_s_p(t_map *map, int x, int y);
 void ft_e_p(t_map *map, int x, int y);
 void ft_w_p(t_map *map, int x, int y);
+
+//parsing
+static boolean_number(char *str);
+int	get_color(char *value);
+void	fill_color(t_map *map, char *key, char *value);
+void	check_color(t_map *map);
+static close_to_bottom(char *str);
+static is_closed(char *str);
+static void	check_space(char **map);
+void	check_map(char **map);
+static void	texures_add(t_texture **t, char *key, char *value);
+void	texures_fill(t_map *map, char *key, char *value);
+void	check_textures(t_map	*map);
+bool	is_player(char c);
+bool	contains_bad_char(char *str);
+void	contains_player(char *str, int *p);
+int	    tab_size(char **tab);
+void	free_tab(char **tab);
+char	*free_s1_join(char *s1, char *s2);
+void	add_to_garbage(t_garbage **heap, void *address);
+t_garbage	**g_heap(void);
+void	empty_trash(t_garbage **heap);
+void	throw_error(char *msg, t_garbage **heap);
+static void	parse_texture_rgb(char *line, t_map *map);
+static void	parse_line(char *line, int index, t_map *map, char **joined);
+static void	read_map_helper(t_map *map, int fd, char *joined);
+void	read_map(char *path, t_map *mapa);
 
 #endif
