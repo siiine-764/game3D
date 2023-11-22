@@ -1,6 +1,6 @@
 #include "../cub3d.h"
 
-static close_to_bottom(char *str)
+static bool	top_bottom_closed(char *str)
 {
 	int	i;
 
@@ -14,7 +14,7 @@ static close_to_bottom(char *str)
 	return (true);
 }
 
-static is_closed(char *str)
+static bool	is_closed(char *str)
 {
 	int	i;
 	int	len;
@@ -32,7 +32,7 @@ static is_closed(char *str)
 	return (true);
 }
 
-static void	check_space(char **map)
+static void	space_checker(char **map)
 {
 	int	i;
 	int	j;
@@ -58,7 +58,7 @@ static void	check_space(char **map)
 	}
 }
 
-void	check_map(char **map)
+void	map_checker(char **map)
 {
 	int	i;
 	int	p;

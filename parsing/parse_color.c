@@ -1,6 +1,6 @@
 #include "../cub3d.h"
 
-static boolean_number(char *str)
+static bool	is_number(char *str)
 {
 	int	i;
 
@@ -61,7 +61,7 @@ void	fill_color(t_map *map, char *key, char *value)
 		map->floor_color = get_color(value);
 }
 
-void	check_color(t_map *map)
+void	color_checker(t_map *map)
 {
 	if (map->celling_color == -1 || map->floor_color == -1)
 		throw_error("Error: invalid color", g_heap());
