@@ -1,6 +1,6 @@
 #include "../cub3d.h"
 
-static void	texures_add(t_texture **t, char *key, char *value)
+static void	add_to_textures(t_texture **t, char *key, char *value)
 {
 	t_texture	*new;
 
@@ -26,14 +26,14 @@ static void	texures_add(t_texture **t, char *key, char *value)
 	}
 }
 
-void	texures_fill(t_map *map, char *key, char *value)
+void	fill_tetxures_list(t_map *map, char *key, char *value)
 {
 	if (key && (!ft_strcmp(key, "NO") || !ft_strcmp(key, "SO")
 			|| !ft_strcmp(key, "WE") || !ft_strcmp(key, "EA")))
 		add_to_textures(&map->textures, key, value);
 }
 
-void	check_textures(t_map	*map)
+void	textures_checker(t_map	*map)
 {
 	static int	state[4] = {0, 0, 0, 0};
 	t_texture	*tmp;

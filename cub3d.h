@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:29:07 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/21 02:35:59 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/22 01:42:48 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,17 +117,17 @@ void ft_e_p(t_map *map, int x, int y);
 void ft_w_p(t_map *map, int x, int y);
 
 //parsing
-static boolean_number(char *str);
-int	get_color(char *value);
+static bool	is_number(char *str);
+int	       get_color(char *value);
 void	fill_color(t_map *map, char *key, char *value);
-void	check_color(t_map *map);
-static close_to_bottom(char *str);
-static is_closed(char *str);
-static void	check_space(char **map);
-void	check_map(char **map);
-static void	texures_add(t_texture **t, char *key, char *value);
-void	texures_fill(t_map *map, char *key, char *value);
-void	check_textures(t_map	*map);
+void	color_checker(t_map *map);
+static bool	top_bottom_closed(char *str);
+static bool	is_closed(char *str);
+static void	space_checker(char **map);
+void	map_checker(char **map);
+static void	add_to_textures(t_texture **t, char *key, char *value);
+void	fill_tetxures_list(t_map *map, char *key, char *value);
+void	textures_checker(t_map	*map);
 bool	is_player(char c);
 bool	contains_bad_char(char *str);
 void	contains_player(char *str, int *p);
