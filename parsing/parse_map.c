@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_map.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/23 12:08:51 by hben-mes          #+#    #+#             */
+/*   Updated: 2023/11/23 12:08:51 by hben-mes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../cub3d.h"
 
-static bool	top_bottom_closed(char *str)
+int	top_bottom_closed(char *str)
 {
 	int	i;
 
@@ -14,7 +26,7 @@ static bool	top_bottom_closed(char *str)
 	return (true);
 }
 
-static bool	is_closed(char *str)
+int	is_closed(char *str)
 {
 	int	i;
 	int	len;
@@ -32,7 +44,7 @@ static bool	is_closed(char *str)
 	return (true);
 }
 
-static void	space_checker(char **map)
+void	space_checker(char **map)
 {
 	int	i;
 	int	j;

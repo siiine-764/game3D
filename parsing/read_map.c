@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_map.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/23 12:09:16 by hben-mes          #+#    #+#             */
+/*   Updated: 2023/11/23 12:09:16 by hben-mes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../cub3d.h"
 
-static void	parse_texture_rgb(char *line, t_map *map)
+void	parse_texture_rgb(char *line, t_map *map)
 {
 	char	*key;
 	char	*value;
@@ -25,7 +37,7 @@ static void	parse_texture_rgb(char *line, t_map *map)
 	fill_color(map, key, value);
 }
 
-static void	parse_line(char *line, int index, t_map *map, char **joined)
+void	parse_line(char *line, int index, t_map *map, char **joined)
 {
 	static bool	flag;
 
@@ -44,13 +56,13 @@ static void	parse_line(char *line, int index, t_map *map, char **joined)
 	}
 }
 
-static void	read_map_helper(t_map *map, int fd, char *joined)
+void	read_map_helper(t_map *map, int fd, char *joined)
 {
 	int	i;
 
 	i = 0;
 	close(fd);
-	map->mapa = ft_split(joined, '\n', NULL);
+	map->mapa = ft_split(joined, '\n');
 	free(joined);
 	if (!map->mapa || !map->mapa[0])
 		throw_error("Error: map is empty", g_heap());

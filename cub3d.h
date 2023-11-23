@@ -3,19 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 20:29:07 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/22 01:42:48 by marvin           ###   ########.fr       */
+/*   Created: 2023/11/23 12:08:37 by hben-mes          #+#    #+#             */
+/*   Updated: 2023/11/23 12:48:45 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <stdbool.h>
+#include <fcntl.h>
 #include <math.h>
 #include <MLX42/MLX42.h>
 #include "libft/libft.h"
@@ -27,18 +30,28 @@
 #define SIZE_CUB 10
 #define convert_degrees_radian M_PI / 180
 
+typedef struct s_garbage	t_garbage;
+typedef struct s_texture	t_texture;
+
 typedef struct s_vector
 {
     float x;
     float y;
 } t_vector;
 
+typedef struct s_garbage
+{
+	void		*address;
+	t_garbage	*next;
+	t_garbage	*last;
+}t_garbage;
+
 typedef struct s_texture	
 {
 	char		*key;
 	char		*value;
-	t_texture	*last;
     t_texture	*next;
+	t_texture	*last;
 }t_texture;
 
 typedef struct s_map
@@ -64,13 +77,6 @@ typedef struct s_map
     int size_y;
     t_vector ray;
 } t_map;
-
-typedef struct s_garbage
-{
-	void		*address;
-	t_garbage	*next;
-	t_garbage	*last;
-}t_garbage;
 
 enum e_keys
 {
@@ -117,20 +123,21 @@ void ft_e_p(t_map *map, int x, int y);
 void ft_w_p(t_map *map, int x, int y);
 
 //parsing
-static bool	is_number(char *str);
-int	       get_color(char *value);
+int     is_number(char *str);
+int	    get_color(char *value);
 void	fill_color(t_map *map, char *key, char *value);
 void	color_checker(t_map *map);
-static bool	top_bottom_closed(char *str);
-static bool	is_closed(char *str);
-static void	space_checker(char **map);
+int	    top_bottom_closed(char *str);
+int    	is_closed(char *str);
+void	space_checker(char **map);
 void	map_checker(char **map);
-static void	add_to_textures(t_texture **t, char *key, char *value);
+void	add_to_textures(t_texture **t, char *key, char *value);
 void	fill_tetxures_list(t_map *map, char *key, char *value);
 void	textures_checker(t_map	*map);
-bool	is_player(char c);
-bool	contains_bad_char(char *str);
+int	    is_player(char c);
+int 	contains_bad_char(char *str);
 void	contains_player(char *str, int *p);
+int	    ft_strcmp(char *s1, char *s2);
 int	    tab_size(char **tab);
 void	free_tab(char **tab);
 char	*free_s1_join(char *s1, char *s2);
@@ -138,9 +145,9 @@ void	add_to_garbage(t_garbage **heap, void *address);
 t_garbage	**g_heap(void);
 void	empty_trash(t_garbage **heap);
 void	throw_error(char *msg, t_garbage **heap);
-static void	parse_texture_rgb(char *line, t_map *map);
-static void	parse_line(char *line, int index, t_map *map, char **joined);
-static void	read_map_helper(t_map *map, int fd, char *joined);
+void	parse_texture_rgb(char *line, t_map *map);
+void	parse_line(char *line, int index, t_map *map, char **joined);
+void	read_map_helper(t_map *map, int fd, char *joined);
 void	read_map(char *path, t_map *mapa);
 
 #endif

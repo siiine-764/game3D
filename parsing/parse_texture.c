@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_texture.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/23 12:08:57 by hben-mes          #+#    #+#             */
+/*   Updated: 2023/11/23 12:08:57 by hben-mes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../cub3d.h"
 
-static void	add_to_textures(t_texture **t, char *key, char *value)
+void	add_to_textures(t_texture **t, char *key, char *value)
 {
 	t_texture	*new;
 

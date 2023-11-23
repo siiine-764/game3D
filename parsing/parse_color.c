@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_color.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/23 12:08:44 by hben-mes          #+#    #+#             */
+/*   Updated: 2023/11/23 12:08:44 by hben-mes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../cub3d.h"
 
-static bool	is_number(char *str)
+int is_number(char *str)
 {
 	int	i;
 
@@ -33,7 +45,7 @@ int	get_color(char *value)
 	int		c;
 
 	i = 0;
-	rgb = ft_split(value, ',', &i);
+	rgb = ft_split(value, ',');
 	if (!rgb)
 		throw_error("Error: malloc error", g_heap());
 	if (i != 2 || tab_size(rgb) != 3)
