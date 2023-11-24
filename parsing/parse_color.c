@@ -12,7 +12,7 @@
 
 #include "../cub3d.h"
 
-int is_number(char *str)
+int ft_num  (char *str)
 {
 	int	i;
 
@@ -37,7 +37,7 @@ int is_number(char *str)
 	return (true);
 }
 
-int	get_color(char *value)
+int	color_put(char *value)
 {
 	char	**rgb;
 	int		i;
@@ -54,7 +54,7 @@ int	get_color(char *value)
 	color = 0;
 	while (rgb[i])
 	{
-		if (!is_number(rgb[i]))
+		if (!ft_num  (rgb[i]))
 			return (free_tab(rgb), throw_error("Error: invalid color", g_heap()), 0);
 		c = ft_atoi(rgb[i]);
 		if (c < 0 || c > 255)
@@ -65,15 +65,15 @@ int	get_color(char *value)
 	return (free_tab(rgb), color);
 }
 
-void	fill_color(t_map *map, char *key, char *value)
+void	color_load(t_map *map, char *key, char *value)
 {
 	if (key && value && !ft_strcmp(key, "C"))
-		map->celling_color = get_color(value);
+		map->celling_color = color_put(value);
 	else if (key && value && !ft_strcmp(key, "F"))
-		map->floor_color = get_color(value);
+		map->floor_color = color_put(value);
 }
 
-void	color_checker(t_map *map)
+void	check_color(t_map *map)
 {
 	if (map->celling_color == -1 || map->floor_color == -1)
 		throw_error("Error: invalid color", g_heap());

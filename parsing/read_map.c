@@ -12,7 +12,7 @@
 
 #include "../cub3d.h"
 
-void	parse_texture_rgb(char *line, t_map *map)
+void	texture_parse(char *line, t_map *map)
 {
 	char	*key;
 	char	*value;
@@ -33,16 +33,16 @@ void	parse_texture_rgb(char *line, t_map *map)
 	if (!key || !value)
 		throw_error("Error: malloc_error", g_heap());
 	add_to_garbage(g_heap(), value);
-	fill_tetxures_list(map, key, value);
-	fill_color(map, key, value);
+	text_fill(map, key, value);
+	color_load(map, key, value);
 }
 
-void	parse_line(char *line, int index, t_map *map, char **joined)
+void	line_parsing(char *line, int index, t_map *map, char **joined)
 {
 	static bool	flag;
 
 	if (index < 6)
-		parse_texture_rgb(line, map);
+		texture_parse(line, map);
 	else
 	{
 		if (line[0] != '\n')
@@ -92,7 +92,7 @@ void	read_map(char *path, t_map *mapa)
 			line = get_next_line(fd);
 			continue ;
 		}
-		parse_line(line, i, mapa, &joined);
+		line_parsing(line, i, mapa, &joined);
 		free(line);
 		i++;
 		line = get_next_line(fd);

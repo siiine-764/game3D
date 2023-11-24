@@ -12,7 +12,7 @@
 
 #include "../cub3d.h"
 
-int	top_bottom_closed(char *str)
+int	check_top_bottom(char *str)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	top_bottom_closed(char *str)
 	return (true);
 }
 
-int	is_closed(char *str)
+int	ft_close(char *str)
 {
 	int	i;
 	int	len;
@@ -44,7 +44,7 @@ int	is_closed(char *str)
 	return (true);
 }
 
-void	space_checker(char **map)
+void	check_space(char **map)
 {
 	int	i;
 	int	j;
@@ -70,7 +70,7 @@ void	space_checker(char **map)
 	}
 }
 
-void	map_checker(char **map)
+void	check_map(char **map)
 {
 	int	i;
 	int	p;
@@ -81,9 +81,9 @@ void	map_checker(char **map)
 	map_size = tab_size(map);
 	while (map[i])
 	{
-		if ((i == 0 || i == map_size - 1) && !top_bottom_closed(map[i]))
+		if ((i == 0 || i == map_size - 1) && !check_top_bottom(map[i]))
 			throw_error("Error: map_not_closed", g_heap());
-		else if (i != 0 && i != map_size - 1 && !is_closed(map[i]))
+		else if (i != 0 && i != map_size - 1 && !ft_close(map[i]))
 			throw_error("Error: map_not_closed", g_heap());
 		if (contains_bad_char(map[i]))
 			throw_error("Error: bad_char", g_heap());
@@ -92,5 +92,5 @@ void	map_checker(char **map)
 	}
 	if (p != 1)
 		throw_error("Error: player_error", g_heap());
-	space_checker(map);
+	check_space(map);
 }

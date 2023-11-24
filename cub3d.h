@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:38:46 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/11/23 14:38:54 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/11/24 22:51:53 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 
 typedef struct s_garbage	t_garbage;
 typedef struct s_texture	t_texture;
+typedef struct s_mlx        t_mlx;
 
 typedef struct s_vector
 {
@@ -52,6 +53,12 @@ typedef struct s_texture
     t_texture	*next;
 	t_texture	*last;
 }t_texture;
+
+typedef struct s_mlx
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+}t_mlx;
 
 typedef struct s_map
 {
@@ -122,17 +129,17 @@ void ft_e_p(t_map *map, int x, int y);
 void ft_w_p(t_map *map, int x, int y);
 
 //parsing
-int     is_number(char *str);
-int	    get_color(char *value);
-void	fill_color(t_map *map, char *key, char *value);
-void	color_checker(t_map *map);
-int	    top_bottom_closed(char *str);
-int    	is_closed(char *str);
-void	space_checker(char **map);
-void	map_checker(char **map);
-void	add_to_textures(t_texture **t, char *key, char *value);
-void	fill_tetxures_list(t_map *map, char *key, char *value);
-void	textures_checker(t_map	*map);
+int     ft_num  (char *str);
+int	    color_put(char *value);
+void	color_load(t_map *map, char *key, char *value);
+void	check_color(t_map *map);
+int	    check_top_bottom(char *str);
+int    	ft_close(char *str);
+void	check_space(char **map);
+void	check_map(char **map);
+void	text_add(t_texture **t, char *key, char *value);
+void	text_fill(t_map *map, char *key, char *value);
+void	check_textures(t_map	*map);
 int	    is_player(char c);
 int 	contains_bad_char(char *str);
 void	contains_player(char *str, int *p);
@@ -144,8 +151,8 @@ void	add_to_garbage(t_garbage **heap, void *address);
 t_garbage	**g_heap(void);
 void	empty_trash(t_garbage **heap);
 void	throw_error(char *msg, t_garbage **heap);
-void	parse_texture_rgb(char *line, t_map *map);
-void	parse_line(char *line, int index, t_map *map, char **joined);
+void	texture_parse(char *line, t_map *map);
+void	line_parsing(char *line, int index, t_map *map, char **joined);
 void	read_map_helper(t_map *map, int fd, char *joined);
 void	read_map(char *path, t_map *mapa);
 
