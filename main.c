@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:29:12 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/23 14:43:06 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/24 22:26:49 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,23 +52,23 @@ int main(int ac, char **av)
 		return (1);
 	}
     //// parsing ////
-    // FILE *file;
-    // t_map *map = malloc(sizeof(t_map));
-    // map->double_array_map = malloc(100 * sizeof(char *));
-    // file = fopen("./map/path", "r");
-    // if (file == NULL)
-    // {
-    //     printf("Unable to open the file.\n");
-    //     return 1;
-    // }
-    // char buffer[100];
-    // int i = 0;
-    // while (fgets(buffer, sizeof(buffer), file) != NULL)
-    // {
-    //     map->double_array_map[i] = strdup((const char *)buffer);
-    //     i++;
-    // }
-    // map->double_array_map[i] = NULL;
+    FILE *file;
+    t_map *map = malloc(sizeof(t_map));
+    map->double_array_map = malloc(100 * sizeof(char *));
+    file = fopen("./map/path", "r");
+    if (file == NULL)
+    {
+        printf("Unable to open the file.\n");
+        return 1;
+    }
+    char buffer[100];
+    int i = 0;
+    while (fgets(buffer, sizeof(buffer), file) != NULL)
+    {
+        map->double_array_map[i] = strdup((const char *)buffer);
+        i++;
+    }
+    map->double_array_map[i] = NULL;
     /// end parsing ////
     ft_position_player(map);
     int bl = ft_init(map);
