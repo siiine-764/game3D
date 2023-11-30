@@ -12,7 +12,7 @@
 
 #include "../cub3d.h"
 
-int	tab_size(char **tab)
+int	tab_tab(char **tab)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ int	tab_size(char **tab)
 	return (i);
 }
 
-void	free_tab(char **tab)
+void	free_size(char **tab)
 {
 	int	i;
 
@@ -35,7 +35,7 @@ void	free_tab(char **tab)
 	tab = NULL;
 }
 
-char	*free_s1_join(char *s1, char *s2)
+char	*join_free(char *s1, char *s2)
 {
 	char	*joined;
 

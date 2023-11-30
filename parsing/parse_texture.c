@@ -18,8 +18,8 @@ void	text_add(t_texture **t, char *key, char *value)
 
 	new = malloc(sizeof(t_texture));
 	if (!new)
-		throw_error("Error: malloc failed", g_heap());
-	add_to_garbage(g_heap(), new);
+		error_script("Error: malloc failed", s_top());
+	garbage_join(s_top(), new);
 	new->key = key;
 	new->value = value;
 	new->next = NULL;
@@ -67,5 +67,5 @@ void	check_textures(t_map	*map)
 		tmp = tmp->next;
 	}
 	if (!state[0] || !state[1] || !state[2] || !state[3])
-		throw_error("Error: texture_error", g_heap());
+		error_script("Error: texture_error", s_top());
 }

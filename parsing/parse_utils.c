@@ -12,12 +12,12 @@
 
 #include "../cub3d.h"
 
-int	is_player(char c)
+int	player_button(char c)
 {
 	return (c == 'N' || c == 'S' || c == 'E' || c == 'W');
 }
 
-int	contains_bad_char(char *str)
+int	char_hold(char *str)
 {
 	int	i;
 
@@ -25,21 +25,21 @@ int	contains_bad_char(char *str)
 	while (str[i])
 	{
 		if (str[i] != '0' && str[i] != '1'
-			&& str[i] != ' ' && !is_player(str[i]))
+			&& str[i] != ' ' && !player_button(str[i]))
 			return (true);
 		i++;
 	}
 	return (false);
 }
 
-void	contains_player(char *str, int *p)
+void	player_hold(char *str, int *p)
 {
 	int	i;
 
 	i = 0;
 	while (str[i])
 	{
-		if (is_player(str[i]))
+		if (player_button(str[i]))
 			(*p)++;
 		i++;
 	}

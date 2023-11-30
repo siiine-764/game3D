@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   map_reader.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -22,17 +22,17 @@ void	texture_parse(char *line, t_map *map)
 	while (line[i] && line[i] != ' ')
 		i++;
 	key = ft_substr(line, 0, i);
-	add_to_garbage(g_heap(), key);
+	garbage_join(s_top(), key);
 	if (key && (ft_strcmp(key, "NO") && ft_strcmp(key, "SO")
 			&& ft_strcmp(key, "EA") && ft_strcmp(key, "WE")
 			&& ft_strcmp(key, "C") && ft_strcmp(key, "F")))
-		throw_error("Error: texture_error 1", g_heap());
+		error_script("Error: texture_error 1", s_top());
 	while (line[i] && line[i] == ' ')
 		i++;
 	value = ft_substr(line, i, ft_strlen(line) - i - 1);
 	if (!key || !value)
-		throw_error("Error: malloc_error", g_heap());
-	add_to_garbage(g_heap(), value);
+		error_script("Error: malloc_error", s_top());
+	garbage_join(s_top(), value);
 	text_fill(map, key, value);
 	color_load(map, key, value);
 }
@@ -50,13 +50,13 @@ void	line_parsing(char *line, int index, t_map *map, char **joined)
 		if (flag && line[0] == '\n')
 		{
 			free(*joined);
-			throw_error("Error: map_empty_line", g_heap());
+			error_script("Error: map_empty_line", s_top());
 		}
-		*joined = free_s1_join(*joined, line);
+		*joined = join_free(*joined, line);
 	}
 }
 
-void	read_map_helper(t_map *map, int fd, char *joined)
+void	assist_map_reader(t_map *map, int fd, char *joined)
 {
 	int	i;
 
@@ -65,13 +65,13 @@ void	read_map_helper(t_map *map, int fd, char *joined)
 	map->mapa = ft_split(joined, '\n');
 	free(joined);
 	if (!map->mapa || !map->mapa[0])
-		throw_error("Error: map is empty", g_heap());
+		error_script("Error: map is empty", s_top());
 	while (map->mapa[i])
-		add_to_garbage(g_heap(), map->mapa[i++]);
-	add_to_garbage(g_heap(), map->mapa);
+		garbage_join(s_top(), map->mapa[i++]);
+	garbage_join(s_top(), map->mapa);
 }
 
-void	read_map(char *path, t_map *mapa)
+void	map_reader(char *path, t_map *mapa)
 {
 	int		fd;
 	int		i;
@@ -80,7 +80,7 @@ void	read_map(char *path, t_map *mapa)
 
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
-		throw_error("Error: file_error", NULL);
+		error_script("Error: file_error", NULL);
 	i = 0;
 	joined = NULL;
 	line = get_next_line(fd);
@@ -97,5 +97,5 @@ void	read_map(char *path, t_map *mapa)
 		i++;
 		line = get_next_line(fd);
 	}
-	read_map_helper(mapa, fd, joined);
+	assist_map_reader(mapa, fd, joined);
 }

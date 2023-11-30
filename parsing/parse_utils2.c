@@ -12,13 +12,13 @@
 
 #include "../cub3d.h"
 
-void	add_to_garbage(t_garbage **heap, void *address)
+void	garbage_join(t_garbage **heap, void *address)
 {
 	t_garbage	*new;
 
 	new = malloc(sizeof(t_garbage));
 	if (!new)
-		throw_error("Error: malloc failed", NULL);
+		error_script("Error: malloc failed", NULL);
 	new->address = address;
 	new->next = NULL;
 	new->last = NULL;
@@ -33,14 +33,14 @@ void	add_to_garbage(t_garbage **heap, void *address)
 	(*heap)->last = new;
 }
 
-t_garbage	**g_heap(void)
+t_garbage	**s_top(void)
 {
 	static t_garbage	*heap;
 
 	return (&heap);
 }
 
-void	empty_trash(t_garbage **heap)
+void	empty_garbage(t_garbage **heap)
 {
 	t_garbage	*tmp;
 	t_garbage	*head;
@@ -57,10 +57,10 @@ void	empty_trash(t_garbage **heap)
 	}
 }
 
-void	throw_error(char *msg, t_garbage **heap)
+void	error_script(char *msg, t_garbage **heap)
 {
 	if (heap)
-		empty_trash(heap);
+		empty_garbage(heap);
 	ft_putendl_fd(msg, 2);
 	exit(1);
 }
