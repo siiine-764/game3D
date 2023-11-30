@@ -47,22 +47,22 @@ int	color_put(char *value)
 	i = 0;
 	rgb = ft_split(value, ',');
 	if (!rgb)
-		throw_error("Error: malloc error", g_heap());
-	if (i != 2 || tab_size(rgb) != 3)
-		return (free_tab(rgb), throw_error("Error: invalid color", g_heap()), 0);
+		error_script("Error: malloc error", s_top());
+	if (i != 2 || tab_tab(rgb) != 3)
+		return (free_size(rgb), error_script("Error: invalid color", s_top()), 0);
 	i = 0;
 	color = 0;
 	while (rgb[i])
 	{
 		if (!ft_num  (rgb[i]))
-			return (free_tab(rgb), throw_error("Error: invalid color", g_heap()), 0);
+			return (free_size(rgb), error_script("Error: invalid color", s_top()), 0);
 		c = ft_atoi(rgb[i]);
 		if (c < 0 || c > 255)
-			return (free_tab(rgb), throw_error("Error: invalid color", g_heap()), 0);
+			return (free_size(rgb), error_script("Error: invalid color", s_top()), 0);
 		ft_memset(((char *)&color) + abs(i - 2), ft_atoi(rgb[i]), sizeof(char));
 		i++;
 	}
-	return (free_tab(rgb), color);
+	return (free_size(rgb), color);
 }
 
 void	color_load(t_map *map, char *key, char *value)
@@ -76,5 +76,5 @@ void	color_load(t_map *map, char *key, char *value)
 void	check_color(t_map *map)
 {
 	if (map->celling_color == -1 || map->floor_color == -1)
-		throw_error("Error: invalid color", g_heap());
+		error_script("Error: invalid color", s_top());
 }

@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:18:53 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/11/30 19:19:08 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/11/30 19:43:30 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,44 +41,6 @@ void DDA(mlx_image_t *image, int X0, int Y0, int X1, int Y1)
         i++; // Increment the loop counter
     }
 }
-// int main(int ac, char **av)
-// {
-//     (void)ac;
-//     (void)av;
-// 	if (ac != 2)
-// 	{
-// 		printf("Error\nTwo arguments is requirred\n");
-// 		return (1);
-// 	}
-//     //// parsing ////
-//     FILE *file;
-//     t_map *map = malloc(sizeof(t_map));
-//     map->double_array_map = malloc(100 * sizeof(char *));
-//     file = fopen("./map/path", "r");
-//     if (file == NULL)
-//     {
-//         printf("Unable to open the file.\n");
-//         return 1;
-//     }
-//     char buffer[100];
-//     int i = 0;
-//     while (fgets(buffer, sizeof(buffer), file) != NULL)
-//     {
-//         map->double_array_map[i] = strdup((const char *)buffer);
-//         i++;
-//     }
-//     map->double_array_map[i] = NULL;
-
-
-//    void	read_map(char *path, t_map *mapa)
-
-
-// /// end parsing ////
-//     ft_position_player(map);
-//     int bl = ft_init(map);
-//     fclose(file);
-//     return (bl);
-// }
 
 int main(int ac, char **av)
 {

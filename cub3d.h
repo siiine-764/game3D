@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:38:46 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/11/30 18:49:02 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/11/30 19:32:33 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,13 +144,13 @@ int	    player_button(char c);
 int 	char_hold(char *str);
 void	player_hold(char *str, int *p);
 int	    ft_strcmp(char *s1, char *s2);
-int	    tab_size(char **tab);
-void	free_tab(char **tab);
-char	*free_s1_join(char *s1, char *s2);
-void	add_to_garbage(t_garbage **heap, void *address);
-t_garbage	**g_heap(void);
-void	empty_trash(t_garbage **heap);
-void	throw_error(char *msg, t_garbage **heap);
+int	    tab_tab(char **tab);
+void	free_size(char **tab);
+char	*join_free(char *s1, char *s2);
+void	garbage_join(t_garbage **heap, void *address);
+t_garbage	**s_top(void);
+void	empty_garbage(t_garbage **heap);
+void	error_script(char *msg, t_garbage **heap);
 void	texture_parse(char *line, t_map *map);
 void	line_parsing(char *line, int index, t_map *map, char **joined);
 void	assist_map_reader(t_map *map, int fd, char *joined);
