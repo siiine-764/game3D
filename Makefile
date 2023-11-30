@@ -59,7 +59,7 @@ SRCS	:= main.c\
 			./parsing/parse_utils.c\
 			./parsing/parse_utils1.c\
 			./parsing/parse_utils2.c\
-			./parsing/read_map.c\
+			./parsing/map_reader.c\
 
 OBJS	:= ${SRCS:.c=.o}
 

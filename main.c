@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:29:12 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/24 22:51:30 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/11/30 19:08:44 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int main(int ac, char **av)
     //// parsing ////
 
 
-   void	read_map(char *path, t_map *mapa)
+   void	map_reader(char *path, t_map *mapa);
 
 
 

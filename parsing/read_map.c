@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   map_reader.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -56,7 +56,7 @@ void	line_parsing(char *line, int index, t_map *map, char **joined)
 	}
 }
 
-void	read_map_helper(t_map *map, int fd, char *joined)
+void	assist_map_reader(t_map *map, int fd, char *joined)
 {
 	int	i;
 
@@ -71,7 +71,7 @@ void	read_map_helper(t_map *map, int fd, char *joined)
 	add_to_garbage(g_heap(), map->mapa);
 }
 
-void	read_map(char *path, t_map *mapa)
+void	map_reader(char *path, t_map *mapa)
 {
 	int		fd;
 	int		i;
@@ -97,5 +97,5 @@ void	read_map(char *path, t_map *mapa)
 		i++;
 		line = get_next_line(fd);
 	}
-	read_map_helper(mapa, fd, joined);
+	assist_map_reader(mapa, fd, joined);
 }

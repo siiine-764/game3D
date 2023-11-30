@@ -56,11 +56,11 @@ void	check_space(char **map)
 		while (map[i][j])
 		{
 			if (j > 0 && j < (int)ft_strlen(map[i]) - 1
-				&& (map[i][j] == '0' || is_player(map[i][j])))
+				&& (map[i][j] == '0' || player_button(map[i][j])))
 				if (map[i][j - 1] == ' ' || map[i][j + 1] == ' ')
 					throw_error("Error: map_not_closed", g_heap());
 			if (i > 0 && i < tab_size(map) - 1
-				&& (map[i][j] == '0' || is_player(map[i][j])))
+				&& (map[i][j] == '0' || player_button(map[i][j])))
 				if ((j >= (int)ft_strlen(map[i - 1]) || map[i - 1][j] == ' ')
 				|| (j >= (int)ft_strlen(map[i + 1]) || map[i + 1][j] == ' '))
 					throw_error("Error: map_not_closed", g_heap());
@@ -85,9 +85,9 @@ void	check_map(char **map)
 			throw_error("Error: map_not_closed", g_heap());
 		else if (i != 0 && i != map_size - 1 && !ft_close(map[i]))
 			throw_error("Error: map_not_closed", g_heap());
-		if (contains_bad_char(map[i]))
+		if (char_hold(map[i]))
 			throw_error("Error: bad_char", g_heap());
-		contains_player(map[i], &p);
+		player_hold(map[i], &p);
 		i++;
 	}
 	if (p != 1)

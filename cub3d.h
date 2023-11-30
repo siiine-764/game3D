@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:38:46 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/11/24 22:51:53 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/11/30 18:49:02 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,9 +140,9 @@ void	check_map(char **map);
 void	text_add(t_texture **t, char *key, char *value);
 void	text_fill(t_map *map, char *key, char *value);
 void	check_textures(t_map	*map);
-int	    is_player(char c);
-int 	contains_bad_char(char *str);
-void	contains_player(char *str, int *p);
+int	    player_button(char c);
+int 	char_hold(char *str);
+void	player_hold(char *str, int *p);
 int	    ft_strcmp(char *s1, char *s2);
 int	    tab_size(char **tab);
 void	free_tab(char **tab);
@@ -153,7 +153,7 @@ void	empty_trash(t_garbage **heap);
 void	throw_error(char *msg, t_garbage **heap);
 void	texture_parse(char *line, t_map *map);
 void	line_parsing(char *line, int index, t_map *map, char **joined);
-void	read_map_helper(t_map *map, int fd, char *joined);
-void	read_map(char *path, t_map *mapa);
+void	assist_map_reader(t_map *map, int fd, char *joined);
+void	map_reader(char *path, t_map *mapa);
 
 #endif
