@@ -60,7 +60,7 @@ void	read_map_helper(t_map *map, int fd, char *joined)
 {
 	int	i;
 
-	i = 0;
+	i = 0; 
 	close(fd);
 	map->mapa = ft_split(joined, '\n');
 	free(joined);
