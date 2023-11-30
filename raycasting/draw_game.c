@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:36:25 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/07 16:59:32 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/24 22:36:13 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,3 +69,4 @@ void ft_draw(t_map *map)
     map->size_x = max;
     map->size_y = y;
 }
+
