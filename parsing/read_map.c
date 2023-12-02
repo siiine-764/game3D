@@ -71,7 +71,7 @@ void	assist_map_reader(t_map *map, int fd, char *joined)
 	garbage_join(s_top(), map->mapa);
 }
 
-void	map_reader(char *path, t_map *mapa)
+void	map_reader(char *path, t_map *map)
 {
 	int		fd;
 	int		i;
@@ -92,10 +92,10 @@ void	map_reader(char *path, t_map *mapa)
 			line = get_next_line(fd);
 			continue ;
 		}
-		line_parsing(line, i, mapa, &joined);
+		line_parsing(line, i, map, &joined);
 		free(line);
 		i++;
 		line = get_next_line(fd);
 	}
-	assist_map_reader(mapa, fd, joined);
+	assist_map_reader(map, fd, joined);
 }

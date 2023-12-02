@@ -12,6 +12,13 @@
 
 #include "../cub3d.h"
 
+t_garbage	**s_top(void)
+{
+	static t_garbage	*heap;
+
+	return (&heap);
+}
+
 void	garbage_join(t_garbage **heap, void *address)
 {
 	t_garbage	*new;
@@ -31,13 +38,6 @@ void	garbage_join(t_garbage **heap, void *address)
 	}
 	(*heap)->last->next = new;
 	(*heap)->last = new;
-}
-
-t_garbage	**s_top(void)
-{
-	static t_garbage	*heap;
-
-	return (&heap);
 }
 
 void	empty_garbage(t_garbage **heap)
