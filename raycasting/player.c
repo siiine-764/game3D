@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:56:28 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/07 16:20:46 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:51:18 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void    ft_position_player(t_map *map)
     while (map->double_array_map[y])
     {
         x = 0;
-        while (map->double_array_map[y][x] != '\0')
+        while (map->double_array_map[y][x])
         {
             if (map->double_array_map[y][x] == 'N')
                 ft_n_p(map, x, y);

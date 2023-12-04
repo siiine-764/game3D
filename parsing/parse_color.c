@@ -48,8 +48,8 @@ int	color_put(char *value)
 	rgb = ft_split(value, ',');
 	if (!rgb)
 		error_script("Error: malloc error", s_top());
-	if (i != 2 || tab_tab(rgb) != 3)
-		return (free_size(rgb), error_script("Error: invalid color", s_top()), 0);
+	// if (i != 2 || tab_tab(rgb) != 3)
+	// 	return (free_size(rgb), error_script("Error: invalid color", s_top()), 0);
 	i = 0;
 	color = 0;
 	while (rgb[i])

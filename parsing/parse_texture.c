@@ -30,12 +30,12 @@ void	text_add(t_texture **t, char *key, char *value)
 		(*t)->last = new;
 		(*t)->next = NULL;
 	}
-	else
-	{
-		(*t)->last->next = new;
-		new->last = (*t)->last;
-		(*t)->last = new;
-	}
+	// else
+	// {
+	// 	(*t)->last->next = new;
+	// 	new->last = (*t)->last;
+	// 	(*t)->last = new;
+	// }
 }
 
 void	text_fill(t_map *map, char *key, char *value)
