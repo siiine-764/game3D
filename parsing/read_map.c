@@ -26,7 +26,11 @@ void	texture_parse(char *line, t_map *map)
 	if (key && (ft_strcmp(key, "NO") && ft_strcmp(key, "SO")
 			&& ft_strcmp(key, "EA") && ft_strcmp(key, "WE")
 			&& ft_strcmp(key, "C") && ft_strcmp(key, "F")))
+<<<<<<< HEAD
 		error_script("Error: texture_error 0", s_top());
+=======
+		error_script("Error: texture_error 1", s_top());
+>>>>>>> 747008defc9fe003450bfa06fce7f6c3c8637791
 	while (line[i] && line[i] == ' ')
 		i++;
 	value = ft_substr(line, i, ft_strlen(line) - i - 1);
@@ -71,7 +75,7 @@ void	assist_map_reader(t_map *map, int fd, char *joined)
 	garbage_join(s_top(), map->mapa);
 }
 
-void	map_reader(char *path, t_map *mapa)
+void	map_reader(char *path, t_map *map)
 {
 	int		fd;
 	int		i;
@@ -92,10 +96,10 @@ void	map_reader(char *path, t_map *mapa)
 			line = get_next_line(fd);
 			continue ;
 		}
-		line_parsing(line, i, mapa, &joined);
+		line_parsing(line, i, map, &joined);
 		free(line);
 		i++;
 		line = get_next_line(fd);
 	}
-	assist_map_reader(mapa, fd, joined);
+	assist_map_reader(map, fd, joined);
 }
