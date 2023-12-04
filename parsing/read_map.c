@@ -86,6 +86,7 @@ void	map_reader(char *path, t_map *map)
 	line = get_next_line(fd);
 	while (line)
 	{
+		// printf("mama");
 		if (i < 6 && *line == '\n')
 		{
 			free(line);

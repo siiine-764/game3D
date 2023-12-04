@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:42:10 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/07 17:01:35 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/04 20:12:02 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void    ft_cast(t_map *map, t_vector next_wall)
         if (((int)(map->ray.y / SIZE_CUB) >= map->size_y || (int)(map->ray.x / SIZE_CUB) >= map->size_x)
             || ((int)(map->ray.y / SIZE_CUB) < 0 || (int)(map->ray.x / SIZE_CUB) < 0))
             break;
-        if (map->double_array_map[(int)(map->ray.y / SIZE_CUB)][(int)(map->ray.x / SIZE_CUB)] == '1')
+        if (map->mapa[(int)(map->ray.y / SIZE_CUB)][(int)(map->ray.x / SIZE_CUB)] == '1')
             break;
         map->ray.x += next_wall.x;
         map->ray.y += next_wall.y;

@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:24:37 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/07 15:33:59 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/04 22:10:29 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void ft_w(t_map *map)
 {
     map->y_p += sin(map->p_rotation * convert_degrees_radian);
     map->x_p += cos(map->p_rotation * convert_degrees_radian);
-    if (map->double_array_map[(int)(map->y_p / SIZE_CUB)][(int)(map->x_p / SIZE_CUB)] == '1')
+    if (map->mapa[(int)(map->y_p / SIZE_CUB)][(int)(map->x_p / SIZE_CUB)] == '1')
     {
         map->y_p -= sin(map->p_rotation * convert_degrees_radian);
         map->x_p -= cos(map->p_rotation * convert_degrees_radian);
@@ -27,7 +27,7 @@ void ft_s(t_map *map)
 {
     map->y_p -= sin(map->p_rotation * convert_degrees_radian);
     map->x_p -= cos(map->p_rotation * convert_degrees_radian);
-    if (map->double_array_map[(int)(map->y_p / SIZE_CUB)][(int)(map->x_p / SIZE_CUB)] == '1')
+    if (map->mapa[(int)(map->y_p / SIZE_CUB)][(int)(map->x_p / SIZE_CUB)] == '1')
     {
         map->y_p += sin(map->p_rotation * convert_degrees_radian);
         map->x_p += cos(map->p_rotation * convert_degrees_radian);
@@ -38,7 +38,7 @@ void ft_a(t_map *map)
 {       
     map->y_p -= cos(map->p_rotation * convert_degrees_radian);
     map->x_p += sin(map->p_rotation * convert_degrees_radian);
-    if (map->double_array_map[(int)(map->y_p / SIZE_CUB)][(int)(map->x_p / SIZE_CUB)] == '1')
+    if (map->mapa[(int)(map->y_p / SIZE_CUB)][(int)(map->x_p / SIZE_CUB)] == '1')
     {
         map->y_p += cos(map->p_rotation * convert_degrees_radian);
         map->x_p -= sin(map->p_rotation * convert_degrees_radian);
@@ -49,7 +49,7 @@ void ft_d(t_map *map)
 {
     map->y_p += cos(map->p_rotation * convert_degrees_radian);
     map->x_p -= sin(map->p_rotation * convert_degrees_radian);
-    if (map->double_array_map[(int)(map->y_p / SIZE_CUB)][(int)(map->x_p / SIZE_CUB)] == '1')
+    if (map->mapa[(int)(map->y_p / SIZE_CUB)][(int)(map->x_p / SIZE_CUB)] == '1')
     {
         map->y_p -= cos(map->p_rotation * convert_degrees_radian);
         map->x_p += sin(map->p_rotation * convert_degrees_radian);

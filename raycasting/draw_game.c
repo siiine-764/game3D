@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:36:25 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/24 22:36:13 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/04 20:12:02 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,15 @@ void ft_draw(t_map *map)
     int y = 0;
     int max = 0;
 
-    while (map->double_array_map[y] != NULL)
+    while (map->mapa[y] != NULL)
     {
         x = 0;
-        while (map->double_array_map[y][x] != '\0')
+        while (map->mapa[y][x] != '\0')
         {
-            if (map->double_array_map[y][x] == '1')
+            if (map->mapa[y][x] == '1')
                 ft_draw_cub(map->image_map, SIZE_CUB, SIZE_CUB, x * SIZE_CUB, y * SIZE_CUB, 0x800080ff);
 
-            if (map->double_array_map[y][x] == '0')
+            if (map->mapa[y][x] == '0')
                 ft_draw_cub(map->image_map, SIZE_CUB, SIZE_CUB, x * SIZE_CUB, y * SIZE_CUB, 0xffffffff);
             x++;
         }
