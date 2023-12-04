@@ -12,6 +12,14 @@
 
 #include "../cub3d.h"
 
+void	error_script(char *msg, t_garbage **heap)
+{
+	if (heap)
+		empty_garbage(heap);
+	ft_putendl_fd(msg, 2);
+	exit(1);
+}
+
 t_garbage	**s_top(void)
 {
 	static t_garbage	*heap;
@@ -55,12 +63,4 @@ void	empty_garbage(t_garbage **heap)
 		head = head->next;
 		free(tmp);
 	}
-}
-
-void	error_script(char *msg, t_garbage **heap)
-{
-	if (heap)
-		empty_garbage(heap);
-	ft_putendl_fd(msg, 2);
-	exit(1);
 }
