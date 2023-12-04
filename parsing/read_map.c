@@ -26,11 +26,7 @@ void	texture_parse(char *line, t_map *map)
 	if (key && (ft_strcmp(key, "NO") && ft_strcmp(key, "SO")
 			&& ft_strcmp(key, "EA") && ft_strcmp(key, "WE")
 			&& ft_strcmp(key, "C") && ft_strcmp(key, "F")))
-<<<<<<< HEAD
-		error_script("Error: texture_error 0", s_top());
-=======
-		error_script("Error: texture_error 1", s_top());
->>>>>>> 747008defc9fe003450bfa06fce7f6c3c8637791
+					error_script("Error: texture_error 0", s_top());
 	while (line[i] && line[i] == ' ')
 		i++;
 	value = ft_substr(line, i, ft_strlen(line) - i - 1);

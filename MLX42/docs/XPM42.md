@@ -65,7 +65,7 @@ int32_t	main(void)
 		error();
 
 	// Try to load the file
-	xpm_t* xpm = mlx_load_xpm42("./temp/42.xpm42");
+	xpm_t* xpm = mlx_load_xpm42("./temp/42.png42");
 	if (!xpm)
 		error();
 	
