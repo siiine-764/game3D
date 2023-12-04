@@ -12,7 +12,7 @@
 
 #include "../cub3d.h"
 
-void	texture_parse(char *line, t_map *map)
+static void	texture_parse(char *line, t_map *map)
 {
 	char	*key;
 	char	*value;
@@ -37,7 +37,7 @@ void	texture_parse(char *line, t_map *map)
 	color_load(map, key, value);
 }
 
-void	line_parsing(char *line, int index, t_map *map, char **joined)
+static void	line_parsing(char *line, int index, t_map *map, char **joined)
 {
 	static bool	flag;
 
@@ -56,7 +56,7 @@ void	line_parsing(char *line, int index, t_map *map, char **joined)
 	}
 }
 
-void	assist_map_reader(t_map *map, int fd, char *joined)
+static void	assist_map_reader(t_map *map, int fd, char *joined)
 {
 	int	i;
 

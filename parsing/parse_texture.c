@@ -45,7 +45,7 @@ void	text_fill(t_map *map, char *key, char *value)
 		text_add(&map->textures, key, value);
 }
 
-void	check_textures(t_map	*map)
+void	check_textures(t_map *map)
 {
 	static int	state[4] = {0, 0, 0, 0};
 	t_texture	*tmp;

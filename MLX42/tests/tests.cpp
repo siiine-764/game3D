@@ -99,7 +99,7 @@ static void ft_draw(void* param)
 		ASSERT_EQ(mlx_errno, MLX_SUCCESS);
 	}
 
-	// Cheap itoa lol
+	// Ctop itoa lol
 	memset(buf, '\0', sizeof(buf));
 	snprintf(buf, sizeof(buf), "%d", count);
 	

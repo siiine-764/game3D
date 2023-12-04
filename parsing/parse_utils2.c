@@ -12,22 +12,22 @@
 
 #include "../cub3d.h"
 
-void	error_script(char *msg, t_garbage **heap)
+void	error_script(char *msg, t_garbage **top)
 {
-	if (heap)
-		empty_garbage(heap);
+	if (top)
+		empty_garbage(top);
 	ft_putendl_fd(msg, 2);
 	exit(1);
 }
 
 t_garbage	**s_top(void)
 {
-	static t_garbage	*heap;
+	static	t_garbage	*top;
 
-	return (&heap);
+	return (&top);
 }
 
-void	garbage_join(t_garbage **heap, void *address)
+void	garbage_join(t_garbage **top, void *address)
 {
 	t_garbage	*new;
 
@@ -37,25 +37,25 @@ void	garbage_join(t_garbage **heap, void *address)
 	new->address = address;
 	new->next = NULL;
 	new->last = NULL;
-	if (!*heap)
+	if (!*top)
 	{
-		*heap = new;
-		(*heap)->next = NULL;
-		(*heap)->last = new;
+		*top = new;
+		(*top)->next = NULL;
+		(*top)->last = new;
 		return ;
 	}
-	(*heap)->last->next = new;
-	(*heap)->last = new;
+	(*top)->last->next = new;
+	(*top)->last = new;
 }
 
-void	empty_garbage(t_garbage **heap)
+void	empty_garbage(t_garbage **top)
 {
 	t_garbage	*tmp;
 	t_garbage	*head;
 
-	if (!heap || !*heap)
+	if (!top || !*top)
 		return ;
-	head = *heap;
+	head = *top;
 	while (head)
 	{
 		tmp = head;

@@ -1,7 +1,10 @@
-NO ./CRATE_2C.PNG
-SO ./COOLE_1B.png
-WE ./CRATE_1E.PNG
-EA ./DOOR_4A.PNG
+NO textures/wall_1.png
+SO textures/wall_2.png
+WE textures/wall_3.png
+EA textures/wall_4.png
+S textures/sprite_1.png
+ST textures/sky_1.png
+FT textures/floor_1.png
 
 F 0,0,0
 C 55,5,0

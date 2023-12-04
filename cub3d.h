@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:38:46 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/11/30 22:55:22 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/04 18:18:04 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,6 @@ int	    check_top_bottom(char *str);
 int    	ft_close(char *str);
 void	check_space(char **map);
 void	check_map(char **map);
-void	text_add(t_texture **t, char *key, char *value);
 void	text_fill(t_map *map, char *key, char *value);
 void	check_textures(t_map	*map);
 int	    player_button(char c);
@@ -147,13 +146,10 @@ int	    ft_strcmp(char *s1, char *s2);
 int	    tab_tab(char **tab);
 void	free_size(char **tab);
 char	*join_free(char *s1, char *s2);
-void	garbage_join(t_garbage **heap, void *address);
+void	garbage_join(t_garbage **top, void *address);
 t_garbage	**s_top(void);
-void	empty_garbage(t_garbage **heap);
-void	error_script(char *msg, t_garbage **heap);
-void	texture_parse(char *line, t_map *map);
-void	line_parsing(char *line, int index, t_map *map, char **joined);
-void	assist_map_reader(t_map *map, int fd, char *joined);
+void	empty_garbage(t_garbage **top);
+void	error_script(char *msg, t_garbage **top);
 void	map_reader(char *path, t_map *mapa);
 
 #endif
