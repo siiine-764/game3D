@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:56:28 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/04 22:09:43 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/05 16:48:56 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void ft_w_p(t_map *map, int x, int y)
 
 void    ft_position_player(t_map *map)
 {
-    (void)map;
     int y = 0;
     int x = 0;
     while (map->mapa[y])
