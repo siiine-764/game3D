@@ -33,7 +33,7 @@ void	garbage_join(t_garbage **top, void *address)
 
 	new = malloc(sizeof(t_garbage));
 	if (!new)
-		error_script("Error: malloc failed", NULL);
+		error_script("Error: error_in_malloc", NULL);
 	new->address = address;
 	new->next = NULL;
 	new->last = NULL;

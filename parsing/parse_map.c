@@ -58,12 +58,12 @@ void	check_space(char **map)
 			if (j > 0 && j < (int)ft_strlen(map[i]) - 1
 				&& (map[i][j] == '0' || player_button(map[i][j])))
 				if (map[i][j - 1] == ' ' || map[i][j + 1] == ' ')
-					error_script("Error: map_not_closed", s_top());
+					error_script("Error: error_in_closing_map", s_top());
 			if (i > 0 && i < tab_tab(map) - 1
 				&& (map[i][j] == '0' || player_button(map[i][j])))
 				if ((j >= (int)ft_strlen(map[i - 1]) || map[i - 1][j] == ' ')
 				|| (j >= (int)ft_strlen(map[i + 1]) || map[i + 1][j] == ' '))
-					error_script("Error: map_not_closed", s_top());
+					error_script("Error: error_in_closing_map", s_top());
 			j++;
 		}
 		i++;
@@ -82,15 +82,15 @@ void	check_map(char **map)
 	while (map[i])
 	{
 		if ((i == 0 || i == map_size - 1) && !check_top_bottom(map[i]))
-			error_script("Error: map_not_closed", s_top());
+			error_script("Error: error_in_closing_map", s_top());
 		else if (i != 0 && i != map_size - 1 && !ft_close(map[i]))
-			error_script("Error: map_not_closed", s_top());
+			error_script("Error: error_in_closing_map", s_top());
 		if (char_hold(map[i]))
-			error_script("Error: bad_char", s_top());
+			error_script("Error: invalid_char", s_top());
 		player_hold(map[i], &p);
 		i++;
 	}
 	if (p != 1)
-		error_script("Error: player_error", s_top());
+		error_script("Error: error_in_player", s_top());
 	check_space(map);
 }

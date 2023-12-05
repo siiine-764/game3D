@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:18:53 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/04 22:07:07 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/05 12:39:10 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ int main(int ac, char **av)
     // }
     // map->mapa[i] = NULL;
     /// end parsing ////
+    // text_fill(map, av[1], av[1]);
+    // check_textures(map);
     ft_position_player(map);
     int bl = ft_init(map);
     // fclose(file);

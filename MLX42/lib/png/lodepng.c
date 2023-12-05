@@ -385,7 +385,7 @@ unsigned lodepng_load_file(unsigned char** out, size_t* outsize, const char* fil
   *outsize = (size_t)size;
 
   *out = (unsigned char*)lodepng_malloc((size_t)size);
-  if(!(*out) && size > 0) return 83; /*the above malloc failed*/
+  if(!(*out) && size > 0) return 83; /*the above error_in_malloc*/
 
   return lodepng_buffer_file(*out, (size_t)size, filename);
 }
@@ -2907,8 +2907,8 @@ static unsigned checkColorValidity(LodePNGColorType colortype, unsigned bd) {
     case LCT_PALETTE:    if(!(bd == 1 || bd == 2 || bd == 4 || bd == 8            )) return 37; break;
     case LCT_GREY_ALPHA: if(!(                                 bd == 8 || bd == 16)) return 37; break;
     case LCT_RGBA:       if(!(                                 bd == 8 || bd == 16)) return 37; break;
-    case LCT_MAX_OCTET_VALUE: return 31; /* invalid color type */
-    default: return 31; /* invalid color type */
+    case LCT_MAX_OCTET_VALUE: return 31; /* color_is_invalid type */
+    default: return 31; /* color_is_invalid type */
   }
   return 0; /*allowed color type / bits combination*/
 }
@@ -2920,8 +2920,8 @@ static unsigned getNumColorChannels(LodePNGColorType colortype) {
     case LCT_PALETTE: return 1;
     case LCT_GREY_ALPHA: return 2;
     case LCT_RGBA: return 4;
-    case LCT_MAX_OCTET_VALUE: return 0; /* invalid color type */
-    default: return 0; /*invalid color type*/
+    case LCT_MAX_OCTET_VALUE: return 0; /* color_is_invalid type */
+    default: return 0; /*color_is_invalid type*/
   }
 }
 
@@ -4347,7 +4347,7 @@ unsigned lodepng_inspect(unsigned* w, unsigned* h, LodePNGState* state,
 
   /*error: invalid image size*/
   if(width == 0 || height == 0) CERROR_RETURN_ERROR(state->error, 93);
-  /*error: invalid colortype or bitdepth combination*/
+  /*error: color_is_invalidtype or bitdepth combination*/
   state->error = checkColorValidity(info->color.colortype, info->color.bitdepth);
   if(state->error) return state->error;
   /*error: only compression method 0 is allowed in the specification*/
@@ -4677,7 +4677,7 @@ static unsigned postProcessScanlines(unsigned char* out, unsigned char* in,
   NOTE: the in buffer will be overwritten with intermediate data!
   */
   unsigned bpp = lodepng_get_bpp(&info_png->color);
-  if(bpp == 0) return 31; /*error: invalid colortype*/
+  if(bpp == 0) return 31; /*error: color_is_invalidtype*/
 
   if(info_png->interlace_method == 0) {
     if(bpp < 8 && w * bpp != ((w * bpp + 7u) / 8u) * 8u) {
@@ -5927,7 +5927,7 @@ static unsigned filter(unsigned char* out, const unsigned char* in, unsigned w, 
   if(settings->filter_palette_zero &&
      (color->colortype == LCT_PALETTE || color->bitdepth < 8)) strategy = LFS_ZERO;
 
-  if(bpp == 0) return 31; /*error: invalid color type*/
+  if(bpp == 0) return 31; /*error: color_is_invalid type*/
 
   if(strategy >= LFS_ZERO && strategy <= LFS_FOUR) {
     unsigned char type = (unsigned char)strategy;
@@ -6299,9 +6299,9 @@ unsigned lodepng_encode(unsigned char** out, size_t* outsize,
     goto cleanup;
   }
   state->error = checkColorValidity(info_png->color.colortype, info_png->color.bitdepth);
-  if(state->error) goto cleanup; /*error: invalid color type given*/
+  if(state->error) goto cleanup; /*error: color_is_invalid type given*/
   state->error = checkColorValidity(state->info_raw.colortype, state->info_raw.bitdepth);
-  if(state->error) goto cleanup; /*error: invalid color type given*/
+  if(state->error) goto cleanup; /*error: color_is_invalid type given*/
 
   /* color convert and compute scanline filter types */
   lodepng_info_copy(&info, &state->info_png);
