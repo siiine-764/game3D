@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:36:25 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/04 20:12:02 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/05 17:00:22 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,9 @@ void ft_draw(t_map *map)
             if (map->mapa[y][x] == '1')
                 ft_draw_cub(map->image_map, SIZE_CUB, SIZE_CUB, x * SIZE_CUB, y * SIZE_CUB, 0x800080ff);
 
-            if (map->mapa[y][x] == '0')
+            if (map->mapa[y][x] == '0' || map->mapa[y][x] == 'N' || 
+                map->mapa[y][x] == 'S' || map->mapa[y][x] == 'E' ||
+                map->mapa[y][x] == 'W')
                 ft_draw_cub(map->image_map, SIZE_CUB, SIZE_CUB, x * SIZE_CUB, y * SIZE_CUB, 0xffffffff);
             x++;
         }

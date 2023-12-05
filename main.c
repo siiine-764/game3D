@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:18:53 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/04 22:07:07 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/05 17:02:04 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,26 +53,10 @@ int main(int ac, char **av)
 	}
     //// parsing ////
     t_map *map = malloc(sizeof(t_map));
-     map_reader(av[1], map);
-    // FILE *file;
-    // map->mapa = malloc(100 * sizeof(char *));
-    // file = fopen("./map/path.cub", "r");
-    // if (file == NULL)
-    // {
-    //     printf("Unable to open the file.\n");
-    //     return 1;
-    // }
-    // char buffer[100];
-    // int i = 0;
-    // while (fgets(buffer, sizeof(buffer), file) != NULL)
-    // {
-    //     map->mapa[i] = strdup((const char *)buffer);
-    //     i++;
-    // }
-    // map->mapa[i] = NULL;
+    map_reader(av[1], map);
     /// end parsing ////
     ft_position_player(map);
     int bl = ft_init(map);
-    // fclose(file);
+    free (map);
     return (bl);
 }
