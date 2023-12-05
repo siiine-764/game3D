@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   MLX42_Int.h                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: W2Wizard <main@w2wizard.dev>                 +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/27 23:55:34 by W2Wizard      #+#    #+#                 */
-/*   Updated: 2022/07/21 10:46:43 by sbos          ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   MLX42_Int.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/27 23:55:34 by W2Wizard          #+#    #+#             */
+/*   Updated: 2023/12/05 17:11:58 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 # define GETLINE_BUFF 1280
 # define MLX_MAX_STRING 512 /* Arbitrary string limit */
 # define MLX_ASSERT(cond, msg) assert(cond && msg);
-# define MLX_NONNULL(var) MLX_ASSERT(var, "Value can't be null"); /* Assert instead of attribute */
+# define MLX_NONNULL(var) MLX_ASSERT(var, "val can't be null"); /* Assert instead of attribute */
 
 /**
  * The shader code is extracted from the shader files
@@ -65,7 +65,7 @@ extern const char* frag_shader;
 // Flag to indicate if the render queue has to be sorted.
 extern bool sort_queue;
 
-// Settings array, use the enum 'key' to get the value.
+// Settings array, use the enum 'key' to get the val.
 extern int32_t mlx_settings[MLX_SETTINGS_MAX];
 
 //= Types =//
@@ -223,13 +223,13 @@ int32_t mlx_lstsize(mlx_list_t* lst);
 void mlx_lstclear(mlx_list_t** lst, void (*del)(void*));
 void mlx_lstadd_back(mlx_list_t** lst, mlx_list_t* new);
 void mlx_lstadd_front(mlx_list_t** lst, mlx_list_t* new);
-mlx_list_t* mlx_lstremove(mlx_list_t** lst, void* value, bool (*comp)(void*, void*));
+mlx_list_t* mlx_lstremove(mlx_list_t** lst, void* val, bool (*comp)(void*, void*));
 void mlx_sort_renderqueue(mlx_list_t** lst);
 
 //= Misc functions =//
 
-bool mlx_equal_image(void* lstcontent, void* value);
-bool mlx_equal_inst(void* lstcontent, void* value);
+bool mlx_equal_image(void* lstcontent, void* val);
+bool mlx_equal_inst(void* lstcontent, void* val);
 void mlx_draw_pixel(uint8_t* pixel, uint32_t color);
 
 //= Error/log Handling Functions =//

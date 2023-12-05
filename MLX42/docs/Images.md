@@ -16,7 +16,7 @@ An image on its own is very simple:
 ```c
 /**
  * An image with an individual buffer that can be rendered.
- * Any value can be modified except the width/height and context.
+ * Any val can be modified except the width/height and context.
  * 
  * @param width The width of the image.
  * @param height The height of the image.
@@ -91,8 +91,8 @@ img->instances[0].y += 5;
 ```
 
 ## Transparency
-In regards to transparency, aka the `z` value, use `mlx_set_instance_depth` to set the z/depth value of the image.
-The z value determines the depth of the image, as in, is it in the foreground or background.
+In regards to transparency, aka the `z` val, use `mlx_set_instance_depth` to set the z/depth val of the image.
+The z val determines the depth of the image, as in, is it in the foreground or background.
 
 If two instances are on the same z layer and are transparent, the transparency breaks and the instances cut off each other.
 To prevent this by default any new instances put onto window will be on their own layer.

@@ -15,7 +15,7 @@
 void	texture_parse(char *line, t_map *map)
 {
 	char	*key;
-	char	*value;
+	char	*val;
 	int		i;
 
 	i = 0;
@@ -29,12 +29,12 @@ void	texture_parse(char *line, t_map *map)
 					error_script("Error: something_wrong_in_textures", s_top());
 	while (line[i] && line[i] == ' ')
 		i++;
-	value = ft_substr(line, i, ft_strlen(line) - i - 1);
-	if (!key || !value)
+	val = ft_substr(line, i, ft_strlen(line) - i - 1);
+	if (!key || !val)
 		error_script("Error: error_in_malloc", s_top());
-	garbage_join(s_top(), value);
-	text_fill(map, key, value);
-	color_load(map, key, value);
+	garbage_join(s_top(), val);
+	text_fill(map, key, val);
+	color_load(map, key, val);
 }
 
 void	line_parsing(char *line, int index, t_map *map, char **joined)

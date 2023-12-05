@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:38:46 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/05 12:23:50 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/05 22:47:56 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 #define SIZE_CUB 10
 #define convert_degrees_radian M_PI / 180
 
-typedef struct s_garbage	t_garbage;
+typedef struct s_garb	t_garb;
 typedef struct s_texture	t_texture;
 typedef struct s_mlx        t_mlx;
 
@@ -39,19 +39,19 @@ typedef struct s_vector
     float y;
 } t_vector;
 
-typedef struct s_garbage
+typedef struct s_garb
 {
-	void		*address;
-	t_garbage	*next;
-	t_garbage	*last;
-}t_garbage;
+	void		*addr;
+	t_garb		*nxt;
+	t_garb		*lst;
+}t_garb;
 
 typedef struct s_texture	
 {
-	char		*key;
-	char		*value;
-    t_texture	*next;
-	t_texture	*last;
+	char		*val;
+	char		*cue;
+    t_texture	*nxt;
+	t_texture	*lst;
 }t_texture;
 
 typedef struct s_mlx
@@ -66,8 +66,8 @@ typedef struct s_map
     mlx_image_t* image_map;
 
     t_texture	*textures;
-	int			celling_color;
-	int			floor_color;
+	int			color_c;
+	int			color_f;
 
     char		**mapa;
     float x_p;
@@ -129,14 +129,14 @@ void ft_w_p(t_map *map, int x, int y);
 
 //parsing
 int     ft_num  (char *str);
-int	    color_put(char *value);
-void	color_load(t_map *map, char *key, char *value);
+int	    color_put(char *val);
+void	color_load(t_map *map, char *key, char *val);
 void	check_color(t_map *map);
 int	    check_top_bottom(char *str);
 int    	ft_close(char *str);
 void	check_space(char **map);
 void	check_map(char **map);
-void	text_fill(t_map *map, char *key, char *value);
+void	text_fill(t_map *map, char *key, char *val);
 void	check_textures(t_map	*map);
 int	    player_button(char c);
 int 	char_hold(char *str);
@@ -145,10 +145,9 @@ int	    ft_strcmp(char *s1, char *s2);
 int	    tab_tab(char **tab);
 void	free_size(char **tab);
 char	*join_free(char *s1, char *s2);
-void	garbage_join(t_garbage **top, void *address);
-t_garbage	**s_top(void);
-void	empty_garbage(t_garbage **top);
-void	error_script(char *msg, t_garbage **top);
+void	garbage_join(t_garb **top, void *address);
+t_garb	**s_top(void);
+void	empty_garbage(t_garb **top);
 void	map_reader(char *path, t_map *mapa);
 
 #endif

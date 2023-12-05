@@ -34,7 +34,7 @@ The file format looks as follows:
 
 ## Inner workings
 
-Reading an XPM42 does a whole bunch of stuff but in essence it reads the file header and inserts each color entry into a hash table for fast lookups of the color value, the hash used is FNV-1a. Why, because it's an easy to use hash and also my favourite. After the header is read and the color values are inserted into the table each line is then read and each character is processed and inserted into the pixel buffer of the XPM. There is no collision checking for the lookup table, so artefacts may be present.
+Reading an XPM42 does a whole bunch of stuff but in essence it reads the file header and inserts each color entry into a hash table for fast lookups of the color val, the hash used is FNV-1a. Why, because it's an easy to use hash and also my favourite. After the header is read and the color vals are inserted into the table each line is then read and each character is processed and inserted into the pixel buffer of the XPM. There is no collision checking for the lookup table, so artefacts may be present.
 
 ## Tools
 

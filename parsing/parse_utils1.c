@@ -37,11 +37,11 @@ void	free_size(char **tab)
 
 char	*join_free(char *s1, char *s2)
 {
-	char	*joined;
+	char	*str;
 
 	if (!s1)
 		s1 = ft_strdup("");
-	joined = ft_strjoin(s1, s2);
+	str = ft_strjoin(s1, s2);
 	free(s1);
-	return (joined);
+	return (str);
 }

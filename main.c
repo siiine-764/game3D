@@ -6,13 +6,13 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:06:42 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/05 17:08:31 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/05 17:11:58 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// Function for finding absolute value
+// Function for finding absolute val
 int abs(int n) { return ((n > 0) ? n : (n * (-1))); }
 
 // DDA Function for line generation

@@ -12,60 +12,54 @@
 
 #include "../cub3d.h"
 
-void	text_add(t_texture **t, char *key, char *value)
+void	text_add(t_texture **text, char *val, char *cue)
 {
-	t_texture	*new;
+	t_texture	*node;
 
-	new = malloc(sizeof(t_texture));
-	if (!new)
+	node = malloc(sizeof(t_texture));
+	if (!node)
 		error_script("Error: error_in_malloc", s_top());
-	garbage_join(s_top(), new);
-	new->key = key;
-	new->value = value;
-	new->next = NULL;
-	new->last = NULL;
-	if (!*t)
+	garbage_join(s_top(), node);
+	node->cue = cue;
+	node->val = val;
+	node->nxt = NULL;
+	node->lst = NULL;
+	if (!*text)
 	{
-		*t = new;
-		(*t)->last = new;
-		(*t)->next = NULL;
+		*text = node;
+		(*text)->lst = node;
+		(*text)->nxt = NULL;
 	}
-	// else
-	// {
-	// 	(*t)->last->next = new;
-	// 	new->last = (*t)->last;
-	// 	(*t)->last = new;
-	// }
 }
 
-void	text_fill(t_map *map, char *key, char *value)
+void	text_fill(t_map *map, char *val, char *cue)
 {
-	if (key && (!ft_strcmp(key, "NO") || !ft_strcmp(key, "SO")
-			|| !ft_strcmp(key, "WE") || !ft_strcmp(key, "EA")))
-		text_add(&map->textures, key, value);
+	if (cue && (!ft_strcmp(cue, "NO") || !ft_strcmp(cue, "SO")
+			|| !ft_strcmp(cue, "WE") || !ft_strcmp(cue, "EA")))
+		text_add(&map->textures, cue, val);
 }
 
 void	check_textures(t_map *map)
 {
-	static int	state[4] = {0, 0, 0, 0};
 	t_texture	*tmp;
 	int			fd;
+	int	c[4] = {0, 0, 0, 0};
 
 	tmp = map->textures;
 	while (tmp)
 	{
-		fd = open(tmp->value, O_RDONLY);
-		if (!ft_strcmp(tmp->key, "NO") && fd != -1)
-			state[0] = 1;
-		else if (!ft_strcmp(tmp->key, "SO") && fd != -1)
-			state[1] = 1;
-		else if (!ft_strcmp(tmp->key, "WE") && fd != -1)
-			state[2] = 1;
-		else if (!ft_strcmp(tmp->key, "EA") && fd != -1)
-			state[3] = 1;
+		fd = open(tmp->val, O_RDONLY);
+		if (!ft_strcmp(tmp->cue, "NO") && fd != -1)
+			c[0] = 1;
+		else if (!ft_strcmp(tmp->cue, "SO") && fd != -1)
+			c[1] = 1;
+		else if (!ft_strcmp(tmp->cue, "WE") && fd != -1)
+			c[2] = 1;
+		else if (!ft_strcmp(tmp->cue, "EA") && fd != -1)
+			c[3] = 1;
 		close(fd);
-		tmp = tmp->next;
+		tmp = tmp->nxt;
 	}
-	if (!state[0] || !state[1] || !state[2] || !state[3])
+	if (!c[0] || !c[1] || !c[2] || !c[3])
 		error_script("Error: something_wrong_in_textures", s_top());
 }

@@ -73,7 +73,7 @@
  *
  * Tokens defined in khrplatform.h:
  *
- *    KHRONOS_FALSE, KHRONOS_TRUE Enumerated boolean false/true values.
+ *    KHRONOS_FALSE, KHRONOS_TRUE Enumerated boolean false/true vals.
  *
  *    KHRONOS_SUPPORT_INT64 is 1 if 64 bit integers are supported; otherwise 0.
  *    KHRONOS_SUPPORT_FLOAT is 1 if floats are supported; otherwise 0.
@@ -282,7 +282,7 @@ typedef          float         khronos_float_t;
  * an absolute Unadjusted System Time.  Unadjusted System Time is the number
  * of nanoseconds since some arbitrary system event (e.g. since the last
  * time the system booted).  The Unadjusted System Time is an unsigned
- * 64 bit value that wraps back to 0 every 584 years.  Time intervals
+ * 64 bit val that wraps back to 0 every 584 years.  Time intervals
  * may be either signed or unsigned.
  */
 typedef khronos_uint64_t       khronos_utime_nanoseconds_t;
@@ -290,7 +290,7 @@ typedef khronos_int64_t        khronos_stime_nanoseconds_t;
 #endif
 
 /*
- * Dummy value used to pad enum types to 32 bits.
+ * Dummy val used to pad enum types to 32 bits.
  */
 #ifndef KHRONOS_MAX_ENUM
 #define KHRONOS_MAX_ENUM 0x7FFFFFFF
@@ -299,7 +299,7 @@ typedef khronos_int64_t        khronos_stime_nanoseconds_t;
 /*
  * Enumerated boolean type
  *
- * Values other than zero should be considered to be true.  Therefore
+ * vals other than zero should be considered to be true.  Therefore
  * comparisons should not be made against KHRONOS_TRUE.
  */
 typedef enum {

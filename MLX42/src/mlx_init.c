@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   mlx_init.c                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: W2Wizard <main@w2wizard.dev>                 +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/28 00:24:30 by W2Wizard      #+#    #+#                 */
-/*   Updated: 2023/06/08 18:16:19 by XEDGit        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   mlx_init.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/28 00:24:30 by W2Wizard          #+#    #+#             */
+/*   Updated: 2023/12/05 17:11:58 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,8 +196,8 @@ mlx_t* mlx_init(int32_t width, int32_t height, const char* title, bool resize)
 	return (mlx);
 }
 
-void mlx_set_setting(mlx_settings_t setting, int32_t value)
+void mlx_set_setting(mlx_settings_t setting, int32_t val)
 {
-	MLX_ASSERT(setting >= 0 && setting < MLX_SETTINGS_MAX, "Invalid settings value");
-	mlx_settings[setting] = value;
+	MLX_ASSERT(setting >= 0 && setting < MLX_SETTINGS_MAX, "Invalid settings val");
+	mlx_settings[setting] = val;
 }

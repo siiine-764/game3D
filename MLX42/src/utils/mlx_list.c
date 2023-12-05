@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   mlx_list.c                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: W2Wizard <main@w2wizard.dev>                 +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/28 01:53:51 by W2Wizard      #+#    #+#                 */
-/*   Updated: 2023/02/27 11:31:01 by W2Wizard      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   mlx_list.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/28 01:53:51 by W2Wizard          #+#    #+#             */
+/*   Updated: 2023/12/05 17:11:58 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,14 +94,14 @@ void mlx_lstadd_front(mlx_list_t** lst, mlx_list_t* new)
  * Also fixes any relinking that might be needed.
  *
  * @param[in] lst The list
- * @param[in] comp Function to check if the content and value are the same.
+ * @param[in] comp Function to check if the content and val are the same.
  * @returns The removed element, clean up as you wish.
  */
-mlx_list_t* mlx_lstremove(mlx_list_t** lst, void* value, bool (*comp)(void*, void*))
+mlx_list_t* mlx_lstremove(mlx_list_t** lst, void* val, bool (*comp)(void*, void*))
 {
 	mlx_list_t* lstcpy = *lst;
 
-	while (lstcpy && !comp(lstcpy->content, value))
+	while (lstcpy && !comp(lstcpy->content, val))
 		lstcpy = lstcpy->next;
 	if (lstcpy == NULL)
 		return (NULL);
@@ -114,7 +114,7 @@ mlx_list_t* mlx_lstremove(mlx_list_t** lst, void* value, bool (*comp)(void*, voi
 	return (lstcpy);
 }
 
-// Retrieve Z value from queue.
+// Retrieve Z val from queue.
 static int32_t mlx_getzdata(mlx_list_t* entry)
 {
 	const draw_queue_t* queue = entry->content;

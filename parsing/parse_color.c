@@ -37,20 +37,17 @@ int ft_num  (char *s)
 	return (true);
 }
 
-int	color_put(char *value)
+int	color_put(char *val)
 {
-	char	**rgb;
 	int		i;
-	int		color;
 	int		c;
+	int		color;
+	char	**rgb;
 
 	i = 0;
-	rgb = ft_split(value, ',');
+	rgb = ft_split(val, ',');
 	if (!rgb)
 		error_script("Error: error_in_malloc", s_top());
-	// if (i != 2 || tab_tab(rgb) != 3)
-	// free_size(rgb);
-	// error_script("Error: color_is_invalid", s_top());
 	i = 0;
 	color = 0;
 	while (rgb[i])
@@ -66,16 +63,16 @@ int	color_put(char *value)
 	return (free_size(rgb), color);
 }
 
-void	color_load(t_map *map, char *key, char *value)
+void	color_load(t_map *map, char *val, char *cue)
 {
-	if (key && value && !ft_strcmp(key, "C"))
-		map->celling_color = color_put(value);
-	else if (key && value && !ft_strcmp(key, "F"))
-		map->floor_color = color_put(value);
+	if (cue && val && !ft_strcmp(cue, "C"))
+		map->color_c = color_put(val);
+	else if (cue && val && !ft_strcmp(cue, "F"))
+		map->color_f = color_put(val);
 }
 
 void	check_color(t_map *map)
 {
-	if (map->celling_color == -1 || map->floor_color == -1)
+	if (map->color_c == -1 || map->color_f == -1)
 		error_script("Error: color_is_invalid", s_top());
 }

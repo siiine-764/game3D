@@ -12,32 +12,32 @@
 
 #include "../cub3d.h"
 
-int	check_top_bottom(char *str)
+int	check_top_bottom(char *s)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (s[i])
 	{
-		if (str[i] != '1' && str[i] != ' ')
+		if (s[i] != '1' && s[i] != ' ')
 			return (false);
 		i++;
 	}
 	return (true);
 }
 
-int	ft_close(char *str)
+int	ft_close(char *s)
 {
 	int	i;
-	int	len;
+	int	l;
 
 	i = 0;
-	len = ft_strlen(str);
-	while (str[i])
+	l = ft_strlen(s);
+	while (s[i])
 	{
-		if (i == 0 && str[i] != '1' && str[i] != ' ')
+		if (i == 0 && s[i] != '1' && s[i] != ' ')
 			return (false);
-		else if (i == len - 1 && str[i] != '1' && str[i] != ' ')
+		else if (i == l - 1 && s[i] != '1' && s[i] != ' ')
 			return (false);
 		i++;
 	}
@@ -72,25 +72,25 @@ void	check_space(char **map)
 
 void	check_map(char **map)
 {
+	int	size;
 	int	i;
-	int	p;
-	int	map_size;
+	int	j;
 
 	i = 0;
-	p = 0;
-	map_size = tab_tab(map);
+	j = 0;
+	size = tab_tab(map);
 	while (map[i])
 	{
-		if ((i == 0 || i == map_size - 1) && !check_top_bottom(map[i]))
+		if ((i == 0 || i == size - 1) && !check_top_bottom(map[i]))
 			error_script("Error: error_in_closing_map", s_top());
-		else if (i != 0 && i != map_size - 1 && !ft_close(map[i]))
+		else if (i != 0 && i != size - 1 && !ft_close(map[i]))
 			error_script("Error: error_in_closing_map", s_top());
 		if (char_hold(map[i]))
 			error_script("Error: invalid_char", s_top());
-		player_hold(map[i], &p);
+		player_hold(map[i], &j);
 		i++;
 	}
-	if (p != 1)
+	if (j != 1)
 		error_script("Error: error_in_player", s_top());
 	check_space(map);
 }
