@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:38:46 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/06 19:54:45 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/06 22:41:10 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,14 @@ typedef struct s_garb
 	t_garb		*lst;
 }t_garb;
 
-typedef struct s_texture	
+typedef struct s_image
 {
-	char		*val;
-	char		*cue;
-    t_texture	*nxt;
-	t_texture	*lst;
-}t_texture;
+	void		*img_ptr;
+	char		*img_data;
+	int			bpp;
+	int			line_length;
+	int			endian;
+}t_image;
 
 typedef struct s_mlx
 {
@@ -60,12 +61,24 @@ typedef struct s_mlx
 	void	*win_ptr;
 }t_mlx;
 
+typedef struct s_texture	
+{
+	char		*val;
+	char		*cue;
+	int			xpm_width;
+	int			xpm_height;
+    t_texture	*nxt;
+	t_texture	*lst;
+	t_image		*texture_img;
+}t_texture;
+
 typedef struct s_map
 {
     mlx_image_t* image;
     mlx_image_t* image_map;
 
     t_texture	*textures;
+	void		*mlx_ptr;
 	int			color_c;
 	int			color_f;
 
@@ -128,6 +141,8 @@ void ft_e_p(t_map *map, int x, int y);
 void ft_w_p(t_map *map, int x, int y);
 
 //parsing
+void	*my_mlx_xpm_file_to_img(t_map *map, char *path,
+ 	int *width, int *height);
 int	    color_put(char *val);
 void	color_load(t_map *map, char *key, char *val);
 void	check_color(t_map *map);
@@ -147,7 +162,5 @@ void	garbage_join(t_garb **top, void *address);
 t_garb	**s_top(void);
 void	empty_garbage(t_garb **top);
 void	map_reader(char *path, t_map *mapa);
-
-void	error_script(char *t, t_garb **top);
 
 #endif
