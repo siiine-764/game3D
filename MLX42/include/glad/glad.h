@@ -177,7 +177,7 @@ typedef void (APIENTRY *GLVULKANPROCNV)(void);
 #define GL_FRONT_AND_BACK 0x0408
 #define GL_NO_ERROR 0
 #define GL_INVALID_ENUM 0x0500
-#define GL_INVALID_VALUE 0x0501
+#define GL_INVALID_val 0x0501
 #define GL_INVALID_OPERATION 0x0502
 #define GL_OUT_OF_MEMORY 0x0505
 #define GL_CW 0x0900
@@ -197,12 +197,12 @@ typedef void (APIENTRY *GLVULKANPROCNV)(void);
 #define GL_DEPTH_RANGE 0x0B70
 #define GL_DEPTH_TEST 0x0B71
 #define GL_DEPTH_WRITEMASK 0x0B72
-#define GL_DEPTH_CLEAR_VALUE 0x0B73
+#define GL_DEPTH_CLEAR_val 0x0B73
 #define GL_DEPTH_FUNC 0x0B74
 #define GL_STENCIL_TEST 0x0B90
-#define GL_STENCIL_CLEAR_VALUE 0x0B91
+#define GL_STENCIL_CLEAR_val 0x0B91
 #define GL_STENCIL_FUNC 0x0B92
-#define GL_STENCIL_VALUE_MASK 0x0B93
+#define GL_STENCIL_val_MASK 0x0B93
 #define GL_STENCIL_FAIL 0x0B94
 #define GL_STENCIL_PASS_DEPTH_FAIL 0x0B95
 #define GL_STENCIL_PASS_DEPTH_PASS 0x0B96
@@ -218,7 +218,7 @@ typedef void (APIENTRY *GLVULKANPROCNV)(void);
 #define GL_READ_BUFFER 0x0C02
 #define GL_SCISSOR_BOX 0x0C10
 #define GL_SCISSOR_TEST 0x0C11
-#define GL_COLOR_CLEAR_VALUE 0x0C22
+#define GL_COLOR_CLEAR_val 0x0C22
 #define GL_COLOR_WRITEMASK 0x0C23
 #define GL_DOUBLEBUFFER 0x0C32
 #define GL_STEREO 0x0C33
@@ -398,7 +398,7 @@ typedef void (APIENTRY *GLVULKANPROCNV)(void);
 #define GL_FOG_END 0x0B64
 #define GL_FOG_MODE 0x0B65
 #define GL_FOG_COLOR 0x0B66
-#define GL_ACCUM_CLEAR_VALUE 0x0B80
+#define GL_ACCUM_CLEAR_val 0x0B80
 #define GL_MATRIX_MODE 0x0BA0
 #define GL_NORMALIZE 0x0BA1
 #define GL_MODELVIEW_STACK_DEPTH 0x0BA3
@@ -413,7 +413,7 @@ typedef void (APIENTRY *GLVULKANPROCNV)(void);
 #define GL_ALPHA_TEST_REF 0x0BC2
 #define GL_LOGIC_OP 0x0BF1
 #define GL_AUX_BUFFERS 0x0C00
-#define GL_INDEX_CLEAR_VALUE 0x0C20
+#define GL_INDEX_CLEAR_val 0x0C20
 #define GL_INDEX_WRITEMASK 0x0C21
 #define GL_INDEX_MODE 0x0C30
 #define GL_RGBA_MODE 0x0C31
@@ -741,7 +741,7 @@ typedef void (APIENTRY *GLVULKANPROCNV)(void);
 #define GL_SAMPLE_COVERAGE 0x80A0
 #define GL_SAMPLE_BUFFERS 0x80A8
 #define GL_SAMPLES 0x80A9
-#define GL_SAMPLE_COVERAGE_VALUE 0x80AA
+#define GL_SAMPLE_COVERAGE_val 0x80AA
 #define GL_SAMPLE_COVERAGE_INVERT 0x80AB
 #define GL_TEXTURE_CUBE_MAP 0x8513
 #define GL_TEXTURE_BINDING_CUBE_MAP 0x8514
@@ -976,7 +976,7 @@ typedef void (APIENTRY *GLVULKANPROCNV)(void);
 #define GL_LOWER_LEFT 0x8CA1
 #define GL_UPPER_LEFT 0x8CA2
 #define GL_STENCIL_BACK_REF 0x8CA3
-#define GL_STENCIL_BACK_VALUE_MASK 0x8CA4
+#define GL_STENCIL_BACK_val_MASK 0x8CA4
 #define GL_STENCIL_BACK_WRITEMASK 0x8CA5
 #define GL_VERTEX_PROGRAM_TWO_SIDE 0x8643
 #define GL_POINT_SPRITE 0x8861
@@ -1348,7 +1348,7 @@ typedef void (APIENTRY *GLVULKANPROCNV)(void);
 #define GL_SYNC_FLUSH_COMMANDS_BIT 0x00000001
 #define GL_SAMPLE_POSITION 0x8E50
 #define GL_SAMPLE_MASK 0x8E51
-#define GL_SAMPLE_MASK_VALUE 0x8E52
+#define GL_SAMPLE_MASK_val 0x8E52
 #define GL_MAX_SAMPLE_MASK_WORDS 0x8E59
 #define GL_TEXTURE_2D_MULTISAMPLE 0x9100
 #define GL_PROXY_TEXTURE_2D_MULTISAMPLE 0x9101
@@ -1384,7 +1384,7 @@ typedef void (APIENTRY *GLVULKANPROCNV)(void);
 #define GL_TIMESTAMP 0x8E28
 #define GL_INT_2_10_10_10_REV 0x8D9F
 #define GL_SAMPLE_SHADING 0x8C36
-#define GL_MIN_SAMPLE_SHADING_VALUE 0x8C37
+#define GL_MIN_SAMPLE_SHADING_val 0x8C37
 #define GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET 0x8E5E
 #define GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET 0x8E5F
 #define GL_TEXTURE_CUBE_MAP_ARRAY 0x9009
@@ -2664,7 +2664,7 @@ GLAPI PFNGLCLEARINDEXPROC glad_glClearIndex;
 typedef void (APIENTRYP PFNGLINDEXMASKPROC)(GLuint mask);
 GLAPI PFNGLINDEXMASKPROC glad_glIndexMask;
 #define glIndexMask glad_glIndexMask
-typedef void (APIENTRYP PFNGLACCUMPROC)(GLenum op, GLfloat value);
+typedef void (APIENTRYP PFNGLACCUMPROC)(GLenum op, GLfloat val);
 GLAPI PFNGLACCUMPROC glad_glAccum;
 #define glAccum glad_glAccum
 typedef void (APIENTRYP PFNGLPOPATTRIBPROC)(void);
@@ -2745,13 +2745,13 @@ GLAPI PFNGLPIXELTRANSFERFPROC glad_glPixelTransferf;
 typedef void (APIENTRYP PFNGLPIXELTRANSFERIPROC)(GLenum pname, GLint param);
 GLAPI PFNGLPIXELTRANSFERIPROC glad_glPixelTransferi;
 #define glPixelTransferi glad_glPixelTransferi
-typedef void (APIENTRYP PFNGLPIXELMAPFVPROC)(GLenum map, GLsizei mapsize, const GLfloat *values);
+typedef void (APIENTRYP PFNGLPIXELMAPFVPROC)(GLenum map, GLsizei mapsize, const GLfloat *vals);
 GLAPI PFNGLPIXELMAPFVPROC glad_glPixelMapfv;
 #define glPixelMapfv glad_glPixelMapfv
-typedef void (APIENTRYP PFNGLPIXELMAPUIVPROC)(GLenum map, GLsizei mapsize, const GLuint *values);
+typedef void (APIENTRYP PFNGLPIXELMAPUIVPROC)(GLenum map, GLsizei mapsize, const GLuint *vals);
 GLAPI PFNGLPIXELMAPUIVPROC glad_glPixelMapuiv;
 #define glPixelMapuiv glad_glPixelMapuiv
-typedef void (APIENTRYP PFNGLPIXELMAPUSVPROC)(GLenum map, GLsizei mapsize, const GLushort *values);
+typedef void (APIENTRYP PFNGLPIXELMAPUSVPROC)(GLenum map, GLsizei mapsize, const GLushort *vals);
 GLAPI PFNGLPIXELMAPUSVPROC glad_glPixelMapusv;
 #define glPixelMapusv glad_glPixelMapusv
 typedef void (APIENTRYP PFNGLCOPYPIXELSPROC)(GLint x, GLint y, GLsizei width, GLsizei height, GLenum type);
@@ -2784,13 +2784,13 @@ GLAPI PFNGLGETMATERIALFVPROC glad_glGetMaterialfv;
 typedef void (APIENTRYP PFNGLGETMATERIALIVPROC)(GLenum face, GLenum pname, GLint *params);
 GLAPI PFNGLGETMATERIALIVPROC glad_glGetMaterialiv;
 #define glGetMaterialiv glad_glGetMaterialiv
-typedef void (APIENTRYP PFNGLGETPIXELMAPFVPROC)(GLenum map, GLfloat *values);
+typedef void (APIENTRYP PFNGLGETPIXELMAPFVPROC)(GLenum map, GLfloat *vals);
 GLAPI PFNGLGETPIXELMAPFVPROC glad_glGetPixelMapfv;
 #define glGetPixelMapfv glad_glGetPixelMapfv
-typedef void (APIENTRYP PFNGLGETPIXELMAPUIVPROC)(GLenum map, GLuint *values);
+typedef void (APIENTRYP PFNGLGETPIXELMAPUIVPROC)(GLenum map, GLuint *vals);
 GLAPI PFNGLGETPIXELMAPUIVPROC glad_glGetPixelMapuiv;
 #define glGetPixelMapuiv glad_glGetPixelMapuiv
-typedef void (APIENTRYP PFNGLGETPIXELMAPUSVPROC)(GLenum map, GLushort *values);
+typedef void (APIENTRYP PFNGLGETPIXELMAPUSVPROC)(GLenum map, GLushort *vals);
 GLAPI PFNGLGETPIXELMAPUSVPROC glad_glGetPixelMapusv;
 #define glGetPixelMapusv glad_glGetPixelMapusv
 typedef void (APIENTRYP PFNGLGETPOLYGONSTIPPLEPROC)(GLubyte *mask);
@@ -2979,7 +2979,7 @@ GLAPI int GLAD_GL_VERSION_1_3;
 typedef void (APIENTRYP PFNGLACTIVETEXTUREPROC)(GLenum texture);
 GLAPI PFNGLACTIVETEXTUREPROC glad_glActiveTexture;
 #define glActiveTexture glad_glActiveTexture
-typedef void (APIENTRYP PFNGLSAMPLECOVERAGEPROC)(GLfloat value, GLboolean invert);
+typedef void (APIENTRYP PFNGLSAMPLECOVERAGEPROC)(GLfloat val, GLboolean invert);
 GLAPI PFNGLSAMPLECOVERAGEPROC glad_glSampleCoverage;
 #define glSampleCoverage glad_glSampleCoverage
 typedef void (APIENTRYP PFNGLCOMPRESSEDTEXIMAGE3DPROC)(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLsizei depth, GLint border, GLsizei imageSize, const void *data);
@@ -3456,37 +3456,37 @@ GLAPI PFNGLUNIFORM3IPROC glad_glUniform3i;
 typedef void (APIENTRYP PFNGLUNIFORM4IPROC)(GLint location, GLint v0, GLint v1, GLint v2, GLint v3);
 GLAPI PFNGLUNIFORM4IPROC glad_glUniform4i;
 #define glUniform4i glad_glUniform4i
-typedef void (APIENTRYP PFNGLUNIFORM1FVPROC)(GLint location, GLsizei count, const GLfloat *value);
+typedef void (APIENTRYP PFNGLUNIFORM1FVPROC)(GLint location, GLsizei count, const GLfloat *val);
 GLAPI PFNGLUNIFORM1FVPROC glad_glUniform1fv;
 #define glUniform1fv glad_glUniform1fv
-typedef void (APIENTRYP PFNGLUNIFORM2FVPROC)(GLint location, GLsizei count, const GLfloat *value);
+typedef void (APIENTRYP PFNGLUNIFORM2FVPROC)(GLint location, GLsizei count, const GLfloat *val);
 GLAPI PFNGLUNIFORM2FVPROC glad_glUniform2fv;
 #define glUniform2fv glad_glUniform2fv
-typedef void (APIENTRYP PFNGLUNIFORM3FVPROC)(GLint location, GLsizei count, const GLfloat *value);
+typedef void (APIENTRYP PFNGLUNIFORM3FVPROC)(GLint location, GLsizei count, const GLfloat *val);
 GLAPI PFNGLUNIFORM3FVPROC glad_glUniform3fv;
 #define glUniform3fv glad_glUniform3fv
-typedef void (APIENTRYP PFNGLUNIFORM4FVPROC)(GLint location, GLsizei count, const GLfloat *value);
+typedef void (APIENTRYP PFNGLUNIFORM4FVPROC)(GLint location, GLsizei count, const GLfloat *val);
 GLAPI PFNGLUNIFORM4FVPROC glad_glUniform4fv;
 #define glUniform4fv glad_glUniform4fv
-typedef void (APIENTRYP PFNGLUNIFORM1IVPROC)(GLint location, GLsizei count, const GLint *value);
+typedef void (APIENTRYP PFNGLUNIFORM1IVPROC)(GLint location, GLsizei count, const GLint *val);
 GLAPI PFNGLUNIFORM1IVPROC glad_glUniform1iv;
 #define glUniform1iv glad_glUniform1iv
-typedef void (APIENTRYP PFNGLUNIFORM2IVPROC)(GLint location, GLsizei count, const GLint *value);
+typedef void (APIENTRYP PFNGLUNIFORM2IVPROC)(GLint location, GLsizei count, const GLint *val);
 GLAPI PFNGLUNIFORM2IVPROC glad_glUniform2iv;
 #define glUniform2iv glad_glUniform2iv
-typedef void (APIENTRYP PFNGLUNIFORM3IVPROC)(GLint location, GLsizei count, const GLint *value);
+typedef void (APIENTRYP PFNGLUNIFORM3IVPROC)(GLint location, GLsizei count, const GLint *val);
 GLAPI PFNGLUNIFORM3IVPROC glad_glUniform3iv;
 #define glUniform3iv glad_glUniform3iv
-typedef void (APIENTRYP PFNGLUNIFORM4IVPROC)(GLint location, GLsizei count, const GLint *value);
+typedef void (APIENTRYP PFNGLUNIFORM4IVPROC)(GLint location, GLsizei count, const GLint *val);
 GLAPI PFNGLUNIFORM4IVPROC glad_glUniform4iv;
 #define glUniform4iv glad_glUniform4iv
-typedef void (APIENTRYP PFNGLUNIFORMMATRIX2FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
+typedef void (APIENTRYP PFNGLUNIFORMMATRIX2FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat *val);
 GLAPI PFNGLUNIFORMMATRIX2FVPROC glad_glUniformMatrix2fv;
 #define glUniformMatrix2fv glad_glUniformMatrix2fv
-typedef void (APIENTRYP PFNGLUNIFORMMATRIX3FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
+typedef void (APIENTRYP PFNGLUNIFORMMATRIX3FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat *val);
 GLAPI PFNGLUNIFORMMATRIX3FVPROC glad_glUniformMatrix3fv;
 #define glUniformMatrix3fv glad_glUniformMatrix3fv
-typedef void (APIENTRYP PFNGLUNIFORMMATRIX4FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
+typedef void (APIENTRYP PFNGLUNIFORMMATRIX4FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat *val);
 GLAPI PFNGLUNIFORMMATRIX4FVPROC glad_glUniformMatrix4fv;
 #define glUniformMatrix4fv glad_glUniformMatrix4fv
 typedef void (APIENTRYP PFNGLVALIDATEPROGRAMPROC)(GLuint program);
@@ -3607,22 +3607,22 @@ GLAPI PFNGLVERTEXATTRIBPOINTERPROC glad_glVertexAttribPointer;
 #ifndef GL_VERSION_2_1
 #define GL_VERSION_2_1 1
 GLAPI int GLAD_GL_VERSION_2_1;
-typedef void (APIENTRYP PFNGLUNIFORMMATRIX2X3FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
+typedef void (APIENTRYP PFNGLUNIFORMMATRIX2X3FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat *val);
 GLAPI PFNGLUNIFORMMATRIX2X3FVPROC glad_glUniformMatrix2x3fv;
 #define glUniformMatrix2x3fv glad_glUniformMatrix2x3fv
-typedef void (APIENTRYP PFNGLUNIFORMMATRIX3X2FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
+typedef void (APIENTRYP PFNGLUNIFORMMATRIX3X2FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat *val);
 GLAPI PFNGLUNIFORMMATRIX3X2FVPROC glad_glUniformMatrix3x2fv;
 #define glUniformMatrix3x2fv glad_glUniformMatrix3x2fv
-typedef void (APIENTRYP PFNGLUNIFORMMATRIX2X4FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
+typedef void (APIENTRYP PFNGLUNIFORMMATRIX2X4FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat *val);
 GLAPI PFNGLUNIFORMMATRIX2X4FVPROC glad_glUniformMatrix2x4fv;
 #define glUniformMatrix2x4fv glad_glUniformMatrix2x4fv
-typedef void (APIENTRYP PFNGLUNIFORMMATRIX4X2FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
+typedef void (APIENTRYP PFNGLUNIFORMMATRIX4X2FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat *val);
 GLAPI PFNGLUNIFORMMATRIX4X2FVPROC glad_glUniformMatrix4x2fv;
 #define glUniformMatrix4x2fv glad_glUniformMatrix4x2fv
-typedef void (APIENTRYP PFNGLUNIFORMMATRIX3X4FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
+typedef void (APIENTRYP PFNGLUNIFORMMATRIX3X4FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat *val);
 GLAPI PFNGLUNIFORMMATRIX3X4FVPROC glad_glUniformMatrix3x4fv;
 #define glUniformMatrix3x4fv glad_glUniformMatrix3x4fv
-typedef void (APIENTRYP PFNGLUNIFORMMATRIX4X3FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
+typedef void (APIENTRYP PFNGLUNIFORMMATRIX4X3FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat *val);
 GLAPI PFNGLUNIFORMMATRIX4X3FVPROC glad_glUniformMatrix4x3fv;
 #define glUniformMatrix4x3fv glad_glUniformMatrix4x3fv
 #endif
@@ -3764,16 +3764,16 @@ GLAPI PFNGLUNIFORM3UIPROC glad_glUniform3ui;
 typedef void (APIENTRYP PFNGLUNIFORM4UIPROC)(GLint location, GLuint v0, GLuint v1, GLuint v2, GLuint v3);
 GLAPI PFNGLUNIFORM4UIPROC glad_glUniform4ui;
 #define glUniform4ui glad_glUniform4ui
-typedef void (APIENTRYP PFNGLUNIFORM1UIVPROC)(GLint location, GLsizei count, const GLuint *value);
+typedef void (APIENTRYP PFNGLUNIFORM1UIVPROC)(GLint location, GLsizei count, const GLuint *val);
 GLAPI PFNGLUNIFORM1UIVPROC glad_glUniform1uiv;
 #define glUniform1uiv glad_glUniform1uiv
-typedef void (APIENTRYP PFNGLUNIFORM2UIVPROC)(GLint location, GLsizei count, const GLuint *value);
+typedef void (APIENTRYP PFNGLUNIFORM2UIVPROC)(GLint location, GLsizei count, const GLuint *val);
 GLAPI PFNGLUNIFORM2UIVPROC glad_glUniform2uiv;
 #define glUniform2uiv glad_glUniform2uiv
-typedef void (APIENTRYP PFNGLUNIFORM3UIVPROC)(GLint location, GLsizei count, const GLuint *value);
+typedef void (APIENTRYP PFNGLUNIFORM3UIVPROC)(GLint location, GLsizei count, const GLuint *val);
 GLAPI PFNGLUNIFORM3UIVPROC glad_glUniform3uiv;
 #define glUniform3uiv glad_glUniform3uiv
-typedef void (APIENTRYP PFNGLUNIFORM4UIVPROC)(GLint location, GLsizei count, const GLuint *value);
+typedef void (APIENTRYP PFNGLUNIFORM4UIVPROC)(GLint location, GLsizei count, const GLuint *val);
 GLAPI PFNGLUNIFORM4UIVPROC glad_glUniform4uiv;
 #define glUniform4uiv glad_glUniform4uiv
 typedef void (APIENTRYP PFNGLTEXPARAMETERIIVPROC)(GLenum target, GLenum pname, const GLint *params);
@@ -3788,13 +3788,13 @@ GLAPI PFNGLGETTEXPARAMETERIIVPROC glad_glGetTexParameterIiv;
 typedef void (APIENTRYP PFNGLGETTEXPARAMETERIUIVPROC)(GLenum target, GLenum pname, GLuint *params);
 GLAPI PFNGLGETTEXPARAMETERIUIVPROC glad_glGetTexParameterIuiv;
 #define glGetTexParameterIuiv glad_glGetTexParameterIuiv
-typedef void (APIENTRYP PFNGLCLEARBUFFERIVPROC)(GLenum buffer, GLint drawbuffer, const GLint *value);
+typedef void (APIENTRYP PFNGLCLEARBUFFERIVPROC)(GLenum buffer, GLint drawbuffer, const GLint *val);
 GLAPI PFNGLCLEARBUFFERIVPROC glad_glClearBufferiv;
 #define glClearBufferiv glad_glClearBufferiv
-typedef void (APIENTRYP PFNGLCLEARBUFFERUIVPROC)(GLenum buffer, GLint drawbuffer, const GLuint *value);
+typedef void (APIENTRYP PFNGLCLEARBUFFERUIVPROC)(GLenum buffer, GLint drawbuffer, const GLuint *val);
 GLAPI PFNGLCLEARBUFFERUIVPROC glad_glClearBufferuiv;
 #define glClearBufferuiv glad_glClearBufferuiv
-typedef void (APIENTRYP PFNGLCLEARBUFFERFVPROC)(GLenum buffer, GLint drawbuffer, const GLfloat *value);
+typedef void (APIENTRYP PFNGLCLEARBUFFERFVPROC)(GLenum buffer, GLint drawbuffer, const GLfloat *val);
 GLAPI PFNGLCLEARBUFFERFVPROC glad_glClearBufferfv;
 #define glClearBufferfv glad_glClearBufferfv
 typedef void (APIENTRYP PFNGLCLEARBUFFERFIPROC)(GLenum buffer, GLint drawbuffer, GLfloat depth, GLint stencil);
@@ -3958,7 +3958,7 @@ GLAPI PFNGLWAITSYNCPROC glad_glWaitSync;
 typedef void (APIENTRYP PFNGLGETINTEGER64VPROC)(GLenum pname, GLint64 *data);
 GLAPI PFNGLGETINTEGER64VPROC glad_glGetInteger64v;
 #define glGetInteger64v glad_glGetInteger64v
-typedef void (APIENTRYP PFNGLGETSYNCIVPROC)(GLsync sync, GLenum pname, GLsizei count, GLsizei *length, GLint *values);
+typedef void (APIENTRYP PFNGLGETSYNCIVPROC)(GLsync sync, GLenum pname, GLsizei count, GLsizei *length, GLint *vals);
 GLAPI PFNGLGETSYNCIVPROC glad_glGetSynciv;
 #define glGetSynciv glad_glGetSynciv
 typedef void (APIENTRYP PFNGLGETINTEGER64I_VPROC)(GLenum target, GLuint index, GLint64 *data);
@@ -4046,46 +4046,46 @@ GLAPI PFNGLGETQUERYOBJECTUI64VPROC glad_glGetQueryObjectui64v;
 typedef void (APIENTRYP PFNGLVERTEXATTRIBDIVISORPROC)(GLuint index, GLuint divisor);
 GLAPI PFNGLVERTEXATTRIBDIVISORPROC glad_glVertexAttribDivisor;
 #define glVertexAttribDivisor glad_glVertexAttribDivisor
-typedef void (APIENTRYP PFNGLVERTEXATTRIBP1UIPROC)(GLuint index, GLenum type, GLboolean normalized, GLuint value);
+typedef void (APIENTRYP PFNGLVERTEXATTRIBP1UIPROC)(GLuint index, GLenum type, GLboolean normalized, GLuint val);
 GLAPI PFNGLVERTEXATTRIBP1UIPROC glad_glVertexAttribP1ui;
 #define glVertexAttribP1ui glad_glVertexAttribP1ui
-typedef void (APIENTRYP PFNGLVERTEXATTRIBP1UIVPROC)(GLuint index, GLenum type, GLboolean normalized, const GLuint *value);
+typedef void (APIENTRYP PFNGLVERTEXATTRIBP1UIVPROC)(GLuint index, GLenum type, GLboolean normalized, const GLuint *val);
 GLAPI PFNGLVERTEXATTRIBP1UIVPROC glad_glVertexAttribP1uiv;
 #define glVertexAttribP1uiv glad_glVertexAttribP1uiv
-typedef void (APIENTRYP PFNGLVERTEXATTRIBP2UIPROC)(GLuint index, GLenum type, GLboolean normalized, GLuint value);
+typedef void (APIENTRYP PFNGLVERTEXATTRIBP2UIPROC)(GLuint index, GLenum type, GLboolean normalized, GLuint val);
 GLAPI PFNGLVERTEXATTRIBP2UIPROC glad_glVertexAttribP2ui;
 #define glVertexAttribP2ui glad_glVertexAttribP2ui
-typedef void (APIENTRYP PFNGLVERTEXATTRIBP2UIVPROC)(GLuint index, GLenum type, GLboolean normalized, const GLuint *value);
+typedef void (APIENTRYP PFNGLVERTEXATTRIBP2UIVPROC)(GLuint index, GLenum type, GLboolean normalized, const GLuint *val);
 GLAPI PFNGLVERTEXATTRIBP2UIVPROC glad_glVertexAttribP2uiv;
 #define glVertexAttribP2uiv glad_glVertexAttribP2uiv
-typedef void (APIENTRYP PFNGLVERTEXATTRIBP3UIPROC)(GLuint index, GLenum type, GLboolean normalized, GLuint value);
+typedef void (APIENTRYP PFNGLVERTEXATTRIBP3UIPROC)(GLuint index, GLenum type, GLboolean normalized, GLuint val);
 GLAPI PFNGLVERTEXATTRIBP3UIPROC glad_glVertexAttribP3ui;
 #define glVertexAttribP3ui glad_glVertexAttribP3ui
-typedef void (APIENTRYP PFNGLVERTEXATTRIBP3UIVPROC)(GLuint index, GLenum type, GLboolean normalized, const GLuint *value);
+typedef void (APIENTRYP PFNGLVERTEXATTRIBP3UIVPROC)(GLuint index, GLenum type, GLboolean normalized, const GLuint *val);
 GLAPI PFNGLVERTEXATTRIBP3UIVPROC glad_glVertexAttribP3uiv;
 #define glVertexAttribP3uiv glad_glVertexAttribP3uiv
-typedef void (APIENTRYP PFNGLVERTEXATTRIBP4UIPROC)(GLuint index, GLenum type, GLboolean normalized, GLuint value);
+typedef void (APIENTRYP PFNGLVERTEXATTRIBP4UIPROC)(GLuint index, GLenum type, GLboolean normalized, GLuint val);
 GLAPI PFNGLVERTEXATTRIBP4UIPROC glad_glVertexAttribP4ui;
 #define glVertexAttribP4ui glad_glVertexAttribP4ui
-typedef void (APIENTRYP PFNGLVERTEXATTRIBP4UIVPROC)(GLuint index, GLenum type, GLboolean normalized, const GLuint *value);
+typedef void (APIENTRYP PFNGLVERTEXATTRIBP4UIVPROC)(GLuint index, GLenum type, GLboolean normalized, const GLuint *val);
 GLAPI PFNGLVERTEXATTRIBP4UIVPROC glad_glVertexAttribP4uiv;
 #define glVertexAttribP4uiv glad_glVertexAttribP4uiv
-typedef void (APIENTRYP PFNGLVERTEXP2UIPROC)(GLenum type, GLuint value);
+typedef void (APIENTRYP PFNGLVERTEXP2UIPROC)(GLenum type, GLuint val);
 GLAPI PFNGLVERTEXP2UIPROC glad_glVertexP2ui;
 #define glVertexP2ui glad_glVertexP2ui
-typedef void (APIENTRYP PFNGLVERTEXP2UIVPROC)(GLenum type, const GLuint *value);
+typedef void (APIENTRYP PFNGLVERTEXP2UIVPROC)(GLenum type, const GLuint *val);
 GLAPI PFNGLVERTEXP2UIVPROC glad_glVertexP2uiv;
 #define glVertexP2uiv glad_glVertexP2uiv
-typedef void (APIENTRYP PFNGLVERTEXP3UIPROC)(GLenum type, GLuint value);
+typedef void (APIENTRYP PFNGLVERTEXP3UIPROC)(GLenum type, GLuint val);
 GLAPI PFNGLVERTEXP3UIPROC glad_glVertexP3ui;
 #define glVertexP3ui glad_glVertexP3ui
-typedef void (APIENTRYP PFNGLVERTEXP3UIVPROC)(GLenum type, const GLuint *value);
+typedef void (APIENTRYP PFNGLVERTEXP3UIVPROC)(GLenum type, const GLuint *val);
 GLAPI PFNGLVERTEXP3UIVPROC glad_glVertexP3uiv;
 #define glVertexP3uiv glad_glVertexP3uiv
-typedef void (APIENTRYP PFNGLVERTEXP4UIPROC)(GLenum type, GLuint value);
+typedef void (APIENTRYP PFNGLVERTEXP4UIPROC)(GLenum type, GLuint val);
 GLAPI PFNGLVERTEXP4UIPROC glad_glVertexP4ui;
 #define glVertexP4ui glad_glVertexP4ui
-typedef void (APIENTRYP PFNGLVERTEXP4UIVPROC)(GLenum type, const GLuint *value);
+typedef void (APIENTRYP PFNGLVERTEXP4UIVPROC)(GLenum type, const GLuint *val);
 GLAPI PFNGLVERTEXP4UIVPROC glad_glVertexP4uiv;
 #define glVertexP4uiv glad_glVertexP4uiv
 typedef void (APIENTRYP PFNGLTEXCOORDP1UIPROC)(GLenum type, GLuint coords);
@@ -4164,7 +4164,7 @@ GLAPI PFNGLSECONDARYCOLORP3UIVPROC glad_glSecondaryColorP3uiv;
 #ifndef GL_VERSION_4_0
 #define GL_VERSION_4_0 1
 GLAPI int GLAD_GL_VERSION_4_0;
-typedef void (APIENTRYP PFNGLMINSAMPLESHADINGPROC)(GLfloat value);
+typedef void (APIENTRYP PFNGLMINSAMPLESHADINGPROC)(GLfloat val);
 GLAPI PFNGLMINSAMPLESHADINGPROC glad_glMinSampleShading;
 #define glMinSampleShading glad_glMinSampleShading
 typedef void (APIENTRYP PFNGLBLENDEQUATIONIPROC)(GLuint buf, GLenum mode);
@@ -4197,43 +4197,43 @@ GLAPI PFNGLUNIFORM3DPROC glad_glUniform3d;
 typedef void (APIENTRYP PFNGLUNIFORM4DPROC)(GLint location, GLdouble x, GLdouble y, GLdouble z, GLdouble w);
 GLAPI PFNGLUNIFORM4DPROC glad_glUniform4d;
 #define glUniform4d glad_glUniform4d
-typedef void (APIENTRYP PFNGLUNIFORM1DVPROC)(GLint location, GLsizei count, const GLdouble *value);
+typedef void (APIENTRYP PFNGLUNIFORM1DVPROC)(GLint location, GLsizei count, const GLdouble *val);
 GLAPI PFNGLUNIFORM1DVPROC glad_glUniform1dv;
 #define glUniform1dv glad_glUniform1dv
-typedef void (APIENTRYP PFNGLUNIFORM2DVPROC)(GLint location, GLsizei count, const GLdouble *value);
+typedef void (APIENTRYP PFNGLUNIFORM2DVPROC)(GLint location, GLsizei count, const GLdouble *val);
 GLAPI PFNGLUNIFORM2DVPROC glad_glUniform2dv;
 #define glUniform2dv glad_glUniform2dv
-typedef void (APIENTRYP PFNGLUNIFORM3DVPROC)(GLint location, GLsizei count, const GLdouble *value);
+typedef void (APIENTRYP PFNGLUNIFORM3DVPROC)(GLint location, GLsizei count, const GLdouble *val);
 GLAPI PFNGLUNIFORM3DVPROC glad_glUniform3dv;
 #define glUniform3dv glad_glUniform3dv
-typedef void (APIENTRYP PFNGLUNIFORM4DVPROC)(GLint location, GLsizei count, const GLdouble *value);
+typedef void (APIENTRYP PFNGLUNIFORM4DVPROC)(GLint location, GLsizei count, const GLdouble *val);
 GLAPI PFNGLUNIFORM4DVPROC glad_glUniform4dv;
 #define glUniform4dv glad_glUniform4dv
-typedef void (APIENTRYP PFNGLUNIFORMMATRIX2DVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLdouble *value);
+typedef void (APIENTRYP PFNGLUNIFORMMATRIX2DVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLdouble *val);
 GLAPI PFNGLUNIFORMMATRIX2DVPROC glad_glUniformMatrix2dv;
 #define glUniformMatrix2dv glad_glUniformMatrix2dv
-typedef void (APIENTRYP PFNGLUNIFORMMATRIX3DVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLdouble *value);
+typedef void (APIENTRYP PFNGLUNIFORMMATRIX3DVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLdouble *val);
 GLAPI PFNGLUNIFORMMATRIX3DVPROC glad_glUniformMatrix3dv;
 #define glUniformMatrix3dv glad_glUniformMatrix3dv
-typedef void (APIENTRYP PFNGLUNIFORMMATRIX4DVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLdouble *value);
+typedef void (APIENTRYP PFNGLUNIFORMMATRIX4DVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLdouble *val);
 GLAPI PFNGLUNIFORMMATRIX4DVPROC glad_glUniformMatrix4dv;
 #define glUniformMatrix4dv glad_glUniformMatrix4dv
-typedef void (APIENTRYP PFNGLUNIFORMMATRIX2X3DVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLdouble *value);
+typedef void (APIENTRYP PFNGLUNIFORMMATRIX2X3DVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLdouble *val);
 GLAPI PFNGLUNIFORMMATRIX2X3DVPROC glad_glUniformMatrix2x3dv;
 #define glUniformMatrix2x3dv glad_glUniformMatrix2x3dv
-typedef void (APIENTRYP PFNGLUNIFORMMATRIX2X4DVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLdouble *value);
+typedef void (APIENTRYP PFNGLUNIFORMMATRIX2X4DVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLdouble *val);
 GLAPI PFNGLUNIFORMMATRIX2X4DVPROC glad_glUniformMatrix2x4dv;
 #define glUniformMatrix2x4dv glad_glUniformMatrix2x4dv
-typedef void (APIENTRYP PFNGLUNIFORMMATRIX3X2DVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLdouble *value);
+typedef void (APIENTRYP PFNGLUNIFORMMATRIX3X2DVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLdouble *val);
 GLAPI PFNGLUNIFORMMATRIX3X2DVPROC glad_glUniformMatrix3x2dv;
 #define glUniformMatrix3x2dv glad_glUniformMatrix3x2dv
-typedef void (APIENTRYP PFNGLUNIFORMMATRIX3X4DVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLdouble *value);
+typedef void (APIENTRYP PFNGLUNIFORMMATRIX3X4DVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLdouble *val);
 GLAPI PFNGLUNIFORMMATRIX3X4DVPROC glad_glUniformMatrix3x4dv;
 #define glUniformMatrix3x4dv glad_glUniformMatrix3x4dv
-typedef void (APIENTRYP PFNGLUNIFORMMATRIX4X2DVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLdouble *value);
+typedef void (APIENTRYP PFNGLUNIFORMMATRIX4X2DVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLdouble *val);
 GLAPI PFNGLUNIFORMMATRIX4X2DVPROC glad_glUniformMatrix4x2dv;
 #define glUniformMatrix4x2dv glad_glUniformMatrix4x2dv
-typedef void (APIENTRYP PFNGLUNIFORMMATRIX4X3DVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLdouble *value);
+typedef void (APIENTRYP PFNGLUNIFORMMATRIX4X3DVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLdouble *val);
 GLAPI PFNGLUNIFORMMATRIX4X3DVPROC glad_glUniformMatrix4x3dv;
 #define glUniformMatrix4x3dv glad_glUniformMatrix4x3dv
 typedef void (APIENTRYP PFNGLGETUNIFORMDVPROC)(GLuint program, GLint location, GLdouble *params);
@@ -4245,7 +4245,7 @@ GLAPI PFNGLGETSUBROUTINEUNIFORMLOCATIONPROC glad_glGetSubroutineUniformLocation;
 typedef GLuint (APIENTRYP PFNGLGETSUBROUTINEINDEXPROC)(GLuint program, GLenum shadertype, const GLchar *name);
 GLAPI PFNGLGETSUBROUTINEINDEXPROC glad_glGetSubroutineIndex;
 #define glGetSubroutineIndex glad_glGetSubroutineIndex
-typedef void (APIENTRYP PFNGLGETACTIVESUBROUTINEUNIFORMIVPROC)(GLuint program, GLenum shadertype, GLuint index, GLenum pname, GLint *values);
+typedef void (APIENTRYP PFNGLGETACTIVESUBROUTINEUNIFORMIVPROC)(GLuint program, GLenum shadertype, GLuint index, GLenum pname, GLint *vals);
 GLAPI PFNGLGETACTIVESUBROUTINEUNIFORMIVPROC glad_glGetActiveSubroutineUniformiv;
 #define glGetActiveSubroutineUniformiv glad_glGetActiveSubroutineUniformiv
 typedef void (APIENTRYP PFNGLGETACTIVESUBROUTINEUNIFORMNAMEPROC)(GLuint program, GLenum shadertype, GLuint index, GLsizei bufSize, GLsizei *length, GLchar *name);
@@ -4260,13 +4260,13 @@ GLAPI PFNGLUNIFORMSUBROUTINESUIVPROC glad_glUniformSubroutinesuiv;
 typedef void (APIENTRYP PFNGLGETUNIFORMSUBROUTINEUIVPROC)(GLenum shadertype, GLint location, GLuint *params);
 GLAPI PFNGLGETUNIFORMSUBROUTINEUIVPROC glad_glGetUniformSubroutineuiv;
 #define glGetUniformSubroutineuiv glad_glGetUniformSubroutineuiv
-typedef void (APIENTRYP PFNGLGETPROGRAMSTAGEIVPROC)(GLuint program, GLenum shadertype, GLenum pname, GLint *values);
+typedef void (APIENTRYP PFNGLGETPROGRAMSTAGEIVPROC)(GLuint program, GLenum shadertype, GLenum pname, GLint *vals);
 GLAPI PFNGLGETPROGRAMSTAGEIVPROC glad_glGetProgramStageiv;
 #define glGetProgramStageiv glad_glGetProgramStageiv
-typedef void (APIENTRYP PFNGLPATCHPARAMETERIPROC)(GLenum pname, GLint value);
+typedef void (APIENTRYP PFNGLPATCHPARAMETERIPROC)(GLenum pname, GLint val);
 GLAPI PFNGLPATCHPARAMETERIPROC glad_glPatchParameteri;
 #define glPatchParameteri glad_glPatchParameteri
-typedef void (APIENTRYP PFNGLPATCHPARAMETERFVPROC)(GLenum pname, const GLfloat *values);
+typedef void (APIENTRYP PFNGLPATCHPARAMETERFVPROC)(GLenum pname, const GLfloat *vals);
 GLAPI PFNGLPATCHPARAMETERFVPROC glad_glPatchParameterfv;
 #define glPatchParameterfv glad_glPatchParameterfv
 typedef void (APIENTRYP PFNGLBINDTRANSFORMFEEDBACKPROC)(GLenum target, GLuint id);
@@ -4327,7 +4327,7 @@ GLAPI PFNGLGETPROGRAMBINARYPROC glad_glGetProgramBinary;
 typedef void (APIENTRYP PFNGLPROGRAMBINARYPROC)(GLuint program, GLenum binaryFormat, const void *binary, GLsizei length);
 GLAPI PFNGLPROGRAMBINARYPROC glad_glProgramBinary;
 #define glProgramBinary glad_glProgramBinary
-typedef void (APIENTRYP PFNGLPROGRAMPARAMETERIPROC)(GLuint program, GLenum pname, GLint value);
+typedef void (APIENTRYP PFNGLPROGRAMPARAMETERIPROC)(GLuint program, GLenum pname, GLint val);
 GLAPI PFNGLPROGRAMPARAMETERIPROC glad_glProgramParameteri;
 #define glProgramParameteri glad_glProgramParameteri
 typedef void (APIENTRYP PFNGLUSEPROGRAMSTAGESPROC)(GLuint pipeline, GLbitfield stages, GLuint program);
@@ -4357,151 +4357,151 @@ GLAPI PFNGLGETPROGRAMPIPELINEIVPROC glad_glGetProgramPipelineiv;
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM1IPROC)(GLuint program, GLint location, GLint v0);
 GLAPI PFNGLPROGRAMUNIFORM1IPROC glad_glProgramUniform1i;
 #define glProgramUniform1i glad_glProgramUniform1i
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORM1IVPROC)(GLuint program, GLint location, GLsizei count, const GLint *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORM1IVPROC)(GLuint program, GLint location, GLsizei count, const GLint *val);
 GLAPI PFNGLPROGRAMUNIFORM1IVPROC glad_glProgramUniform1iv;
 #define glProgramUniform1iv glad_glProgramUniform1iv
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM1FPROC)(GLuint program, GLint location, GLfloat v0);
 GLAPI PFNGLPROGRAMUNIFORM1FPROC glad_glProgramUniform1f;
 #define glProgramUniform1f glad_glProgramUniform1f
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORM1FVPROC)(GLuint program, GLint location, GLsizei count, const GLfloat *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORM1FVPROC)(GLuint program, GLint location, GLsizei count, const GLfloat *val);
 GLAPI PFNGLPROGRAMUNIFORM1FVPROC glad_glProgramUniform1fv;
 #define glProgramUniform1fv glad_glProgramUniform1fv
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM1DPROC)(GLuint program, GLint location, GLdouble v0);
 GLAPI PFNGLPROGRAMUNIFORM1DPROC glad_glProgramUniform1d;
 #define glProgramUniform1d glad_glProgramUniform1d
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORM1DVPROC)(GLuint program, GLint location, GLsizei count, const GLdouble *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORM1DVPROC)(GLuint program, GLint location, GLsizei count, const GLdouble *val);
 GLAPI PFNGLPROGRAMUNIFORM1DVPROC glad_glProgramUniform1dv;
 #define glProgramUniform1dv glad_glProgramUniform1dv
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM1UIPROC)(GLuint program, GLint location, GLuint v0);
 GLAPI PFNGLPROGRAMUNIFORM1UIPROC glad_glProgramUniform1ui;
 #define glProgramUniform1ui glad_glProgramUniform1ui
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORM1UIVPROC)(GLuint program, GLint location, GLsizei count, const GLuint *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORM1UIVPROC)(GLuint program, GLint location, GLsizei count, const GLuint *val);
 GLAPI PFNGLPROGRAMUNIFORM1UIVPROC glad_glProgramUniform1uiv;
 #define glProgramUniform1uiv glad_glProgramUniform1uiv
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM2IPROC)(GLuint program, GLint location, GLint v0, GLint v1);
 GLAPI PFNGLPROGRAMUNIFORM2IPROC glad_glProgramUniform2i;
 #define glProgramUniform2i glad_glProgramUniform2i
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORM2IVPROC)(GLuint program, GLint location, GLsizei count, const GLint *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORM2IVPROC)(GLuint program, GLint location, GLsizei count, const GLint *val);
 GLAPI PFNGLPROGRAMUNIFORM2IVPROC glad_glProgramUniform2iv;
 #define glProgramUniform2iv glad_glProgramUniform2iv
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM2FPROC)(GLuint program, GLint location, GLfloat v0, GLfloat v1);
 GLAPI PFNGLPROGRAMUNIFORM2FPROC glad_glProgramUniform2f;
 #define glProgramUniform2f glad_glProgramUniform2f
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORM2FVPROC)(GLuint program, GLint location, GLsizei count, const GLfloat *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORM2FVPROC)(GLuint program, GLint location, GLsizei count, const GLfloat *val);
 GLAPI PFNGLPROGRAMUNIFORM2FVPROC glad_glProgramUniform2fv;
 #define glProgramUniform2fv glad_glProgramUniform2fv
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM2DPROC)(GLuint program, GLint location, GLdouble v0, GLdouble v1);
 GLAPI PFNGLPROGRAMUNIFORM2DPROC glad_glProgramUniform2d;
 #define glProgramUniform2d glad_glProgramUniform2d
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORM2DVPROC)(GLuint program, GLint location, GLsizei count, const GLdouble *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORM2DVPROC)(GLuint program, GLint location, GLsizei count, const GLdouble *val);
 GLAPI PFNGLPROGRAMUNIFORM2DVPROC glad_glProgramUniform2dv;
 #define glProgramUniform2dv glad_glProgramUniform2dv
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM2UIPROC)(GLuint program, GLint location, GLuint v0, GLuint v1);
 GLAPI PFNGLPROGRAMUNIFORM2UIPROC glad_glProgramUniform2ui;
 #define glProgramUniform2ui glad_glProgramUniform2ui
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORM2UIVPROC)(GLuint program, GLint location, GLsizei count, const GLuint *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORM2UIVPROC)(GLuint program, GLint location, GLsizei count, const GLuint *val);
 GLAPI PFNGLPROGRAMUNIFORM2UIVPROC glad_glProgramUniform2uiv;
 #define glProgramUniform2uiv glad_glProgramUniform2uiv
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM3IPROC)(GLuint program, GLint location, GLint v0, GLint v1, GLint v2);
 GLAPI PFNGLPROGRAMUNIFORM3IPROC glad_glProgramUniform3i;
 #define glProgramUniform3i glad_glProgramUniform3i
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORM3IVPROC)(GLuint program, GLint location, GLsizei count, const GLint *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORM3IVPROC)(GLuint program, GLint location, GLsizei count, const GLint *val);
 GLAPI PFNGLPROGRAMUNIFORM3IVPROC glad_glProgramUniform3iv;
 #define glProgramUniform3iv glad_glProgramUniform3iv
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM3FPROC)(GLuint program, GLint location, GLfloat v0, GLfloat v1, GLfloat v2);
 GLAPI PFNGLPROGRAMUNIFORM3FPROC glad_glProgramUniform3f;
 #define glProgramUniform3f glad_glProgramUniform3f
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORM3FVPROC)(GLuint program, GLint location, GLsizei count, const GLfloat *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORM3FVPROC)(GLuint program, GLint location, GLsizei count, const GLfloat *val);
 GLAPI PFNGLPROGRAMUNIFORM3FVPROC glad_glProgramUniform3fv;
 #define glProgramUniform3fv glad_glProgramUniform3fv
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM3DPROC)(GLuint program, GLint location, GLdouble v0, GLdouble v1, GLdouble v2);
 GLAPI PFNGLPROGRAMUNIFORM3DPROC glad_glProgramUniform3d;
 #define glProgramUniform3d glad_glProgramUniform3d
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORM3DVPROC)(GLuint program, GLint location, GLsizei count, const GLdouble *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORM3DVPROC)(GLuint program, GLint location, GLsizei count, const GLdouble *val);
 GLAPI PFNGLPROGRAMUNIFORM3DVPROC glad_glProgramUniform3dv;
 #define glProgramUniform3dv glad_glProgramUniform3dv
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM3UIPROC)(GLuint program, GLint location, GLuint v0, GLuint v1, GLuint v2);
 GLAPI PFNGLPROGRAMUNIFORM3UIPROC glad_glProgramUniform3ui;
 #define glProgramUniform3ui glad_glProgramUniform3ui
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORM3UIVPROC)(GLuint program, GLint location, GLsizei count, const GLuint *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORM3UIVPROC)(GLuint program, GLint location, GLsizei count, const GLuint *val);
 GLAPI PFNGLPROGRAMUNIFORM3UIVPROC glad_glProgramUniform3uiv;
 #define glProgramUniform3uiv glad_glProgramUniform3uiv
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM4IPROC)(GLuint program, GLint location, GLint v0, GLint v1, GLint v2, GLint v3);
 GLAPI PFNGLPROGRAMUNIFORM4IPROC glad_glProgramUniform4i;
 #define glProgramUniform4i glad_glProgramUniform4i
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORM4IVPROC)(GLuint program, GLint location, GLsizei count, const GLint *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORM4IVPROC)(GLuint program, GLint location, GLsizei count, const GLint *val);
 GLAPI PFNGLPROGRAMUNIFORM4IVPROC glad_glProgramUniform4iv;
 #define glProgramUniform4iv glad_glProgramUniform4iv
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM4FPROC)(GLuint program, GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3);
 GLAPI PFNGLPROGRAMUNIFORM4FPROC glad_glProgramUniform4f;
 #define glProgramUniform4f glad_glProgramUniform4f
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORM4FVPROC)(GLuint program, GLint location, GLsizei count, const GLfloat *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORM4FVPROC)(GLuint program, GLint location, GLsizei count, const GLfloat *val);
 GLAPI PFNGLPROGRAMUNIFORM4FVPROC glad_glProgramUniform4fv;
 #define glProgramUniform4fv glad_glProgramUniform4fv
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM4DPROC)(GLuint program, GLint location, GLdouble v0, GLdouble v1, GLdouble v2, GLdouble v3);
 GLAPI PFNGLPROGRAMUNIFORM4DPROC glad_glProgramUniform4d;
 #define glProgramUniform4d glad_glProgramUniform4d
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORM4DVPROC)(GLuint program, GLint location, GLsizei count, const GLdouble *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORM4DVPROC)(GLuint program, GLint location, GLsizei count, const GLdouble *val);
 GLAPI PFNGLPROGRAMUNIFORM4DVPROC glad_glProgramUniform4dv;
 #define glProgramUniform4dv glad_glProgramUniform4dv
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM4UIPROC)(GLuint program, GLint location, GLuint v0, GLuint v1, GLuint v2, GLuint v3);
 GLAPI PFNGLPROGRAMUNIFORM4UIPROC glad_glProgramUniform4ui;
 #define glProgramUniform4ui glad_glProgramUniform4ui
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORM4UIVPROC)(GLuint program, GLint location, GLsizei count, const GLuint *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORM4UIVPROC)(GLuint program, GLint location, GLsizei count, const GLuint *val);
 GLAPI PFNGLPROGRAMUNIFORM4UIVPROC glad_glProgramUniform4uiv;
 #define glProgramUniform4uiv glad_glProgramUniform4uiv
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX2FVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX2FVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLfloat *val);
 GLAPI PFNGLPROGRAMUNIFORMMATRIX2FVPROC glad_glProgramUniformMatrix2fv;
 #define glProgramUniformMatrix2fv glad_glProgramUniformMatrix2fv
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX3FVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX3FVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLfloat *val);
 GLAPI PFNGLPROGRAMUNIFORMMATRIX3FVPROC glad_glProgramUniformMatrix3fv;
 #define glProgramUniformMatrix3fv glad_glProgramUniformMatrix3fv
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX4FVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX4FVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLfloat *val);
 GLAPI PFNGLPROGRAMUNIFORMMATRIX4FVPROC glad_glProgramUniformMatrix4fv;
 #define glProgramUniformMatrix4fv glad_glProgramUniformMatrix4fv
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX2DVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLdouble *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX2DVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLdouble *val);
 GLAPI PFNGLPROGRAMUNIFORMMATRIX2DVPROC glad_glProgramUniformMatrix2dv;
 #define glProgramUniformMatrix2dv glad_glProgramUniformMatrix2dv
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX3DVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLdouble *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX3DVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLdouble *val);
 GLAPI PFNGLPROGRAMUNIFORMMATRIX3DVPROC glad_glProgramUniformMatrix3dv;
 #define glProgramUniformMatrix3dv glad_glProgramUniformMatrix3dv
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX4DVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLdouble *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX4DVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLdouble *val);
 GLAPI PFNGLPROGRAMUNIFORMMATRIX4DVPROC glad_glProgramUniformMatrix4dv;
 #define glProgramUniformMatrix4dv glad_glProgramUniformMatrix4dv
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX2X3FVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX2X3FVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLfloat *val);
 GLAPI PFNGLPROGRAMUNIFORMMATRIX2X3FVPROC glad_glProgramUniformMatrix2x3fv;
 #define glProgramUniformMatrix2x3fv glad_glProgramUniformMatrix2x3fv
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX3X2FVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX3X2FVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLfloat *val);
 GLAPI PFNGLPROGRAMUNIFORMMATRIX3X2FVPROC glad_glProgramUniformMatrix3x2fv;
 #define glProgramUniformMatrix3x2fv glad_glProgramUniformMatrix3x2fv
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX2X4FVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX2X4FVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLfloat *val);
 GLAPI PFNGLPROGRAMUNIFORMMATRIX2X4FVPROC glad_glProgramUniformMatrix2x4fv;
 #define glProgramUniformMatrix2x4fv glad_glProgramUniformMatrix2x4fv
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX4X2FVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX4X2FVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLfloat *val);
 GLAPI PFNGLPROGRAMUNIFORMMATRIX4X2FVPROC glad_glProgramUniformMatrix4x2fv;
 #define glProgramUniformMatrix4x2fv glad_glProgramUniformMatrix4x2fv
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX3X4FVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX3X4FVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLfloat *val);
 GLAPI PFNGLPROGRAMUNIFORMMATRIX3X4FVPROC glad_glProgramUniformMatrix3x4fv;
 #define glProgramUniformMatrix3x4fv glad_glProgramUniformMatrix3x4fv
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX4X3FVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX4X3FVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLfloat *val);
 GLAPI PFNGLPROGRAMUNIFORMMATRIX4X3FVPROC glad_glProgramUniformMatrix4x3fv;
 #define glProgramUniformMatrix4x3fv glad_glProgramUniformMatrix4x3fv
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX2X3DVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLdouble *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX2X3DVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLdouble *val);
 GLAPI PFNGLPROGRAMUNIFORMMATRIX2X3DVPROC glad_glProgramUniformMatrix2x3dv;
 #define glProgramUniformMatrix2x3dv glad_glProgramUniformMatrix2x3dv
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX3X2DVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLdouble *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX3X2DVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLdouble *val);
 GLAPI PFNGLPROGRAMUNIFORMMATRIX3X2DVPROC glad_glProgramUniformMatrix3x2dv;
 #define glProgramUniformMatrix3x2dv glad_glProgramUniformMatrix3x2dv
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX2X4DVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLdouble *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX2X4DVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLdouble *val);
 GLAPI PFNGLPROGRAMUNIFORMMATRIX2X4DVPROC glad_glProgramUniformMatrix2x4dv;
 #define glProgramUniformMatrix2x4dv glad_glProgramUniformMatrix2x4dv
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX4X2DVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLdouble *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX4X2DVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLdouble *val);
 GLAPI PFNGLPROGRAMUNIFORMMATRIX4X2DVPROC glad_glProgramUniformMatrix4x2dv;
 #define glProgramUniformMatrix4x2dv glad_glProgramUniformMatrix4x2dv
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX3X4DVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLdouble *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX3X4DVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLdouble *val);
 GLAPI PFNGLPROGRAMUNIFORMMATRIX3X4DVPROC glad_glProgramUniformMatrix3x4dv;
 #define glProgramUniformMatrix3x4dv glad_glProgramUniformMatrix3x4dv
-typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX4X3DVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLdouble *value);
+typedef void (APIENTRYP PFNGLPROGRAMUNIFORMMATRIX4X3DVPROC)(GLuint program, GLint location, GLsizei count, GLboolean transpose, const GLdouble *val);
 GLAPI PFNGLPROGRAMUNIFORMMATRIX4X3DVPROC glad_glProgramUniformMatrix4x3dv;
 #define glProgramUniformMatrix4x3dv glad_glProgramUniformMatrix4x3dv
 typedef void (APIENTRYP PFNGLVALIDATEPROGRAMPIPELINEPROC)(GLuint pipeline);
@@ -4874,13 +4874,13 @@ GLAPI PFNGLINVALIDATENAMEDFRAMEBUFFERDATAPROC glad_glInvalidateNamedFramebufferD
 typedef void (APIENTRYP PFNGLINVALIDATENAMEDFRAMEBUFFERSUBDATAPROC)(GLuint framebuffer, GLsizei numAttachments, const GLenum *attachments, GLint x, GLint y, GLsizei width, GLsizei height);
 GLAPI PFNGLINVALIDATENAMEDFRAMEBUFFERSUBDATAPROC glad_glInvalidateNamedFramebufferSubData;
 #define glInvalidateNamedFramebufferSubData glad_glInvalidateNamedFramebufferSubData
-typedef void (APIENTRYP PFNGLCLEARNAMEDFRAMEBUFFERIVPROC)(GLuint framebuffer, GLenum buffer, GLint drawbuffer, const GLint *value);
+typedef void (APIENTRYP PFNGLCLEARNAMEDFRAMEBUFFERIVPROC)(GLuint framebuffer, GLenum buffer, GLint drawbuffer, const GLint *val);
 GLAPI PFNGLCLEARNAMEDFRAMEBUFFERIVPROC glad_glClearNamedFramebufferiv;
 #define glClearNamedFramebufferiv glad_glClearNamedFramebufferiv
-typedef void (APIENTRYP PFNGLCLEARNAMEDFRAMEBUFFERUIVPROC)(GLuint framebuffer, GLenum buffer, GLint drawbuffer, const GLuint *value);
+typedef void (APIENTRYP PFNGLCLEARNAMEDFRAMEBUFFERUIVPROC)(GLuint framebuffer, GLenum buffer, GLint drawbuffer, const GLuint *val);
 GLAPI PFNGLCLEARNAMEDFRAMEBUFFERUIVPROC glad_glClearNamedFramebufferuiv;
 #define glClearNamedFramebufferuiv glad_glClearNamedFramebufferuiv
-typedef void (APIENTRYP PFNGLCLEARNAMEDFRAMEBUFFERFVPROC)(GLuint framebuffer, GLenum buffer, GLint drawbuffer, const GLfloat *value);
+typedef void (APIENTRYP PFNGLCLEARNAMEDFRAMEBUFFERFVPROC)(GLuint framebuffer, GLenum buffer, GLint drawbuffer, const GLfloat *val);
 GLAPI PFNGLCLEARNAMEDFRAMEBUFFERFVPROC glad_glClearNamedFramebufferfv;
 #define glClearNamedFramebufferfv glad_glClearNamedFramebufferfv
 typedef void (APIENTRYP PFNGLCLEARNAMEDFRAMEBUFFERFIPROC)(GLuint framebuffer, GLenum buffer, GLint drawbuffer, GLfloat depth, GLint stencil);
@@ -5114,13 +5114,13 @@ GLAPI PFNGLGETNMAPFVPROC glad_glGetnMapfv;
 typedef void (APIENTRYP PFNGLGETNMAPIVPROC)(GLenum target, GLenum query, GLsizei bufSize, GLint *v);
 GLAPI PFNGLGETNMAPIVPROC glad_glGetnMapiv;
 #define glGetnMapiv glad_glGetnMapiv
-typedef void (APIENTRYP PFNGLGETNPIXELMAPFVPROC)(GLenum map, GLsizei bufSize, GLfloat *values);
+typedef void (APIENTRYP PFNGLGETNPIXELMAPFVPROC)(GLenum map, GLsizei bufSize, GLfloat *vals);
 GLAPI PFNGLGETNPIXELMAPFVPROC glad_glGetnPixelMapfv;
 #define glGetnPixelMapfv glad_glGetnPixelMapfv
-typedef void (APIENTRYP PFNGLGETNPIXELMAPUIVPROC)(GLenum map, GLsizei bufSize, GLuint *values);
+typedef void (APIENTRYP PFNGLGETNPIXELMAPUIVPROC)(GLenum map, GLsizei bufSize, GLuint *vals);
 GLAPI PFNGLGETNPIXELMAPUIVPROC glad_glGetnPixelMapuiv;
 #define glGetnPixelMapuiv glad_glGetnPixelMapuiv
-typedef void (APIENTRYP PFNGLGETNPIXELMAPUSVPROC)(GLenum map, GLsizei bufSize, GLushort *values);
+typedef void (APIENTRYP PFNGLGETNPIXELMAPUSVPROC)(GLenum map, GLsizei bufSize, GLushort *vals);
 GLAPI PFNGLGETNPIXELMAPUSVPROC glad_glGetnPixelMapusv;
 #define glGetnPixelMapusv glad_glGetnPixelMapusv
 typedef void (APIENTRYP PFNGLGETNPOLYGONSTIPPLEPROC)(GLsizei bufSize, GLubyte *pattern);
@@ -5135,10 +5135,10 @@ GLAPI PFNGLGETNCONVOLUTIONFILTERPROC glad_glGetnConvolutionFilter;
 typedef void (APIENTRYP PFNGLGETNSEPARABLEFILTERPROC)(GLenum target, GLenum format, GLenum type, GLsizei rowBufSize, void *row, GLsizei columnBufSize, void *column, void *span);
 GLAPI PFNGLGETNSEPARABLEFILTERPROC glad_glGetnSeparableFilter;
 #define glGetnSeparableFilter glad_glGetnSeparableFilter
-typedef void (APIENTRYP PFNGLGETNHISTOGRAMPROC)(GLenum target, GLboolean reset, GLenum format, GLenum type, GLsizei bufSize, void *values);
+typedef void (APIENTRYP PFNGLGETNHISTOGRAMPROC)(GLenum target, GLboolean reset, GLenum format, GLenum type, GLsizei bufSize, void *vals);
 GLAPI PFNGLGETNHISTOGRAMPROC glad_glGetnHistogram;
 #define glGetnHistogram glad_glGetnHistogram
-typedef void (APIENTRYP PFNGLGETNMINMAXPROC)(GLenum target, GLboolean reset, GLenum format, GLenum type, GLsizei bufSize, void *values);
+typedef void (APIENTRYP PFNGLGETNMINMAXPROC)(GLenum target, GLboolean reset, GLenum format, GLenum type, GLsizei bufSize, void *vals);
 GLAPI PFNGLGETNMINMAXPROC glad_glGetnMinmax;
 #define glGetnMinmax glad_glGetnMinmax
 typedef void (APIENTRYP PFNGLTEXTUREBARRIERPROC)(void);
@@ -5148,7 +5148,7 @@ GLAPI PFNGLTEXTUREBARRIERPROC glad_glTextureBarrier;
 #ifndef GL_VERSION_4_6
 #define GL_VERSION_4_6 1
 GLAPI int GLAD_GL_VERSION_4_6;
-typedef void (APIENTRYP PFNGLSPECIALIZESHADERPROC)(GLuint shader, const GLchar *pEntryPoint, GLuint numSpecializationConstants, const GLuint *pConstantIndex, const GLuint *pConstantValue);
+typedef void (APIENTRYP PFNGLSPECIALIZESHADERPROC)(GLuint shader, const GLchar *pEntryPoint, GLuint numSpecializationConstants, const GLuint *pConstantIndex, const GLuint *pConstantval);
 GLAPI PFNGLSPECIALIZESHADERPROC glad_glSpecializeShader;
 #define glSpecializeShader glad_glSpecializeShader
 typedef void (APIENTRYP PFNGLMULTIDRAWARRAYSINDIRECTCOUNTPROC)(GLenum mode, const void *indirect, GLintptr drawcount, GLsizei maxdrawcount, GLsizei stride);

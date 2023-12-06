@@ -96,7 +96,7 @@ Use a key hook if you want single keypress detection or more precision as to how
  * @param key The key that was pressed.
  * @param action The action that was done with the key.
  * @param os_key The os_key is unique for every key, and will have a 
- * different value/keycode depending on the platform. 
+ * different val/keycode depending on the platform. 
  * They may be consistent on different platforms.
  * @param modifier The modifier key that was pressed, 0 if none.
  */

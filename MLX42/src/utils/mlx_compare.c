@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   mlx_comparison.c                                   :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: jvan-hal <jvan-hal@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/01/31 17:20:19 by jvan-hal      #+#    #+#                 */
-/*   Updated: 2023/01/31 17:23:49 by jvan-hal      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   mlx_compare.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/31 17:20:19 by jvan-hal          #+#    #+#             */
+/*   Updated: 2023/12/05 17:11:58 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 //= Private =//
 
-bool mlx_equal_image(void* lstcontent, void* value)
+bool mlx_equal_image(void* lstcontent, void* val)
 {
 	const mlx_image_t* lcontent = lstcontent;
-	const mlx_image_t* lvalue = value;
+	const mlx_image_t* lval = val;
 
-	return (lcontent == lvalue);
+	return (lcontent == lval);
 }
 
-bool mlx_equal_inst(void* lstcontent, void* value)
+bool mlx_equal_inst(void* lstcontent, void* val)
 {
 	const draw_queue_t* lcontent = lstcontent;
-	const mlx_image_t* lvalue = value;
+	const mlx_image_t* lval = val;
 
-	return (lcontent->image == lvalue);
+	return (lcontent->image == lval);
 }

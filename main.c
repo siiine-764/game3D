@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 19:18:53 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/05 17:02:04 by mayache-         ###   ########.fr       */
+/*   Created: 2023/12/05 17:06:42 by hben-mes          #+#    #+#             */
+/*   Updated: 2023/12/05 17:11:58 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// Function for finding absolute value
+// Function for finding absolute val
 int abs(int n) { return ((n > 0) ? n : (n * (-1))); }
 
 // DDA Function for line generation
@@ -51,10 +51,8 @@ int main(int ac, char **av)
 		printf("Error\nTwo arguments is requirred\n");
 		return (1);
 	}
-    //// parsing ////
     t_map *map = malloc(sizeof(t_map));
     map_reader(av[1], map);
-    /// end parsing ////
     ft_position_player(map);
     int bl = ft_init(map);
     free (map);

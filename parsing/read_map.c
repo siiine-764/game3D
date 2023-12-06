@@ -12,10 +12,10 @@
 
 #include "../cub3d.h"
 
-static void	texture_parse(char *line, t_map *map)
+void	texture_parse(char *line, t_map *map)
 {
 	char	*key;
-	char	*value;
+	char	*val;
 	int		i;
 
 	i = 0;
@@ -26,18 +26,18 @@ static void	texture_parse(char *line, t_map *map)
 	if (key && (ft_strcmp(key, "NO") && ft_strcmp(key, "SO")
 			&& ft_strcmp(key, "EA") && ft_strcmp(key, "WE")
 			&& ft_strcmp(key, "C") && ft_strcmp(key, "F")))
-					error_script("Error: texture_error 0", s_top());
+					error_script("Error: something_wrong_in_textures", s_top());
 	while (line[i] && line[i] == ' ')
 		i++;
-	value = ft_substr(line, i, ft_strlen(line) - i - 1);
-	if (!key || !value)
-		error_script("Error: malloc_error", s_top());
-	garbage_join(s_top(), value);
-	text_fill(map, key, value);
-	color_load(map, key, value);
+	val = ft_substr(line, i, ft_strlen(line) - i - 1);
+	if (!key || !val)
+		error_script("Error: error_in_malloc", s_top());
+	garbage_join(s_top(), val);
+	text_fill(map, key, val);
+	color_load(map, key, val);
 }
 
-static void	line_parsing(char *line, int index, t_map *map, char **joined)
+void	line_parsing(char *line, int index, t_map *map, char **joined)
 {
 	static bool	flag;
 
@@ -50,13 +50,13 @@ static void	line_parsing(char *line, int index, t_map *map, char **joined)
 		if (flag && line[0] == '\n')
 		{
 			free(*joined);
-			error_script("Error: map_empty_line", s_top());
+			error_script("Error: empty_line_found", s_top());
 		}
 		*joined = join_free(*joined, line);
 	}
 }
 
-static void	assist_map_reader(t_map *map, int fd, char *joined)
+void	assist_map_reader(t_map *map, int fd, char *joined)
 {
 	int	i;
 
@@ -65,7 +65,7 @@ static void	assist_map_reader(t_map *map, int fd, char *joined)
 	map->mapa = ft_split(joined, '\n');
 	free(joined);
 	if (!map->mapa || !map->mapa[0])
-		error_script("Error: map is empty", s_top());
+		error_script("Error: the_map_is_empty", s_top());
 	while (map->mapa[i])
 		garbage_join(s_top(), map->mapa[i++]);
 	garbage_join(s_top(), map->mapa);
@@ -80,7 +80,7 @@ void	map_reader(char *path, t_map *map)
 
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
-		error_script("Error: file_error", NULL);
+		error_script("Error: error_in_the_file", NULL);
 	i = 0;
 	joined = NULL;
 	line = get_next_line(fd);

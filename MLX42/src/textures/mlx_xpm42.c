@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_xpm42.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 03:42:29 by W2Wizard          #+#    #+#             */
-/*   Updated: 2023/12/04 16:26:38 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/05 17:11:58 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
  * Parses HEX color channel e.g: "0F"
  * 
  * @param channel The 2 character string to parse.
- * @return Int value of the channel.
+ * @return Int val of the channel.
  */
 static uint8_t mlx_parse_hex_channel(char* channel) 
 {
@@ -52,7 +52,7 @@ static uint8_t mlx_parse_hex_channel(char* channel)
 }
 
 /**
- * Parses the XPM color value entry e.g: ".X #00FF00FF"
+ * Parses the XPM color val entry e.g: ".X #00FF00FF"
  * into the color table while also verifying the format.
  * 
  * @param xpm The XPM.

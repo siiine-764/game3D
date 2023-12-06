@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   mlx_utils.c                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: W2Wizard <main@w2wizard.dev>                 +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/01/03 20:13:17 by W2Wizard      #+#    #+#                 */
-/*   Updated: 2022/11/22 10:56:09 by jvan-hal      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   mlx_utils.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/03 20:13:17 by W2Wizard          #+#    #+#             */
+/*   Updated: 2023/12/05 17:11:58 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,13 +98,13 @@ bool mlx_freen(int32_t count, ...)
 }
 
 /**
- * Converts an RGBA value to a monochrome/grayscale value.
+ * Converts an RGBA val to a monochrome/grayscale val.
  * It does so using specific weights for each channel.
  * 
  * @see https://goodcalculators.com/rgb-to-grayscale-conversion-calculator/
  * 
- * @param color The input RGBA value.
- * @return The rgba value converted to a grayscale color.
+ * @param color The input RGBA val.
+ * @return The rgba val converted to a grayscale color.
  */
 uint32_t mlx_rgba_to_mono(uint32_t color)
 {

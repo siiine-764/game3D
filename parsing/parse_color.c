@@ -12,70 +12,67 @@
 
 #include "../cub3d.h"
 
-int ft_num  (char *str)
+int ft_num  (char *s)
 {
 	int	i;
 
 	i = 0;
-	if (!str)
+	if (!s)
 		return (false);
-	while (str[i] && str[i] == ' ')
+	while (s[i] && s[i] == ' ')
 		i++;
-	if (!str[i])
+	if (!s[i])
 		return (false);
-	while (str[i])
+	while (s[i])
 	{
-		if (i > 0 && str[i] == ' ')
+		if (i > 0 && s[i] == ' ')
 		{
-			if (str[i + 1] != ' ' && str[i + 1])
+			if (s[i + 1] != ' ' && s[i + 1])
 				return (false);
 		}
-		else if (!ft_isdigit(str[i]) && str[i] != ' ')
+		else if (!ft_isdigit(s[i]) && s[i] != ' ')
 			return (false);
 		i++;
 	}
 	return (true);
 }
 
-int	color_put(char *value)
+int	color_put(char *val)
 {
-	char	**rgb;
 	int		i;
-	int		color;
 	int		c;
+	int		color;
+	char	**rgb;
 
 	i = 0;
-	rgb = ft_split(value, ',');
+	rgb = ft_split(val, ',');
 	if (!rgb)
-		error_script("Error: malloc error", s_top());
-	// if (i != 2 || tab_tab(rgb) != 3)
-	// free_size(rgb);
-	// error_script("Error: invalid color 1", s_top());
+		error_script("Error: error_in_malloc", s_top());
 	i = 0;
 	color = 0;
 	while (rgb[i])
 	{
 		if (!ft_num  (rgb[i]))
-			return (free_size(rgb), error_script("Error: invalid color", s_top()), 0);
+			return (free_size(rgb), error_script("Error: color_is_invalid", s_top()), 0);
 		c = ft_atoi(rgb[i]);
 		if (c < 0 || c > 255)
-			return (free_size(rgb), error_script("Error: invalid color", s_top()), 0);
+			return (free_size(rgb), error_script("Error: color_is_invalid", s_top()), 0);
 		ft_memset(((char *)&color) + abs(i - 2), ft_atoi(rgb[i]), sizeof(char));
 		i++;
 	}
 	return (free_size(rgb), color);
 }
 
-void	color_load(t_map *map, char *key, char *value)
+void	color_load(t_map *map, char *val, char *cue)
 {
-	if (key && value && !ft_strcmp(key, "C"))
-		map->celling_color = color_put(value);
-	else if (key && value && !ft_strcmp(key, "F"))
-		map->floor_color = color_put(value);
+	if (cue && val && !ft_strcmp(cue, "C"))
+		map->color_c = color_put(val);
+	else if (cue && val && !ft_strcmp(cue, "F"))
+		map->color_f = color_put(val);
 }
 
 void	check_color(t_map *map)
 {
-	if (map->celling_color == -1 || map->floor_color == -1)
-		error_script("Error: invalid color", s_top());
+	if (map->color_c == -1 || map->color_f == -1)
+		error_script("Error: color_is_invalid", s_top());
 }

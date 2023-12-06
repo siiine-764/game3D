@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   MLX42.h                                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: W2Wizard <main@w2wizard.dev>                 +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/28 02:29:06 by W2Wizard      #+#    #+#                 */
-/*   Updated: 2023/03/30 16:23:19 by ntamayo-      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   MLX42.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/28 02:29:06 by W2Wizard          #+#    #+#             */
+/*   Updated: 2023/12/05 17:11:58 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ extern "C" {
 
 /**
  * The input key codes are copied straight from GLFW.
- * Any new entries should have the exact same values as defined in the glfw3.h.
+ * Any new entries should have the exact same vals as defined in the glfw3.h.
  */
 
 /**
@@ -291,7 +291,7 @@ typedef struct xpm
  * Coordinates start from the top left of the screen at 0,0 and increase
  * towards the bottom right.
  * 
- * NOTE: To change the z value, use mlx_set_instance_depth!
+ * NOTE: To change the z val, use mlx_set_instance_depth!
  * 
  * @param x The x location.
  * @param y The y location.
@@ -313,7 +313,7 @@ typedef struct mlx_instance
  * @param key The key that was pressed.
  * @param action The action that was done with the key.
  * @param os_key The os_key is unique for every key, and will have a 
- * different value/keycode depending on the platform. 
+ * different val/keycode depending on the platform. 
  * They may be consistent on different platforms.
  * @param modifier The modifier key that was pressed, 0 if no key was pressed.
  */
@@ -327,7 +327,7 @@ typedef struct mlx_key_data
 
 /**
  * An image with an individual buffer that can be rendered.
- * Any value can be modified except the width/height and context.
+ * Any val can be modified except the width/height and context.
  * 
  * @param width The width of the image.
  * @param height The height of the image.
@@ -393,7 +393,7 @@ extern mlx_errno_t mlx_errno;
 
 //= Global Settings =//
 
-// Set these values, if necessary, before calling `mlx_init` as they define the behaviour of MLX42.
+// Set these vals, if necessary, before calling `mlx_init` as they define the behaviour of MLX42.
 typedef enum mlx_settings
 {
 	MLX_STRETCH_IMAGE = 0,	// Should images resize with the window as it's being resized or not. Default: false
@@ -497,10 +497,10 @@ mlx_t* mlx_init(int32_t width, int32_t height, const char* title, bool resize);
  * Set a setting for MLX42.
  * Settings can manipulate the core behaviour of the engine.
  * 
- * @param[in] setting The settings value, See mlx_settings_t type.
- * @param[in] value Settings value to determine the state of the setting. Can be a boolean or an enum / macro.
+ * @param[in] setting The settings val, See mlx_settings_t type.
+ * @param[in] val Settings val to determine the state of the setting. Can be a boolean or an enum / macro.
  */
-void mlx_set_setting(mlx_settings_t setting, int32_t value);
+void mlx_set_setting(mlx_settings_t setting, int32_t val);
 
 /**
  * Notifies MLX that it should stop rendering and exit the main loop.
@@ -591,8 +591,8 @@ void mlx_set_window_pos(mlx_t* mlx, int32_t xpos, int32_t ypos);
 void mlx_get_window_pos(mlx_t* mlx, int32_t* xpos, int32_t* ypos);
 
 /**
- * Changes the window size to the newly specified values.
- * Use this to update the window width and height values in the mlx handle.
+ * Changes the window size to the newly specified vals.
+ * Use this to update the window width and height vals in the mlx handle.
  * 
  * @param[in] mlx The MLX instance handle.
  * @param[in] new_width The new desired width.
@@ -602,7 +602,7 @@ void mlx_set_window_size(mlx_t* mlx, int32_t new_width, int32_t new_height);
 
 /**
  * Sets the size limits of the specified window.
- * Will force the window to not be resizable past or below the given values.
+ * Will force the window to not be resizable past or below the given vals.
  * 
  * Pass -1 for no limit to any of the min/max parameters to ignore that boundary.
  * For instance if you want a min window size but the max window size can be whatever.
@@ -647,7 +647,7 @@ bool mlx_is_mouse_down(mlx_t* mlx, mouse_key_t key);
  * Returns the current, relative, mouse cursor position on the window, starting
  * from the top left corner.
  * 
- * Negative values or values greater than window width or height 
+ * Negative vals or vals greater than window width or height 
  * indicate that it is outside the window.
  * 
  * @param[in] mlx The MLX instance handle. 
@@ -834,7 +834,7 @@ mlx_image_t* mlx_texture_to_image(mlx_t* mlx, mlx_texture_t* texture);
  * @param[in] image The MLX instance handle.
  * @param[in] x The X coordinate position.
  * @param[in] y The Y coordinate position.
- * @param[in] color The color value to put.
+ * @param[in] color The color val to put.
  */
 void mlx_put_pixel(mlx_image_t* image, uint32_t x, uint32_t y, uint32_t color);
 
@@ -853,7 +853,7 @@ mlx_image_t* mlx_new_image(mlx_t* mlx, uint32_t width, uint32_t height);
  * pixel buffer as the image.
  * 
  * NOTE: Keep in mind that the instance array gets reallocated, try
- * to store the return value to the instance! 
+ * to store the return val to the instance! 
  * NOT the pointer! It will become invalid!
  * 
  * WARNING: Try to display as few images on the window as possible,
@@ -892,14 +892,14 @@ void mlx_delete_image(mlx_t* mlx, mlx_image_t* image);
 bool mlx_resize_image(mlx_image_t* img, uint32_t nwidth, uint32_t nheight);
 
 /**
- * Sets the depth / Z axis value of an instance.
+ * Sets the depth / Z axis val of an instance.
  * 
  * NOTE: Keep in mind that images that are on the same Z layer cut each other off.
  * so if you don't see your image anymore make sure it's not conflicting by being on
  * the same layer as another image.
  * 
  * @param[in] instance The instance on which to change the depth.
- * @param[in] zdepth The new depth value.
+ * @param[in] zdepth The new depth val.
  */
 void mlx_set_instance_depth(mlx_instance_t* instance, int32_t zdepth);
 

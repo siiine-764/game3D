@@ -17,30 +17,30 @@ int	player_button(char c)
 	return (c == 'N' || c == 'S' || c == 'E' || c == 'W');
 }
 
-int	char_hold(char *str)
+int	char_hold(char *s)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (s[i])
 	{
-		if (str[i] != '0' && str[i] != '1'
-			&& str[i] != ' ' && !player_button(str[i]))
+		if (s[i] != '0' && s[i] != '1'
+			&& s[i] != ' ' && !player_button(s[i]))
 			return (true);
 		i++;
 	}
 	return (false);
 }
 
-void	player_hold(char *str, int *p)
+void	player_hold(char *s, int *j)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (s[i])
 	{
-		if (player_button(str[i]))
-			(*p)++;
+		if (player_button(s[i]))
+			(*j)++;
 		i++;
 	}
 }

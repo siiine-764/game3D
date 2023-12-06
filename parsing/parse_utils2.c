@@ -12,46 +12,46 @@
 
 #include "../cub3d.h"
 
-void	error_script(char *msg, t_garbage **top)
+void	error_script(char *t, t_garb **top)
 {
 	if (top)
 		empty_garbage(top);
-	ft_putendl_fd(msg, 2);
+	ft_putendl_fd(t, 2);
 	exit(1);
 }
 
-t_garbage	**s_top(void)
+t_garb	**s_top(void)
 {
-	static	t_garbage	*top;
+	static	t_garb	*top;
 
 	return (&top);
 }
 
-void	garbage_join(t_garbage **top, void *address)
+void	garbage_join(t_garb **top, void *address)
 {
-	t_garbage	*new;
+	t_garb	*new;
 
-	new = malloc(sizeof(t_garbage));
+	new = malloc(sizeof(t_garb));
 	if (!new)
-		error_script("Error: malloc failed", NULL);
-	new->address = address;
-	new->next = NULL;
-	new->last = NULL;
+		error_script("Error: error_in_malloc", NULL);
+	new->addr = address;
+	new->nxt = NULL;
+	new->lst = NULL;
 	if (!*top)
 	{
 		*top = new;
-		(*top)->next = NULL;
-		(*top)->last = new;
+		(*top)->nxt = NULL;
+		(*top)->lst = new;
 		return ;
 	}
-	(*top)->last->next = new;
-	(*top)->last = new;
+	(*top)->lst->nxt = new;
+	(*top)->lst = new;
 }
 
-void	empty_garbage(t_garbage **top)
+void	empty_garbage(t_garb **top)
 {
-	t_garbage	*tmp;
-	t_garbage	*head;
+	t_garb	*tmp;
+	t_garb	*head;
 
 	if (!top || !*top)
 		return ;
@@ -59,8 +59,8 @@ void	empty_garbage(t_garbage **top)
 	while (head)
 	{
 		tmp = head;
-		free(head->address);
-		head = head->next;
+		free(head->addr);
+		head = head->nxt;
 		free(tmp);
 	}
 }
