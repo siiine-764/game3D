@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:38:46 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/05 22:47:56 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/06 18:28:45 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,6 +145,7 @@ int	    ft_strcmp(char *s1, char *s2);
 int	    tab_tab(char **tab);
 void	free_size(char **tab);
 char	*join_free(char *s1, char *s2);
+void	error_script(char *scr, t_garb **top);
 void	garbage_join(t_garb **top, void *address);
 t_garb	**s_top(void);
 void	empty_garbage(t_garb **top);
