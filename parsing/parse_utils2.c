@@ -12,6 +12,7 @@
 
 #include "../cub3d.h"
 
+
 void	error_script(char *scr, t_garb **top)
 {
 	if (top)

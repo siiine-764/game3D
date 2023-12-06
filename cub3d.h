@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:38:46 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/06 18:28:45 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/06 18:36:45 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,5 +150,7 @@ void	garbage_join(t_garb **top, void *address);
 t_garb	**s_top(void);
 void	empty_garbage(t_garb **top);
 void	map_reader(char *path, t_map *mapa);
+
+void	error_script(char *t, t_garb **top);
 
 #endif
