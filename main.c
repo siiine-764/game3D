@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:06:42 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/06 18:35:14 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/06 19:58:00 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int main(int ac, char **av)
 		printf("Error\nTwo arguments is requirred\n");
 		return (1);
 	}
+    args_check(av[1]);
     t_map *map = malloc(sizeof(t_map));
     map_reader(av[1], map);
     ft_position_player(map);
@@ -58,3 +59,4 @@ int main(int ac, char **av)
     free (map);
     return (bl);
 }
+

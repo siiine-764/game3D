@@ -45,3 +45,14 @@ char	*join_free(char *s1, char *s2)
 	free(s1);
 	return (str);
 }
+
+void	args_check(char *p)
+{
+	char	*s;
+
+	s = ft_strchr(p, '.');
+	if (!s)
+		error_script("Error: invalid_args", NULL);
+	if (ft_strcmp(s, ".cub"))
+		error_script("Error: invalid_args", NULL);
+}

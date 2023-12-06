@@ -30,6 +30,12 @@ void	text_add(t_texture **text, char *val, char *cue)
 		(*text)->lst = node;
 		(*text)->nxt = NULL;
 	}
+	else
+	{
+		(*text)->lst->nxt = node;
+		node->lst = (*text)->lst;
+		(*text)->lst = node;
+	}
 }
 
 void	text_fill(t_map *map, char *val, char *cue)

@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:38:46 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/06 18:36:45 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/06 19:54:45 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,23 +128,20 @@ void ft_e_p(t_map *map, int x, int y);
 void ft_w_p(t_map *map, int x, int y);
 
 //parsing
-int     ft_num  (char *str);
 int	    color_put(char *val);
 void	color_load(t_map *map, char *key, char *val);
 void	check_color(t_map *map);
-int	    check_top_bottom(char *str);
-int    	ft_close(char *str);
-void	check_space(char **map);
 void	check_map(char **map);
 void	text_fill(t_map *map, char *key, char *val);
 void	check_textures(t_map	*map);
-int	    player_button(char c);
-int 	char_hold(char *str);
+int		player_button(char c);
+int		char_hold(char *s);
 void	player_hold(char *str, int *p);
 int	    ft_strcmp(char *s1, char *s2);
 int	    tab_tab(char **tab);
 void	free_size(char **tab);
 char	*join_free(char *s1, char *s2);
+void	args_check(char *p);
 void	error_script(char *scr, t_garb **top);
 void	garbage_join(t_garb **top, void *address);
 t_garb	**s_top(void);
