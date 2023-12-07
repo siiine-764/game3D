@@ -12,11 +12,11 @@
 
 #include "../cub3d.h"
 
-void	error_script(char *t, t_garb **top)
+void	error_script(char *scr, t_garb **top)
 {
 	if (top)
 		empty_garbage(top);
-	ft_putendl_fd(t, 2);
+	ft_putendl_fd(scr, 2);
 	exit(1);
 }
 
@@ -27,40 +27,40 @@ t_garb	**s_top(void)
 	return (&top);
 }
 
-void	garbage_join(t_garb **top, void *address)
+void	garbage_join(t_garb **top, void *addr)
 {
-	t_garb	*new;
+	t_garb	*node;
 
-	new = malloc(sizeof(t_garb));
-	if (!new)
+	node = malloc(sizeof(t_garb));
+	if (!node)
 		error_script("Error: error_in_malloc", NULL);
-	new->addr = address;
-	new->nxt = NULL;
-	new->lst = NULL;
+	node->addr = addr;
+	node->nxt = NULL;
+	node->lst = NULL;
 	if (!*top)
 	{
-		*top = new;
+		*top = node;
 		(*top)->nxt = NULL;
-		(*top)->lst = new;
+		(*top)->lst = node;
 		return ;
 	}
-	(*top)->lst->nxt = new;
-	(*top)->lst = new;
+	(*top)->lst->nxt = node;
+	(*top)->lst = node;
 }
 
 void	empty_garbage(t_garb **top)
 {
+	t_garb	*lead;
 	t_garb	*tmp;
-	t_garb	*head;
-
+	
 	if (!top || !*top)
 		return ;
-	head = *top;
-	while (head)
+	lead = *top;
+	while (lead)
 	{
-		tmp = head;
-		free(head->addr);
-		head = head->nxt;
+		tmp = lead;
+		free(lead->addr);
+		lead = lead->nxt;
 		free(tmp);
 	}
 }

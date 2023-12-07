@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 17:06:42 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/07 13:21:07 by mayache-         ###   ########.fr       */
+/*   Created: 2023/12/07 13:22:06 by mayache-          #+#    #+#             */
+/*   Updated: 2023/12/07 13:22:41 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,15 @@ int main(int ac, char **av)
 		printf("Error\nTwo arguments is requirred\n");
 		return (1);
 	}
+    args_check(av[1]);
     t_map *map = malloc(sizeof(t_map));
     map_reader(av[1], map);
-    text_fill(map, av[1], av[1]);
+    check_textures(map);
+    check_color(map);
+    check_map(map->mapa);
     ft_position_player(map);
     int bl = ft_init(map);
     free (map);
     return (bl);
 }
+

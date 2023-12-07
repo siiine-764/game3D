@@ -30,6 +30,12 @@ void	text_add(t_texture **text, char *val, char *cue)
 		(*text)->lst = node;
 		(*text)->nxt = NULL;
 	}
+	else
+	{
+		(*text)->lst->nxt = node;
+		node->lst = (*text)->lst;
+		(*text)->lst = node;
+	}
 }
 
 void	text_fill(t_map *map, char *val, char *cue)
@@ -62,4 +68,33 @@ void	check_textures(t_map *map)
 	}
 	if (!c[0] || !c[1] || !c[2] || !c[3])
 		error_script("Error: something_wrong_in_textures", s_top());
+}
+
+void	load_textures(t_map *map)
+{
+	int			i;
+	t_texture	*texture_tmp;
+	t_image		*new_img;
+
+	new_img = malloc(sizeof(t_image) * 5);
+	if (!new_img)
+		error_script("Error: error_in_malloc", s_top());
+	garbage_join(s_top(), new_img);
+	texture_tmp = map->textures;
+	texture_tmp->texture_img = new_img;
+	i = -1;
+	while (++i < 4 && texture_tmp)
+	{
+		new_img[i].img_ptr = my_mlx_xpm_file_to_img(map,
+				texture_tmp->val, &texture_tmp->xpm_width,
+				&texture_tmp->xpm_height);
+		if (texture_tmp->xpm_width > 800 || texture_tmp->xpm_height > 800)
+			error_script("Error: error_in_img_size", s_top());
+		new_img[i].img_data = mlx_get_data_addr(new_img[i].img_ptr,
+				&new_img[i].bpp, &new_img[i].line_length, &new_img[i].endian);
+		if (!new_img[i].img_data)
+			error_script("Error: error_in_file", s_top());
+		texture_tmp->texture_img = &new_img[i];
+		texture_tmp = texture_tmp->nxt;
+	}
 }
