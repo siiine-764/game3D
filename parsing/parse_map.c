@@ -70,7 +70,7 @@ void	check_space(char **map)
 	}
 }
 
-void	check_map(char **map)
+void	 check_map(char **map)
 {
 	int	size;
 	int	i;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:06:42 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/05 17:11:58 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/07 13:21:07 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int main(int ac, char **av)
 	}
     t_map *map = malloc(sizeof(t_map));
     map_reader(av[1], map);
+    text_fill(map, av[1], av[1]);
     ft_position_player(map);
     int bl = ft_init(map);
     free (map);
