@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:22:06 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/07 13:22:41 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:54:12 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,10 @@ void DDA(mlx_image_t *image, int X0, int Y0, int X1, int Y1)
 
 int main(int ac, char **av)
 {
+    t_game	game;
+
+	game.tile_size = 30;
+    
     (void)ac;
     (void)av;
 	if (ac != 2)
@@ -59,6 +63,18 @@ int main(int ac, char **av)
     check_map(map->mapa);
     ft_position_player(map);
     int bl = ft_init(map);
+	// game.img = mlx_new_image(game.mlx, WIDTH, HEIGHT);
+	// game.map.image = mlx_new_image(game.mlx, WIDTH, HEIGHT);
+	// game.map.image = mlx_new_image(game.mlx, WIDTH, HEIGHT);
+	// game.map.textures = mlx_load_png("./textures/wall_1.png");
+	// if (!game.img || mlx_image_to_window(game.mlx, game.img, 0, 0) < 0)
+	// 	return (0);
+	// if (!game.map.image
+	// 	|| mlx_image_to_window(game.mlx, game.map.image, 0, 0) < 0)
+	// 	return (0);
+	// mlx_loop_hook(game.mlx, ft_movement, &game);
+	// mlx_loop(game.mlx);
+	// mlx_terminate(game.mlx);
     free (map);
     return (bl);
 }
