@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:22:06 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/08 19:11:28 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/08 19:25:47 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,6 @@ int main(int ac, char **av)
     check_map(map->mapa);
     ft_position_player(map);
     int bl = ft_init(map);
-	// game.img = mlx_new_image(game.mlx, WIDTH, HEIGHT);
-	// game.map.image = mlx_new_image(game.mlx, WIDTH, HEIGHT);
-	// game.map.image = mlx_new_image(game.mlx, WIDTH, HEIGHT);
-	// game.map.textures = mlx_load_png("./textures/wall_1.png");
-	// if (!game.img || mlx_image_to_window(game.mlx, game.img, 0, 0) < 0)
-	// 	return (0);
-	// if (!game.map.image
-	// 	|| mlx_image_to_window(game.mlx, game.map.image, 0, 0) < 0)
-	// 	return (0);
-	// mlx_loop_hook(game.mlx, ft_movement, &game);
-	// mlx_loop(game.mlx);
-	// mlx_terminate(game.mlx);
     free (map);
     return (bl);
 }
