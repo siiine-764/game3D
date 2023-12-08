@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:38:46 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/07 16:54:43 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/08 19:32:08 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ t_vector ft_ray_casting(t_map *map, float dd);
 void DDA(mlx_image_t *image, int X0, int Y0, int X1, int Y1);
 
 /// functions movement ////
-void    ft_movement(t_map *map);
+void    ft_movemnt(t_map *map);
 void ft_w(t_map *map);
 void ft_s(t_map *map);
 void ft_a(t_map *map);

@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:24:37 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/04 22:10:29 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/08 21:07:02 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,49 +14,49 @@
 
 void ft_w(t_map *map)
 {
-    map->y_p += sin(map->p_rotation * convert_degrees_radian);
-    map->x_p += cos(map->p_rotation * convert_degrees_radian);
+    map->y_p += sin(map->p_rotation * convert_degrees_radian) * 2;
+    map->x_p += cos(map->p_rotation * convert_degrees_radian) * 2;
     if (map->mapa[(int)(map->y_p / SIZE_CUB)][(int)(map->x_p / SIZE_CUB)] == '1')
     {
-        map->y_p -= sin(map->p_rotation * convert_degrees_radian);
-        map->x_p -= cos(map->p_rotation * convert_degrees_radian);
+        map->y_p -= sin(map->p_rotation * convert_degrees_radian) * 2;
+        map->x_p -= cos(map->p_rotation * convert_degrees_radian) * 2;
     }
 }
 
 void ft_s(t_map *map)
 {
-    map->y_p -= sin(map->p_rotation * convert_degrees_radian);
-    map->x_p -= cos(map->p_rotation * convert_degrees_radian);
+    map->y_p -= sin(map->p_rotation * convert_degrees_radian) * 2;
+    map->x_p -= cos(map->p_rotation * convert_degrees_radian) * 2;
     if (map->mapa[(int)(map->y_p / SIZE_CUB)][(int)(map->x_p / SIZE_CUB)] == '1')
     {
-        map->y_p += sin(map->p_rotation * convert_degrees_radian);
-        map->x_p += cos(map->p_rotation * convert_degrees_radian);
+        map->y_p += sin(map->p_rotation * convert_degrees_radian) * 2;
+        map->x_p += cos(map->p_rotation * convert_degrees_radian) * 2;
     }
 }
 
 void ft_a(t_map *map)
 {       
-    map->y_p -= cos(map->p_rotation * convert_degrees_radian);
-    map->x_p += sin(map->p_rotation * convert_degrees_radian);
+    map->y_p -= cos(map->p_rotation * convert_degrees_radian) * 2;
+    map->x_p += sin(map->p_rotation * convert_degrees_radian) * 2;
     if (map->mapa[(int)(map->y_p / SIZE_CUB)][(int)(map->x_p / SIZE_CUB)] == '1')
     {
-        map->y_p += cos(map->p_rotation * convert_degrees_radian);
-        map->x_p -= sin(map->p_rotation * convert_degrees_radian);
+        map->y_p += cos(map->p_rotation * convert_degrees_radian) * 2;
+        map->x_p -= sin(map->p_rotation * convert_degrees_radian) * 2;
     }
 }
 
 void ft_d(t_map *map)
 {
-    map->y_p += cos(map->p_rotation * convert_degrees_radian);
-    map->x_p -= sin(map->p_rotation * convert_degrees_radian);
+    map->y_p += cos(map->p_rotation * convert_degrees_radian) * 2;
+    map->x_p -= sin(map->p_rotation * convert_degrees_radian) * 2;
     if (map->mapa[(int)(map->y_p / SIZE_CUB)][(int)(map->x_p / SIZE_CUB)] == '1')
     {
-        map->y_p -= cos(map->p_rotation * convert_degrees_radian);
-        map->x_p += sin(map->p_rotation * convert_degrees_radian);
+        map->y_p -= cos(map->p_rotation * convert_degrees_radian) * 2;
+        map->x_p += sin(map->p_rotation * convert_degrees_radian) * 2;
     }
 }
 
-void    ft_movement(t_map *map)
+void    ft_movemnt(t_map *map)
 {
     if (mlx_is_key_down(map->mlx, MLX_KEY_ESCAPE))
         mlx_close_window(map->mlx);

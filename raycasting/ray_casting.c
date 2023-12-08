@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:42:10 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/04 20:12:02 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/08 21:07:49 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,22 +123,22 @@ t_vector ft_ray_casting(t_map *map, float dd)
 void ft_start_raycasting(t_map *map)
 {
     t_vector ray;
-    float dd;
+    float point_of_view;
     float ray_nb;
     
     ray_nb = 0;
-    dd = map->p_rotation - 30;
+    point_of_view = map->p_rotation - 30;
     while (ray_nb < WIDTH)
     {
-        if (dd > 360)
-            dd -= 360;
-        if (dd < 0)
-            dd += 360;
-        ray = ft_ray_casting(map, dd);
+        if (point_of_view > 360)
+            point_of_view -= 360;
+        if (point_of_view < 0)
+            point_of_view += 360;
+        ray = ft_ray_casting(map, point_of_view);
         DDA(map->image_map, map->x_p, map->y_p, ray.x, ray.y);
-        map->destonation = map->destonation * cos((dd - map->p_rotation) * (M_PI / 180.0));
+        map->destonation = map->destonation * cos((point_of_view - map->p_rotation) * (M_PI / 180.0));
         ft_draw_wall(map, ray_nb);
         ray_nb++;
-        dd += (60.0 / WIDTH);
+        point_of_view += (60.0 / WIDTH);
     }
 }

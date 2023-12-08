@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:22:06 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/08 19:11:28 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/08 19:32:08 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int main(int ac, char **av)
 	// if (!game.map.image
 	// 	|| mlx_image_to_window(game.mlx, game.map.image, 0, 0) < 0)
 	// 	return (0);
-	// mlx_loop_hook(game.mlx, ft_movement, &game);
+	// mlx_loop_hook(game.mlx, ft_movemnt, &game);
 	// mlx_loop(game.mlx);
 	// mlx_terminate(game.mlx);
     free (map);
