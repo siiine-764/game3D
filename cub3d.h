@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:38:46 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/08 22:52:28 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/08 23:11:46 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,10 @@ typedef struct s_map
 	void		*mlx_ptr;
 	int			color_c;
 	int			color_f;
-	
+	mlx_texture_t *no;
+	mlx_texture_t *so;
+	mlx_texture_t *ea;
+	mlx_texture_t *we;
     char		**mapa;
     float x_p;
     float y_p;
@@ -148,5 +151,5 @@ void	garbage_join(t_garb **top, void *address);
 t_garb	**s_top(void);
 void	empty_garbage(t_garb **top);
 void	map_reader(char *path, t_map *mapa);
-
+void	get_textures(t_map *var);
 #endif
