@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:38:46 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/08 22:33:58 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/08 22:52:28 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,7 @@ typedef struct s_map
 	void		*mlx_ptr;
 	int			color_c;
 	int			color_f;
-
-char *no;
-char *so;
-char *we;
-char *ea;
+	
     char		**mapa;
     float x_p;
     float y_p;
@@ -87,17 +83,6 @@ char *ea;
     int size_y;
     t_vector ray;
 } t_map;
-
-// typedef struct s_game
-// {
-// 	t_map			map;
-// 	int				tile_size;
-// 	int				column_size;
-// 	int				fov;
-// 	mlx_texture_t	*tex;
-// 	mlx_image_t		*img;
-// 	mlx_t			*mlx;
-// }					t_game;
 
 enum e_keys
 {
