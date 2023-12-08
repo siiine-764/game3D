@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:09:24 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/06 21:22:07 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/08 19:32:08 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void ft_hook(void *param)
 {
     t_map *map = param;
 
-    ft_movement(map);
+    ft_movemnt(map);
     ft_first_draw(map->image_map);
     ft_first_draw(map->image);
     ft_draw(map);
