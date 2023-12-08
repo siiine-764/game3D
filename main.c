@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:22:06 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/08 19:25:47 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/08 22:09:46 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ int main(int ac, char **av)
     args_check(av[1]);
     t_map *map = malloc(sizeof(t_map));
     map_reader(av[1], map);
-    //check_textures(map);
     check_color(map);
     check_map(map->mapa);
     ft_position_player(map);
     int bl = ft_init(map);
+    check_textures(map);
     free (map);
     return (bl);
 }

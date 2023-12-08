@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:38:46 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/07 16:54:43 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/08 22:08:49 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,6 @@ typedef struct s_garb
 	t_garb		*lst;
 }t_garb;
 
-typedef struct s_image
-{
-	void		*img_ptr;
-	char		*img_data;
-	int			bpp;
-	int			line_length;
-	int			endian;
-}t_image;
-
 typedef struct s_mlx
 {
 	void	*mlx_ptr;
@@ -65,11 +56,8 @@ typedef struct s_texture
 {
 	char		*val;
 	char		*cue;
-	int			xpm_width;
-	int			xpm_height;
     t_texture	*nxt;
 	t_texture	*lst;
-	t_image		*texture_img;
 }t_texture;
 
 typedef struct s_map
