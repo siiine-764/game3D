@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:38:46 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/08 22:11:37 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/08 22:33:58 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,10 @@ typedef struct s_map
 	int			color_c;
 	int			color_f;
 
+char *no;
+char *so;
+char *we;
+char *ea;
     char		**mapa;
     float x_p;
     float y_p;
@@ -140,8 +144,6 @@ void ft_e_p(t_map *map, int x, int y);
 void ft_w_p(t_map *map, int x, int y);
 
 //parsing
-void	*my_mlx_xpm_file_to_img(t_map *map, char *path,
- 	int *width, int *height);
 int	    color_put(char *val);
 void	color_load(t_map *map, char *key, char *val);
 void	check_color(t_map *map);
