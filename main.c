@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:22:06 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/07 16:54:12 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/08 19:11:28 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,6 @@ void DDA(mlx_image_t *image, int X0, int Y0, int X1, int Y1)
 
 int main(int ac, char **av)
 {
-    t_game	game;
-
-	game.tile_size = 30;
-    
     (void)ac;
     (void)av;
 	if (ac != 2)
@@ -58,7 +54,7 @@ int main(int ac, char **av)
     args_check(av[1]);
     t_map *map = malloc(sizeof(t_map));
     map_reader(av[1], map);
-    check_textures(map);
+    //check_textures(map);
     check_color(map);
     check_map(map->mapa);
     ft_position_player(map);
