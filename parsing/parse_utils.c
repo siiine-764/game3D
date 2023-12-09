@@ -12,9 +12,9 @@
 
 #include "../cub3d.h"
 
-int	player_button(char c)
+int	player_button(char n)
 {
-	return (c == 'N' || c == 'S' || c == 'E' || c == 'W');
+	return (n == 'N' || n == 'S' || n == 'E' || n == 'W');
 }
 
 int	char_hold(char *s)
@@ -32,7 +32,7 @@ int	char_hold(char *s)
 	return (false);
 }
 
-void	player_hold(char *s, int *j)
+void	player_hold(char *s, int *k)
 {
 	int	i;
 
@@ -40,7 +40,7 @@ void	player_hold(char *s, int *j)
 	while (s[i])
 	{
 		if (player_button(s[i]))
-			(*j)++;
+			(*k)++;
 		i++;
 	}
 }

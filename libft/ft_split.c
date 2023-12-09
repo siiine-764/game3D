@@ -6,71 +6,89 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 18:27:45 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/23 12:44:58 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/09 02:56:21 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	cnt_words(const char *str, char delimiter)
+static size_t	ft_cnt(char const *s, char dim, int *counter)
 {
-	int	cnt;
-	int	i;
+	size_t	l;
+	size_t	i;
+	size_t	c;
 
 	i = 0;
-	cnt = 0;
-	while (str[i])
+	c = 0;
+	l = ft_strlen(s);
+	while (i < l)
 	{
-		if (str[i] != delimiter)
+		while (s[i] == dim)
 		{
-			cnt++;
-			while (str[i] && str[i] != delimiter)
-				i++;
+			i++;
+			if (counter)
+				(*counter)++;
 		}
-		else
+		if (s[i] != dim && s[i] != '\0')
+			c++;
+		while (s[i] != dim && s[i] != '\0')
 			i++;
 	}
-	return (cnt);
+	return (c);
 }
 
-int	sizew(char const *s, char c, int i)
+static char	**free_func(char **p, size_t i)
 {
-	int	sz;
+	size_t	k;
 
-	sz = 0;
-	while (s[i] != c && s[i])
+	k = 0;
+	while (k < i)
 	{
-		sz++;
-		i++;
+		free(p[k]);
+		p[k] = NULL;
+		k++;
 	}
-	return (sz);
+	free(p);
+	p = NULL;
+	return (NULL);
 }
 
-char	**ft_split(char const *s, char c)
+static char	**load_func(char const *str, char c, char **s, size_t cnt)
 {
-	char	**stck;
-	int		wrds;
-	int		i;
-	size_t	sz;
-	size_t	count;
+	size_t	i;
+	size_t	start;
+	size_t	end;
 
 	i = 0;
-	count = 0;
-	if (!s)
-		return (0);
-	wrds = cnt_words(s, c);
-	stck = (char **)malloc((wrds + 1) * sizeof(char *));
-	if (stck == NULL)
-		return (stck);
-	while (i < wrds)
+	start = 0;
+	while (i < cnt)
 	{
-		while (s[count] == c)
-			count++;
-		sz = sizew(s, c, count);
-		stck[i] = ft_substr(s, count, sz);
+		while (str[start] == c && str[start] != '\0')
+			start++;
+		end = start;
+		while (str[end] != c && str[end] != '\0')
+			end++;
+		s[i] = ft_substr(str, start, end - start);
+		if (s[i] == NULL)
+			return (free_func(s, i));
+		start = end;
 		i++;
-		count = count + sz;
 	}
-	stck[i] = 0;
-	return (stck);
+	s[i] = NULL;
+	return (s);
 }
+
+char	**ft_split(char const *str, char c, int *counter)
+{
+	size_t	cnt;
+	char	**s;
+	
+	if (str == NULL)
+		return (NULL);
+	cnt = ft_cnt(str, c, counter);
+	s = (char **)malloc((cnt + 1) * sizeof(char *));
+	if (s == NULL)
+		return (NULL);
+	return (load_func(str, c, s, cnt));
+}
+

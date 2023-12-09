@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:38:46 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/08 22:52:28 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/09 00:32:59 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,23 +130,23 @@ void ft_w_p(t_map *map, int x, int y);
 
 //parsing
 int	    color_put(char *val);
-void	color_load(t_map *map, char *key, char *val);
+void	color_load(t_map *map, char *cue, char *val);
 void	check_color(t_map *map);
 void	check_map(char **map);
-void	text_fill(t_map *map, char *key, char *val);
+void	text_fill(t_map *map, char *val, char *cue);
 void	check_textures(t_map	*map);
 int		player_button(char c);
 int		char_hold(char *s);
-void	player_hold(char *str, int *p);
+void	player_hold(char *s, int *j);
 int	    ft_strcmp(char *s1, char *s2);
 int	    tab_tab(char **tab);
 void	free_size(char **tab);
 char	*join_free(char *s1, char *s2);
 void	args_check(char *p);
 void	error_script(char *scr, t_garb **top);
-void	garbage_join(t_garb **top, void *address);
 t_garb	**s_top(void);
+void	garbage_join(t_garb **top, void *addr);
 void	empty_garbage(t_garb **top);
-void	map_reader(char *path, t_map *mapa);
+void	map_reader(char *p, t_map *map);
 
 #endif
