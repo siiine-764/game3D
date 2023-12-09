@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 03:40:43 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/09 04:37:13 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/09 05:32:00 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ typedef struct s_map
 	float	dist_top;
     char		**mapa;
 	float wall_height;
+	float wall_width;
     float x_p;
     float y_p;
 	float ray_p_x;
@@ -130,6 +131,8 @@ void ft_draw(t_map *map);
 void ft_draw_wall(t_map *map, float ray_nb);
 void ft_first_draw(mlx_image_t *image);
 
+ t_vector ft_util(t_map *map, float d_vertical, float d_horizontal,
+ t_vector ray_vertic, t_vector ray_horizon);
 /// functions position player ////
 void    ft_position_player(t_map *map);
 void ft_n_p(t_map *map, int x, int y);
@@ -137,8 +140,8 @@ void ft_s_p(t_map *map, int x, int y);
 void ft_e_p(t_map *map, int x, int y);
 void ft_w_p(t_map *map, int x, int y);
 
+void put_textures(t_map *map, mlx_texture_t *x, float ray_nb);
 void	put_color_sky(t_map *map);
-int	get_color_from_pos(mlx_texture_t *walli, int y, int x);
 int	ft_pixel(int r, int g, int b, int a);
 void	get_textures(t_map *var);
 //parsing
