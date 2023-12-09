@@ -1,9 +1,9 @@
-NAME	:= game3D
+NAME	:= cub3D
 CFLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -Ofast
 LIBMLX	:= ./MLX42
 HEADERS	:= -I ./include -I $(LIBMLX)/include 
-LIBS	:= $(LIBMLX)/build/libmlx42.a -Iinclude -lglfw -L"/Users/$(USER)/homebrew/opt/glfw/lib/"
-# LIBS	:= $(LIBMLX)/build/libmlx42.a -Iinclude -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/"
+# LIBS	:= $(LIBMLX)/build/libmlx42.a -Iinclude -lglfw -L"/Users/$(USER)/homebrew/opt/glfw/lib/"
+LIBS	:= $(LIBMLX)/build/libmlx42.a -Iinclude -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/"
 
 SRCS	:= main.c\
 			./libft/ft_isalpha.c\
@@ -52,6 +52,7 @@ SRCS	:= main.c\
 			./raycasting/ray_casting.c\
 			./raycasting/movement.c\
 			./raycasting/draw_game.c\
+			./raycasting/textures.c\
 			./raycasting/player.c\
 			./raycasting/ft_init.c\
 			./parsing/parse_color.c\
