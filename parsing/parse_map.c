@@ -72,9 +72,9 @@ void	check_space(char **map)
 
 void	 check_map(char **map)
 {
-	int	size;
 	int	i;
 	int	j;
+	int	size;
 
 	i = 0;
 	j = 0;

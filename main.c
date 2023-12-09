@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 22:12:15 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/09 02:41:01 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/09 04:02:06 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,12 +116,12 @@ int main(int ac, char **av)
     args_check(av[1]);
     t_map *map = malloc(sizeof(t_map));
     map_reader(av[1], map);
-    // check_color(map);
     check_map(map->mapa);
+    check_textures(map);
+    check_color(map);
     ft_position_player(map);
     get_textures(map);
     int bl = ft_init(map);
-    // check_textures(map);
     free (map);
     return (bl);
 }

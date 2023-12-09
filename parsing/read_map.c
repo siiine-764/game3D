@@ -62,7 +62,7 @@ void	assist_map_reader(t_map *map, int fd, char *str)
 
 	i = 0; 
 	close(fd);
-	map->mapa = ft_split(str, '\n');
+	map->mapa = ft_split(str, '\n', NULL);
 	free(str);
 	if (!map->mapa || !map->mapa[0])
 		error_script("Error: the_map_is_empty", s_top());
