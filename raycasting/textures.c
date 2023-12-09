@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 23:07:22 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/09 05:34:16 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/09 05:38:35 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	get_textures(t_map *map)
 	map->so = NULL;
 	map->we = NULL;
 	map->ea = NULL;
-	str = ft_strtrim("textures/wall_4.png", "\n");
+	str = ft_strtrim(&map->textures->val[0], "\n");
 	map->no = mlx_load_png(str);
 	free(str);
 	str = ft_strtrim("textures/wall_3.png", "\n");
