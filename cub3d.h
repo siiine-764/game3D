@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/09 05:06:27 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/09 05:06:31 by hben-mes         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
@@ -64,7 +53,6 @@ typedef struct s_map
 {
     mlx_image_t* image;
     mlx_image_t* image_map;
-
     t_texture	*textures;
 	void		*mlx_ptr;
 	int			color_c;
@@ -137,8 +125,9 @@ void ft_s_p(t_map *map, int x, int y);
 void ft_e_p(t_map *map, int x, int y);
 void ft_w_p(t_map *map, int x, int y);
 
-
-
+void	put_color_sky(t_map *map);
+int	get_color_from_pos(mlx_texture_t *walli, int y, int x);
+int	ft_pixel(int r, int g, int b, int a);
 void	get_textures(t_map *var);
 //parsing
 int	    color_put(char *val);
