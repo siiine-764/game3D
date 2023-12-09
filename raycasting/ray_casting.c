@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:42:10 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/09 05:34:29 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/09 09:39:35 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ t_vector    ft_ray_casting_horizontal(t_map *map, float dd)
         ray.y = (int)(map->y_p / SIZE_CUB) * SIZE_CUB + SIZE_CUB;
         next_wall.y = SIZE_CUB;
     }
-    ray.x = -(map->y_p - ray.y) / tan(dd * convert_degrees_radian) + map->x_p;
-    next_wall.x = next_wall.y / tan(dd * convert_degrees_radian);
+    ray.x = -(map->y_p - ray.y) / tan(dd * CONVERT_DEGREES_RADIAN) + map->x_p;
+    next_wall.x = next_wall.y / tan(dd * CONVERT_DEGREES_RADIAN);
     map->ray = ray;
     ft_cast(map, next_wall);
     return map->ray;
@@ -100,8 +100,8 @@ t_vector    ft_ray_casting_vertical(t_map *map, float dd)
         ray.x = (int)(map->x_p / SIZE_CUB) * SIZE_CUB + SIZE_CUB;
         next_wall.x = SIZE_CUB;
     }
-    ray.y = -(map->x_p - ray.x) * tan(dd * convert_degrees_radian) + map->y_p;
-    next_wall.y = next_wall.x * tan(dd * convert_degrees_radian);
+    ray.y = -(map->x_p - ray.x) * tan(dd * CONVERT_DEGREES_RADIAN) + map->y_p;
+    next_wall.y = next_wall.x * tan(dd * CONVERT_DEGREES_RADIAN);
     map->ray = ray;
     ft_cast(map, next_wall);
     return map->ray;
@@ -111,6 +111,7 @@ t_vector ft_ray_casting(t_map *map, float dd)
 {
     t_vector ray_vertic;
     t_vector ray_horizon;
+    t_ver_horizon ver_horizon;
     float d_vertical;
     float d_horizontal;
 
@@ -118,8 +119,11 @@ t_vector ft_ray_casting(t_map *map, float dd)
     ray_vertic = ft_ray_casting_vertical(map, dd);
     d_vertical = sqrt(pow(map->x_p - ray_vertic.x, 2) + pow(map->y_p - ray_vertic.y, 2));
     d_horizontal = sqrt(pow(map->x_p - ray_horizon.x, 2) + pow(map->y_p - ray_horizon.y, 2));
-    
-    return  ft_util(map, d_vertical,  d_horizontal, ray_vertic, ray_horizon);
+    ver_horizon.d_horizontal = d_horizontal;
+    ver_horizon.d_vertical = d_vertical;
+    ver_horizon.ray_horizon = ray_horizon;
+    ver_horizon.ray_vertic = ray_vertic;
+    return  ft_util(map, ver_horizon);
 }
 
 void ft_start_raycasting(t_map *map)

@@ -6,51 +6,31 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:08:57 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/11/23 12:08:57 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/09 07:48:46 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void	text_add(t_texture **text, char *val, char *cue)
+void	text_fill(t_map *map, char *cue, char *val)
 {
-	t_texture	*node;
-
-	node = malloc(sizeof(t_texture));
-	if (!node)
-		error_script("Error: error_in_malloc", s_top());
-	garbage_join(s_top(), node);
-	node->cue = cue;
-	node->val = val;
-	node->nxt = NULL;
-	node->lst = NULL;
-	if (!*text)
-	{
-		*text = node;
-		(*text)->lst = node;
-		(*text)->nxt = NULL;
-	}
-	else
-	{
-		(*text)->lst->nxt = node;
-		node->lst = (*text)->lst;
-		(*text)->lst = node;
-	}
- }
-
-void	text_fill(t_map *map, char *val, char *cue)
-{
-	if (cue && (!ft_strcmp(cue, "NO") || !ft_strcmp(cue, "SO")
-			|| !ft_strcmp(cue, "WE") || !ft_strcmp(cue, "EA")))
-		text_add(&map->textures, cue, val);
+	if (val)
+		if (val && !ft_strcmp(val, "NO"))
+			map->no_png = cue;
+	if (val && !ft_strcmp(val, "SO"))
+		map->so_png = cue;
+	if (val && !ft_strcmp(val, "EA"))
+		map->ea_png = cue;
+	if (val && !ft_strcmp(val, "WE"))
+		map->we_png = cue;
 }
 
 void	check_textures(t_map *map)
 {
+	int			n[4];
 	int			fd;
-	int	n[4] = {0, 0, 0, 0};
 	t_texture	*tmp;
-	
+
 	tmp = map->textures;
 	while (tmp)
 	{

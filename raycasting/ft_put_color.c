@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_put_color.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/09 04:14:21 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/09 05:10:54 by mayache-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "../cub3d.h"
 
@@ -22,30 +11,28 @@ void	put_color_sky(t_map *map)
 	int	color;
 	int	i;
 
-
 	i = 0;
 	color = 0;
 	while (color < HEIGHT / 2)
 	{
 		i = 0;
 		while (i <= WIDTH)
-        {
-			mlx_put_pixel(map->image, i, color,
-				ft_pixel(34, 112, 147, 255));
-            i++;
-        }
+		{
+			mlx_put_pixel(map->image, i, color, ft_pixel(map->r, map->g, map->b,
+						255));
+			i++;
+		}
 		color++;
 	}
 	while (color < HEIGHT)
 	{
 		i = 0;
 		while (i <= WIDTH)
-        {
-			mlx_put_pixel(map->image, i, color,
-				ft_pixel(30, 39, 15, 255));
-            i++;
-        }
+		{
+			mlx_put_pixel(map->image, i, color, ft_pixel(map->r1, map->g1,
+						map->b1, 255));
+			i++;
+		}
 		color++;
 	}
 }
-

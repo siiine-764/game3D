@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/08 23:07:22 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/09 05:38:35 by mayache-         ###   ########.fr       */
+/*   Created: 2023/12/09 09:33:21 by mayache-          #+#    #+#             */
+/*   Updated: 2023/12/09 09:41:51 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../cub3d.h"
 void	get_textures(t_map *map)
@@ -19,16 +20,16 @@ void	get_textures(t_map *map)
 	map->so = NULL;
 	map->we = NULL;
 	map->ea = NULL;
-	str = ft_strtrim(&map->textures->val[0], "\n");
+	str = ft_strtrim(map->ea_png, "\n");
 	map->no = mlx_load_png(str);
 	free(str);
-	str = ft_strtrim("textures/wall_3.png", "\n");
+	str = ft_strtrim(map->we_png, "\n");
 	map->so = mlx_load_png(str);
 	free(str);
-	str = ft_strtrim("textures/wall_2.png", "\n");
+	str = ft_strtrim(map->no_png, "\n");
 	map->ea = mlx_load_png(str);
 	free(str);
-	str = ft_strtrim("textures/wall_1.png", "\n");
+	str = ft_strtrim(map->so_png, "\n");
 	map->we = mlx_load_png(str);
 	free(str);
 
@@ -62,29 +63,28 @@ void put_textures(t_map *map, mlx_texture_t *x, float ray_nb)
     }
 }
 
-t_vector ft_util(t_map *map, float d_vertical, float d_horizontal,
- t_vector ray_vertic, t_vector ray_horizon)
+t_vector ft_util(t_map *map, t_ver_horizon ver_horizon)
 {
-	if (d_vertical < d_horizontal)
+	if (ver_horizon.d_vertical < ver_horizon.d_horizontal)
     {
-        if(ray_vertic.x > map->x_p)
+        if(ver_horizon.ray_vertic.x > map->x_p)
             map->directin = 'E';
         else
             map->directin = 'W';
-        map->ray_p_x = ray_vertic.x;
-        map->ray_p_y = ray_vertic.y;
-        map->destonation = d_vertical;
-        return (ray_vertic);
+        map->ray_p_x = ver_horizon.ray_vertic.x;
+        map->ray_p_y = ver_horizon.ray_vertic.y;
+        map->destonation = ver_horizon.d_vertical;
+        return (ver_horizon.ray_vertic);
     }
     else
     {
-        if(ray_horizon.y > map->y_p)
+        if(ver_horizon.ray_horizon.y > map->y_p)
             map->directin = 'S';
         else
             map->directin = 'N';
-        map->ray_p_x = ray_horizon.x;
-        map->ray_p_y = ray_horizon.y;
-        map->destonation = d_horizontal;
-        return (ray_horizon);
+        map->ray_p_x = ver_horizon.ray_horizon.x;
+        map->ray_p_y = ver_horizon.ray_horizon.y;
+        map->destonation = ver_horizon.d_horizontal;
+        return (ver_horizon.ray_horizon);
     }
 }
