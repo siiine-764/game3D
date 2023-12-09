@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:42:10 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/08 21:07:49 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/09 03:30:15 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,50 @@
 
 void ft_draw_wall(t_map *map, float ray_nb)
 {
-    float x1;
-    float y1;
-    float x2;
-    float y2;
-    float x = ((HEIGHT / 2) / map->destonation) * SIZE_CUB;
+    float wall_wide;
+    float wall_height;
+    float relative_x = fmod(map->ray_p_x, SIZE_CUB);
+    float relative_y = fmod(map->ray_p_y, SIZE_CUB);
+    
+    mlx_texture_t *x = NULL;
+    if (map->directin == 'N')
+        x = map->no;
+    else if (map->directin == 'S')
+        x = map->so;
+    else if (map->directin == 'W')
+        x = map->we;
+    else if (map->directin == 'E')
+        x = map->ea;  
+    wall_height = (HEIGHT / map->destonation) * SIZE_CUB;
+    //map->fac = map->no->height/map->wall_height;
 
-    x1 = ray_nb;
-    y1 = (HEIGHT / 2) - x;
-    x2 = ray_nb;
-    y2 = (HEIGHT / 2) + x;
-    DDA(map->image, x1, y1, x2, y2);
+
+    if (map->directin == 'N' || map->directin == 'S')
+        wall_wide = relative_x * x->width / SIZE_CUB;
+    if (map->directin == 'W' || map->directin == 'E')
+        wall_wide = relative_y * x->width / SIZE_CUB;
+    // DDA(map, x1, y1, x2, y2);
+    double		step = x->height / wall_height;
+    float         txt_pos = 0;
+    uint8_t		*pixelx;
+	uint8_t		*pixeli;
+    float         wall_y = (WIDTH - WIDTH / map->destonation * SIZE_CUB) / 2 - 1;
+    
+    while(wall_y < (WIDTH + wall_height) / 2)
+    {
+        txt_pos += step;
+		if ((int) wall_y < WIDTH && wall_y > 0
+			&& ((int)txt_pos * x->width + (int)wall_wide) < x->height
+			* x->width)
+		{
+            pixelx = &x->pixels[(((int)txt_pos * x->width)
+					+ (int)wall_wide) * x->bytes_per_pixel];
+			pixeli = &map->image->pixels[(((int)wall_y * map->image->width)
+					+ (int)ray_nb) * x->bytes_per_pixel];
+			ft_memmove(pixeli, pixelx, x->bytes_per_pixel);
+        }
+        wall_y++;
+    }
 }
 
 void    ft_cast(t_map *map, t_vector next_wall)
@@ -110,11 +143,23 @@ t_vector ft_ray_casting(t_map *map, float dd)
     destonation_horizontal = sqrt(pow(map->x_p - ray_horizontal.x, 2) + pow(map->y_p - ray_horizontal.y, 2));
     if (destonation_vertical < destonation_horizontal)
     {
+        if(ray_vertical.x > map->x_p)
+            map->directin = 'E';
+        else
+            map->directin = 'W';
+        map->ray_p_x = ray_vertical.x;
+        map->ray_p_y = ray_vertical.y;
         map->destonation = destonation_vertical;
         return (ray_vertical);
     }
     else
     {
+        if(ray_horizontal.y > map->y_p)
+            map->directin = 'S';
+        else
+            map->directin = 'N';
+        map->ray_p_x = ray_horizontal.x;
+        map->ray_p_y = ray_horizontal.y;
         map->destonation = destonation_horizontal;
         return (ray_horizontal);
     }
@@ -135,7 +180,7 @@ void ft_start_raycasting(t_map *map)
         if (point_of_view < 0)
             point_of_view += 360;
         ray = ft_ray_casting(map, point_of_view);
-        DDA(map->image_map, map->x_p, map->y_p, ray.x, ray.y);
+        // DDA(map, map->x_p, map->y_p, ray.x, ray.y);
         map->destonation = map->destonation * cos((point_of_view - map->p_rotation) * (M_PI / 180.0));
         ft_draw_wall(map, ray_nb);
         ray_nb++;

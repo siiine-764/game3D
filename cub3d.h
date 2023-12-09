@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:38:46 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/08 23:11:46 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/09 02:51:18 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,15 @@ typedef struct s_map
 	mlx_texture_t *so;
 	mlx_texture_t *ea;
 	mlx_texture_t *we;
+	float	fac;
+	float	dist_top;
     char		**mapa;
+	float wall_height;
     float x_p;
     float y_p;
+	float ray_p_x;
+	float ray_p_y;
+	char directin;
     int width;
     int height;
     int color;
@@ -108,8 +114,8 @@ void ft_start_raycasting(t_map *map);
 t_vector    ft_ray_casting_vertical(t_map *map, float dd);
 t_vector    ft_ray_casting_horizontal(t_map *map, float dd);
 t_vector ft_ray_casting(t_map *map, float dd);
+// void DDA(t_map *map, int X0, int Y0, int X1, int Y1);
 void DDA(mlx_image_t *image, int X0, int Y0, int X1, int Y1);
-
 /// functions movement ////
 void    ft_movemnt(t_map *map);
 void ft_w(t_map *map);
