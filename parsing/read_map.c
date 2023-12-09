@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_reader.c                                         :+:      :+:    :+:   */
+/*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 12:09:16 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/11/23 12:09:16 by hben-mes         ###   ########.fr       */
+/*   Created: 2023/12/09 07:00:26 by hben-mes          #+#    #+#             */
+/*   Updated: 2023/12/09 07:00:32 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,16 @@ void	texture_parse(char *l, t_map *map)
 		i++;
 	cue = ft_substr(l, 0, i);
 	garbage_join(s_top(), cue);
-	if (cue && (ft_strcmp(cue, "NO") && ft_strcmp(cue, "SO")
-			&& ft_strcmp(cue, "EA") && ft_strcmp(cue, "WE")
-			&& ft_strcmp(cue, "C") && ft_strcmp(cue, "F")))
-					error_script("Error: something_wrong_in_textures", s_top());
+	if (cue && (ft_strcmp(cue, "NO") && ft_strcmp(cue, "SO") && ft_strcmp(cue,
+				"EA") && ft_strcmp(cue, "WE") && ft_strcmp(cue, "C")
+			&& ft_strcmp(cue, "F")))
+		error_script("Error: something_wrong_in_textures", s_top());
 	while (l[i] && l[i] == ' ')
 		i++;
 	val = ft_substr(l, i, ft_strlen(l) - i - 1);
 	if (!cue || !val)
 		error_script("Error: error_in_malloc", s_top());
 	garbage_join(s_top(), val);
-	
 	text_fill(map, val, cue);
 	color_load(map, val, cue);
 }
@@ -61,7 +60,7 @@ void	assist_map_reader(t_map *map, int fd, char *str)
 {
 	int	i;
 
-	i = 0; 
+	i = 0;
 	close(fd);
 	map->mapa = ft_split(str, '\n', NULL);
 	free(str);

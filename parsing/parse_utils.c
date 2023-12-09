@@ -24,8 +24,7 @@ int	char_hold(char *s)
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] != '0' && s[i] != '1'
-			&& s[i] != ' ' && !player_button(s[i]))
+		if (s[i] != '0' && s[i] != '1' && s[i] != ' ' && !player_button(s[i]))
 			return (true);
 		i++;
 	}
@@ -54,5 +53,3 @@ int	ft_strcmp(char *s1, char *s2)
 		i++;
 	return (s1[i] - s2[i]);
 }
-
-

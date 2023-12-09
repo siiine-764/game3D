@@ -22,7 +22,7 @@ void	error_script(char *scr, t_garb **top)
 
 t_garb	**s_top(void)
 {
-	static	t_garb	*top;
+	static t_garb	*top;
 
 	return (&top);
 }
@@ -52,7 +52,7 @@ void	empty_garbage(t_garb **top)
 {
 	t_garb	*lead;
 	t_garb	*tmp;
-	
+
 	if (!top || !*top)
 		return ;
 	lead = *top;

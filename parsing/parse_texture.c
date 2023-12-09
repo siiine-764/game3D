@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:08:57 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/11/23 12:08:57 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/09 07:48:46 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 void	text_fill(t_map *map, char *cue, char *val)
 {
 	if (val)
-
-	if (val && !ft_strcmp(val, "NO"))
-		map->no_png = cue;
+		if (val && !ft_strcmp(val, "NO"))
+			map->no_png = cue;
 	if (val && !ft_strcmp(val, "SO"))
 		map->so_png = cue;
 	if (val && !ft_strcmp(val, "EA"))
@@ -28,10 +27,10 @@ void	text_fill(t_map *map, char *cue, char *val)
 
 void	check_textures(t_map *map)
 {
+	int			n[4];
 	int			fd;
-	int	n[4] = {0, 0, 0, 0};
 	t_texture	*tmp;
-	
+
 	tmp = map->textures;
 	while (tmp)
 	{

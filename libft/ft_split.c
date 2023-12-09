@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 18:27:45 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/09 03:40:56 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/09 06:34:37 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ char	**ft_split(char const *str, char c, int *counter)
 {
 	size_t	cnt;
 	char	**s;
-	
+
 	if (str == NULL)
 		return (NULL);
 	cnt = ft_cnt(str, c, counter);
@@ -91,4 +91,3 @@ char	**ft_split(char const *str, char c, int *counter)
 		return (NULL);
 	return (load_func(str, c, s, cnt));
 }
-

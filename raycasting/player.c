@@ -3,62 +3,65 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:56:28 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/05 16:48:56 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/09 07:55:34 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void ft_n_p(t_map *map, int x, int y)
-{               
-    map->x_p = x * SIZE_CUB;
-    map->y_p = y * SIZE_CUB;
-    map->p_rotation = 270;
+void	ft_n_p(t_map *map, int x, int y)
+{
+	map->x_p = x * SIZE_CUB;
+	map->y_p = y * SIZE_CUB;
+	map->p_rotation = 270;
 }
 
-void ft_s_p(t_map *map, int x, int y)
+void	ft_s_p(t_map *map, int x, int y)
 {
-    map->x_p = x * SIZE_CUB;
-    map->y_p = y * SIZE_CUB;
-    map->p_rotation = 90;
+	map->x_p = x * SIZE_CUB;
+	map->y_p = y * SIZE_CUB;
+	map->p_rotation = 90;
 }
 
-void ft_e_p(t_map *map, int x, int y)
+void	ft_e_p(t_map *map, int x, int y)
 {
-    map->x_p = x * SIZE_CUB;
-    map->y_p = y * SIZE_CUB;
-    map->p_rotation = 0;
+	map->x_p = x * SIZE_CUB;
+	map->y_p = y * SIZE_CUB;
+	map->p_rotation = 0;
 }
 
-void ft_w_p(t_map *map, int x, int y)
+void	ft_w_p(t_map *map, int x, int y)
 {
-    map->x_p = x * SIZE_CUB;
-    map->y_p = y * SIZE_CUB;
-    map->p_rotation = 180;
+	map->x_p = x * SIZE_CUB;
+	map->y_p = y * SIZE_CUB;
+	map->p_rotation = 180;
 }
 
-void    ft_position_player(t_map *map)
+void	ft_position_player(t_map *map)
 {
-    int y = 0;
-    int x = 0;
-    while (map->mapa[y])
-    {
-        x = 0;
-        while (map->mapa[y][x])
-        {
-            if (map->mapa[y][x] == 'N')
-                ft_n_p(map, x, y);
-            else if (map->mapa[y][x] == 'S')
-                ft_s_p(map, x, y);
-            else if (map->mapa[y][x] == 'E')
-                ft_e_p(map, x, y);
-            else if (map->mapa[y][x] == 'W')
-                ft_w_p(map, x, y);
-            x++;
-        }
-        y++;
-    }
+	int	y;
+	int	x;
+
+    y =	0;
+    x =	0;
+	while (map->mapa[y])
+	{
+		x = 0;
+		while (map->mapa[y][x])
+		{
+			if (map->mapa[y][x] == 'N')
+				ft_n_p(map, x, y);
+			else if (map->mapa[y][x] == 'S')
+				ft_s_p(map, x, y);
+			else if (map->mapa[y][x] == 'E')
+				ft_e_p(map, x, y);
+			else if (map->mapa[y][x] == 'W')
+				ft_w_p(map, x, y);
+			x++;
+		}
+		y++;
+	}
 }

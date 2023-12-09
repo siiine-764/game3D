@@ -56,6 +56,7 @@ SRCS	:= main.c\
 			./raycasting/player.c\
 			./raycasting/ft_init.c\
 			./raycasting/ft_put_color.c\
+			./parsing/color_utils.c\
 			./parsing/parse_color.c\
 			./parsing/parse_map.c\
 			./parsing/parse_texture.c\
@@ -63,6 +64,7 @@ SRCS	:= main.c\
 			./parsing/parse_utils1.c\
 			./parsing/parse_utils2.c\
 			./parsing/read_map.c\
+			
 
 OBJS	:= ${SRCS:.c=.o}
 
