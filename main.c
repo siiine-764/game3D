@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 22:12:15 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/09 00:43:18 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/09 04:48:03 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int main(int ac, char **av)
     check_map(map->mapa);
     ft_position_player(map);
     int bl = ft_init(map);
-    check_textures(map);
     check_color(map);
     free (map);
     return (bl);

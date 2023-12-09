@@ -12,7 +12,7 @@
 
 #include "../cub3d.h"
 
-void	text_add(t_texture **text, char *val, char *cue)
+void	text_add(t_texture **text, char *cue, char *val)
 {
 	t_texture	*node;
 
@@ -38,11 +38,11 @@ void	text_add(t_texture **text, char *val, char *cue)
 	}
  }
 
-void	text_fill(t_map *map, char *val, char *cue)
+void	text_fill(t_map *map, char *cue, char *val)
 {
 	if (cue && (!ft_strcmp(cue, "NO") || !ft_strcmp(cue, "SO")
 			|| !ft_strcmp(cue, "WE") || !ft_strcmp(cue, "EA")))
-		text_add(&map->textures, cue, val);
+		text_add(&map->textures, val, cue);
 }
 
 void	check_textures(t_map *map)

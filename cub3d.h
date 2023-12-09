@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:38:46 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/09 00:32:59 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/09 04:33:38 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,8 +133,9 @@ int	    color_put(char *val);
 void	color_load(t_map *map, char *cue, char *val);
 void	check_color(t_map *map);
 void	check_map(char **map);
-void	text_fill(t_map *map, char *val, char *cue);
-void	check_textures(t_map	*map);
+void	text_add(t_texture **text, char *cue, char *val);
+void	text_fill(t_map *map, char *cue, char *val);
+void	check_textures(t_map *map);
 int		player_button(char c);
 int		char_hold(char *s);
 void	player_hold(char *s, int *j);
@@ -147,6 +148,7 @@ void	error_script(char *scr, t_garb **top);
 t_garb	**s_top(void);
 void	garbage_join(t_garb **top, void *addr);
 void	empty_garbage(t_garb **top);
+void	texture_parse(char *l, t_map *map);
 void	map_reader(char *p, t_map *map);
 
 #endif
