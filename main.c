@@ -6,42 +6,14 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 22:12:15 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/09 04:02:06 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/09 04:46:16 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-
-int32_t	ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a)
-{
-	return (r << 24 | g << 16 | b << 8 | a);
-}
-
-// void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
-// {
-// 	char	*dst;
-
-// 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-// 	*(unsigned int *)dst = color;
-// }
-
-int32_t	get_color_from_pos(mlx_texture_t *walli, int y, int x)
-{
-	int	index;
-
-	if (x >= 0 && x < (int)walli->width && y >= 0 && y < (int)walli->height)
-	{
-		index = (walli->width * y + x) * walli->bytes_per_pixel;
-		return (ft_pixel(walli->pixels[index], walli->pixels[index + 1],
-				walli->pixels[index + 2], 255));
-	}
-	return (ft_pixel(0, 0, 0, 0));
-}
-
-
 // Function for finding absolute val
-int abs(int n) { return ((n > 0) ? n : (n * (-1))); }
+// int abs(int n) { return ((n > 0) ? n : (n * (-1))); }
 
 // DDA Function for line generation
 // void DDA(t_map *map, int X0, int Y0, int X1, int Y1)
@@ -117,7 +89,7 @@ int main(int ac, char **av)
     t_map *map = malloc(sizeof(t_map));
     map_reader(av[1], map);
     check_map(map->mapa);
-    check_textures(map);
+    // check_textures(map);
     check_color(map);
     ft_position_player(map);
     get_textures(map);
@@ -125,4 +97,3 @@ int main(int ac, char **av)
     free (map);
     return (bl);
 }
-

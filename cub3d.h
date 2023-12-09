@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 03:40:43 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/09 03:42:03 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/09 04:37:13 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ typedef struct s_map
 {
     mlx_image_t* image;
     mlx_image_t* image_map;
-
     t_texture	*textures;
 	void		*mlx_ptr;
 	int			color_c;
@@ -138,8 +137,9 @@ void ft_s_p(t_map *map, int x, int y);
 void ft_e_p(t_map *map, int x, int y);
 void ft_w_p(t_map *map, int x, int y);
 
-
-
+void	put_color_sky(t_map *map);
+int	get_color_from_pos(mlx_texture_t *walli, int y, int x);
+int	ft_pixel(int r, int g, int b, int a);
 void	get_textures(t_map *var);
 //parsing
 int	    color_put(char *val);

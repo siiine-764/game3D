@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:36:25 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/08 19:45:45 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/09 04:46:37 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,7 @@ void ft_draw(t_map *map)
     }
     map->size_x = max;
     map->size_y = y;
+
+        put_color_sky(map);
 }
 
