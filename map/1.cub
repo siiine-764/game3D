@@ -3,7 +3,7 @@ SO textures/wall_2.png
 WE textures/wall_3.png
 EA textures/wall_4.png
 C 34, 112, 147
-F 30, 30, 25
+F 30, 30,  15
 
 1111111111111111111111111
 1000000000110000000000001

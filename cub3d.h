@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 07:01:16 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/12/09 10:05:35 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/09 10:28:32 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,11 @@
 # define WIDTH 1512
 # define HEIGHT 1512
 # define SIZE_CUB 10
-# define CONVERT_DEGREES_RADIAN M_PI / 180
+# define CRT_DEGRS_RADIAN M_PI
 
 typedef struct s_garb		t_garb;
 typedef struct s_texture	t_texture;
 typedef struct s_mlx		t_mlx;
-
 
 typedef struct s_vector
 {
@@ -42,11 +41,11 @@ typedef struct s_vector
 
 typedef struct s_ver_horizon
 {
-	float d_vertical;
-	float d_horizontal;
-	t_vector ray_vertic;
-	t_vector ray_horizon;
-} t_ver_horizon;
+	float					d_vertical;
+	float					d_horizontal;
+	t_vector				ray_vertic;
+	t_vector				ray_horizon;
+}							t_ver_horizon;
 
 typedef struct s_garb
 {
@@ -127,7 +126,7 @@ enum						e_keys
 
 /// functions init ////
 int							ft_init(t_map *map);
-int ft_mini_init(t_map *map);
+int							ft_mini_init(t_map *map);
 /// functions raycasting ////
 void						ft_start_raycasting(t_map *map);
 t_vector					ft_ray_casting_vertical(t_map *map, float dd);
@@ -144,9 +143,10 @@ void						ft_a(t_map *map);
 void						ft_d(t_map *map);
 
 /// functions draw ////
-void ft_mini_draw(t_map *map,int x, int y);
-void	ft_draw_cub1(t_map *map,int hei, int color);
-void ft_draw_cub(mlx_image_t *map,int x_start, int y_start, int color);
+void						ft_mini_draw(t_map *map, int x, int y);
+void						ft_draw_cub1(t_map *map, int hei, int color);
+void						ft_draw_cub(mlx_image_t *map, int x_start,
+								int y_start, int color);
 // void ft_first_draw(t_map *map);
 void						ft_draw(t_map *map);
 void						ft_draw_wall(t_map *map, float ray_nb);

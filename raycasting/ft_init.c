@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:09:24 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/09 10:05:22 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/09 10:11:57 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,28 +25,31 @@ void	ft_hook(void *param)
 	ft_start_raycasting(map);
 }
 
-int ft_mini_init(t_map *map)
+int	ft_mini_init(t_map *map)
 {
 	mlx_close_window(map->mlx);
 	printf("%s\n", mlx_strerror(mlx_errno));
 	return (EXIT_FAILURE);
 }
+
 int	ft_init(t_map *map)
 {
-	if (!(map->mlx = mlx_init(WIDTH, HEIGHT, "GAME 3D", true)))
+	map->mlx = mlx_init(WIDTH, HEIGHT, "GAME 3D", true);
+	map->image_map = mlx_new_image(map->mlx, WIDTH, HEIGHT);
+	map->image = mlx_new_image(map->mlx, WIDTH, HEIGHT);
+	if (!map->mlx)
 	{
 		printf("%s\n", mlx_strerror(mlx_errno));
 		return (EXIT_FAILURE);
 	}
-	if (!(map->image_map = mlx_new_image(map->mlx, WIDTH, HEIGHT)))
+	if (!map->image_map)
 		return (ft_mini_init(map));
-	if (!(map->image = mlx_new_image(map->mlx, WIDTH, HEIGHT)))
+	if (!map->image)
 		return (ft_mini_init(map));
 	if (mlx_image_to_window(map->mlx, map->image, 0, 0) == -1)
 		return (ft_mini_init(map));
 	if (mlx_image_to_window(map->mlx, map->image_map, 0, 0) == -1)
 		return (ft_mini_init(map));
-
 	mlx_loop_hook(map->mlx, ft_hook, map);
 	mlx_loop(map->mlx);
 	mlx_terminate(map->mlx);

@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:56:28 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/09 07:55:34 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/12/09 10:17:33 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	ft_position_player(t_map *map)
 	int	y;
 	int	x;
 
-    y =	0;
-    x =	0;
+	y = 0;
+	x = 0;
 	while (map->mapa[y])
 	{
 		x = 0;

@@ -1,7 +1,7 @@
 
 #include "../cub3d.h"
 
-int	ft_pixel(int r, int g, int b, int a)
+int	ft_pxl(int r, int g, int b, int a)
 {
 	return (r << 24 | g << 16 | b << 8 | a);
 }
@@ -18,9 +18,8 @@ void	put_color_sky(t_map *map)
 		i = 0;
 		while (i <= WIDTH)
 		{
-			mlx_put_pixel(map->image, i, color, ft_pixel(map->r, map->g, map->b,
-						255));
-			i++;
+			mlx_put_pixel(map->image, i++, color, ft_pxl(map->r, map->g, map->b,
+					255));
 		}
 		color++;
 	}
@@ -29,9 +28,8 @@ void	put_color_sky(t_map *map)
 		i = 0;
 		while (i <= WIDTH)
 		{
-			mlx_put_pixel(map->image, i, color, ft_pixel(map->r1, map->g1,
-						map->b1, 255));
-			i++;
+			mlx_put_pixel(map->image, i++, color, ft_pxl(map->r1, map->g1,
+					map->b1, 255));
 		}
 		color++;
 	}
