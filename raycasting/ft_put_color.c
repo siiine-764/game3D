@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_put_color.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 04:14:21 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/09 04:47:35 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/09 06:29:00 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	put_color_sky(t_map *map)
 		i = 0;
 		while (i <= WIDTH)
         {
-			mlx_put_pixel(map->image, i, color,
-				ft_pixel(34, 112, 147, 255));
+				mlx_put_pixel(map->image, i, color,
+					ft_pixel(map->r, map->g, map->b, 255));
             i++;
         }
 		color++;
@@ -55,7 +55,7 @@ void	put_color_sky(t_map *map)
 		while (i <= WIDTH)
         {
 			mlx_put_pixel(map->image, i, color,
-				ft_pixel(30, 39, 15, 255));
+				ft_pixel(map->r1, map->g1, map->b1, 255));
             i++;
         }
 		color++;

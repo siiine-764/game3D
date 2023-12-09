@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/09 05:09:35 by hben-mes          #+#    #+#             */
+/*   Updated: 2023/12/09 06:27:47 by hben-mes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
@@ -61,6 +72,16 @@ typedef struct s_map
 	mlx_texture_t *so;
 	mlx_texture_t *ea;
 	mlx_texture_t *we;
+	int r;
+	int g;
+	int b;
+	int r1;
+	int g1;
+	int b1;
+	char *no_png;
+	char *so_png;
+	char *ea_png;
+	char *we_png;
 	float	fac;
 	float	dist_top;
     char		**mapa;
@@ -130,11 +151,12 @@ int	get_color_from_pos(mlx_texture_t *walli, int y, int x);
 int	ft_pixel(int r, int g, int b, int a);
 void	get_textures(t_map *var);
 //parsing
-int	    color_put(char *val);
+// int	    color_put(char *val);
+int	color_put(char *val, t_map *map);
+int	color_put1(char *val, t_map *map);
 void	color_load(t_map *map, char *cue, char *val);
 void	check_color(t_map *map);
 void	check_map(char **map);
-void	text_add(t_texture **text, char *cue, char *val);
 void	text_fill(t_map *map, char *cue, char *val);
 void	check_textures(t_map *map);
 int		player_button(char c);

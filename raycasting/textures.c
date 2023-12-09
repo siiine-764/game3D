@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 23:07:22 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/09 03:57:04 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/09 05:59:41 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ void	get_textures(t_map *map)
 	map->so = NULL;
 	map->we = NULL;
 	map->ea = NULL;
-	str = ft_strtrim("textures/wall_4.png", "\n");
+	str = ft_strtrim(map->ea_png, "\n");
 	map->no = mlx_load_png(str);
 	free(str);
-	str = ft_strtrim("textures/wall_3.png", "\n");
+	str = ft_strtrim(map->we_png, "\n");
 	map->so = mlx_load_png(str);
 	free(str);
-	str = ft_strtrim("textures/wall_2.png", "\n");
+	str = ft_strtrim(map->no_png, "\n");
 	map->ea = mlx_load_png(str);
 	free(str);
-	str = ft_strtrim("textures/wall_1.png", "\n");
+	str = ft_strtrim(map->so_png, "\n");
 	map->we = mlx_load_png(str);
 	free(str);
 

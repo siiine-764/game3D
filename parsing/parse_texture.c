@@ -12,37 +12,18 @@
 
 #include "../cub3d.h"
 
-void	text_add(t_texture **text, char *cue, char *val)
-{
-	t_texture	*node;
-
-	node = malloc(sizeof(t_texture));
-	if (!node)
-		error_script("Error: error_in_malloc", s_top());
-	garbage_join(s_top(), node);
-	node->cue = cue;
-	node->val = val;
-	node->nxt = NULL;
-	node->lst = NULL;
-	if (!*text)
-	{
-		*text = node;
-		(*text)->lst = node;
-		(*text)->nxt = NULL;
-	}
-	else
-	{
-		(*text)->lst->nxt = node;
-		node->lst = (*text)->lst;
-		(*text)->lst = node;
-	}
- }
-
 void	text_fill(t_map *map, char *cue, char *val)
 {
-	if (cue && (!ft_strcmp(cue, "NO") || !ft_strcmp(cue, "SO")
-			|| !ft_strcmp(cue, "WE") || !ft_strcmp(cue, "EA")))
-		text_add(&map->textures, val, cue);
+	if (val)
+
+	if (val && !ft_strcmp(val, "NO"))
+		map->no_png = cue;
+	if (val && !ft_strcmp(val, "SO"))
+		map->so_png = cue;
+	if (val && !ft_strcmp(val, "EA"))
+		map->ea_png = cue;
+	if (val && !ft_strcmp(val, "WE"))
+		map->we_png = cue;
 }
 
 void	check_textures(t_map *map)

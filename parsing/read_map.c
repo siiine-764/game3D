@@ -33,6 +33,7 @@ void	texture_parse(char *l, t_map *map)
 	if (!cue || !val)
 		error_script("Error: error_in_malloc", s_top());
 	garbage_join(s_top(), val);
+	
 	text_fill(map, val, cue);
 	color_load(map, val, cue);
 }
